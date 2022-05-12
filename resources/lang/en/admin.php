@@ -30,5 +30,29 @@ return [
         ],
     ],
 
+    'product' => [
+        'title' => 'Products',
+
+        'actions' => [
+            'index' => 'Products',
+            'create' => 'New Product',
+            'edit' => 'Edit :name',
+            'will_be_published' => 'Product will be published at',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'description' => 'Description',
+            'prix' => 'Prix',
+            'slug' => 'Slug',
+            'perex' => 'Perex',
+            'category_id' => 'Category',
+            'published_at' => 'Published at',
+            'enabled' => 'Enabled',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
