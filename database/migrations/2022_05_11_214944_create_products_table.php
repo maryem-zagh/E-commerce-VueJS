@@ -17,7 +17,7 @@ return new class extends Migration
                 $table->increments('id');
                 $table->string('title');
                 $table->string('description');
-                $table->integer('pricz');
+                $table->integer('price');
                 $table->string('slug')->unique();
                 $table->integer('perex')->nullable();
                 $table->date('published_at')->nullable();

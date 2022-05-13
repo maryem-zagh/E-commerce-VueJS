@@ -28,10 +28,9 @@ class StoreProduct extends FormRequest
         return [
             'title' => ['required', 'string'],
             'description' => ['required', 'string'],
-            'prix' => ['required', 'integer'],
+            'price' => ['required', 'integer'],
             'slug' => ['required', Rule::unique('products', 'slug'), 'string'],
             'perex' => ['nullable', 'integer'],
-            'category_id' => ['required', 'string'],
             'published_at' => ['nullable', 'date'],
             'enabled' => ['required', 'boolean'],
             

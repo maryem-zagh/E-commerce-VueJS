@@ -29,10 +29,9 @@ class UpdateProduct extends FormRequest
         return [
             'title' => ['sometimes', 'string'],
             'description' => ['sometimes', 'string'],
-            'prix' => ['sometimes', 'integer'],
+            'price' => ['sometimes', 'integer'],
             'slug' => ['sometimes', Rule::unique('products', 'slug')->ignore($this->product->getKey(), $this->product->getKeyName()), 'string'],
             'perex' => ['nullable', 'integer'],
-            'category_id' => ['sometimes', 'string'],
             'published_at' => ['nullable', 'date'],
             'enabled' => ['sometimes', 'boolean'],
             'publish_now' => ['nullable', 'boolean'],

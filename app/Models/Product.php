@@ -6,7 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $guarded = [];
+    protected $fillable = [
+        'title',
+        'description',
+        'price',
+        'slug',
+        'perex',
+        'published_at',
+        'enabled',
+    
+    ];
     
     
     protected $dates = [
@@ -24,12 +33,12 @@ class Product extends Model
     {
         return url('/admin/products/'.$this->getKey());
     }
-
-    public function categories() {
+    public function categories()
+    {
         return $this->belongsToMany(Category::class);
     }
- 
-    public function orders() {
-        return $this->belongsToMany(Order::class,'order_product', 'product_id', 'order_id');
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class);
     }
 }

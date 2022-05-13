@@ -58,3 +58,51 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('products')->name('products/')->group(static function() {
+            Route::get('/',                                             'ProductsController@index')->name('index');
+            Route::get('/create',                                       'ProductsController@create')->name('create');
+            Route::post('/',                                            'ProductsController@store')->name('store');
+            Route::get('/{product}/edit',                               'ProductsController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'ProductsController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{product}',                                   'ProductsController@update')->name('update');
+            Route::delete('/{product}',                                 'ProductsController@destroy')->name('destroy');
+            Route::get('/export',                                       'ProductsController@export')->name('export');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('categories')->name('categories/')->group(static function() {
+            Route::get('/',                                             'CategoriesController@index')->name('index');
+            Route::get('/create',                                       'CategoriesController@create')->name('create');
+            Route::post('/',                                            'CategoriesController@store')->name('store');
+            Route::get('/{category}/edit',                              'CategoriesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'CategoriesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{category}',                                  'CategoriesController@update')->name('update');
+            Route::delete('/{category}',                                'CategoriesController@destroy')->name('destroy');
+            Route::get('/export',                                       'CategoriesController@export')->name('export');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('category-products')->name('category-products/')->group(static function() {
+            Route::get('/',                                             'CategoryProductController@index')->name('index');
+            Route::get('/create',                                       'CategoryProductController@create')->name('create');
+            Route::post('/',                                            'CategoryProductController@store')->name('store');
+            Route::get('/{categoryProduct}/edit',                       'CategoryProductController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'CategoryProductController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{categoryProduct}',                           'CategoryProductController@update')->name('update');
+            Route::delete('/{categoryProduct}',                         'CategoryProductController@destroy')->name('destroy');
+            Route::get('/export',                                       'CategoryProductController@export')->name('export');
+        });
+    });
+});

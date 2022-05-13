@@ -15,6 +15,7 @@
                 <div class="card">
                     <div class="card-header">
                         <i class="fa fa-align-justify"></i> {{ trans('admin.product.actions.index') }}
+                        <a class="btn btn-primary btn-sm pull-right m-b-0 ml-2" href="{{ url('admin/products/export') }}" role="button"><i class="fa fa-file-excel-o"></i>&nbsp; {{ trans('admin.product.actions.export') }}</a>
                         <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0" href="{{ url('admin/products/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.product.actions.create') }}</a>
                     </div>
                     <div class="card-body" v-cloak>
@@ -53,16 +54,15 @@
                                         <th is='sortable' :column="'id'">{{ trans('admin.product.columns.id') }}</th>
                                         <th is='sortable' :column="'title'">{{ trans('admin.product.columns.title') }}</th>
                                         <th is='sortable' :column="'description'">{{ trans('admin.product.columns.description') }}</th>
-                                        <th is='sortable' :column="'prix'">{{ trans('admin.product.columns.prix') }}</th>
+                                        <th is='sortable' :column="'price'">{{ trans('admin.product.columns.price') }}</th>
                                         <th is='sortable' :column="'perex'">{{ trans('admin.product.columns.perex') }}</th>
-                                        <th is='sortable' :column="'category_id'">{{ trans('admin.product.columns.category_id') }}</th>
                                         <th is='sortable' class="text-center" :column="'published_at'">{{ trans('admin.product.columns.published_at') }}</th>
                                         <th is='sortable' :column="'enabled'">{{ trans('admin.product.columns.enabled') }}</th>
 
                                         <th></th>
                                     </tr>
                                     <tr v-show="(clickedBulkItemsCount > 0) || isClickedAll">
-                                        <td class="bg-bulk-info d-table-cell text-center" colspan="10">
+                                        <td class="bg-bulk-info d-table-cell text-center" colspan="9">
                                             <span class="align-middle font-weight-light text-dark">{{ trans('brackets/admin-ui::admin.listing.selected_items') }} @{{ clickedBulkItemsCount }}.  <a href="#" class="text-primary" @click="onBulkItemsClickedAll('/admin/products')" v-if="(clickedBulkItemsCount < pagination.state.total)"> <i class="fa" :class="bulkCheckingAllLoader ? 'fa-spinner' : ''"></i> {{ trans('brackets/admin-ui::admin.listing.check_all_items') }} @{{ pagination.state.total }}</a> <span class="text-primary">|</span> <a
                                                         href="#" class="text-primary" @click="onBulkItemsClickedAllUncheck()">{{ trans('brackets/admin-ui::admin.listing.uncheck_all_items') }}</a>  </span>
 
@@ -84,9 +84,8 @@
                                     <td>@{{ item.id }}</td>
                                         <td>@{{ item.title }}</td>
                                         <td>@{{ item.description }}</td>
-                                        <td>@{{ item.prix }}</td>
+                                        <td>@{{ item.price }}</td>
                                         <td>@{{ item.perex }}</td>
-                                        <td>@{{ item.category_id }}</td>
                                             <td class="text-center text-nowrap">
                                             <span v-if="item.published_at <= now">
                                                 @{{ item.published_at | datetime('DD.MM.YYYY, HH:mm') }}

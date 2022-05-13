@@ -20,16 +20,14 @@ class ProductFactory extends Factory
         public function definition()
         {
             
-            // $productSuffixes= ['Table','Chair','Glasses'];
-            // $name=$this->faker->company(). ' '. Arr::random($productSuffixes);
-            // $namArr=explode(' ',$name);
-            // $name=trim($namArr[0]);
-            // return [
-            //     'name'=>$name,
-            //     'slug'=>Str::slug($name),
-            //     'description'=>$this->faker->realText(320),
-            //     'price'=>$this->faker->numberBetween(1000,100000)
-            // ];
+            $name=$this->faker->company();
+           
+            return [
+                'name'=>$name,
+                'slug'=>Str::slug($name),
+                'description'=>$this->faker->realText(320),
+                'price'=>$this->faker->numberBetween(1000,100000)
+            ];
         }
      
 }

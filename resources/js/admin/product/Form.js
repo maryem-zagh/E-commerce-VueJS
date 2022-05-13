@@ -7,10 +7,9 @@ Vue.component('product-form', {
             form: {
                 title:  '' ,
                 description:  '' ,
-                prix:  '' ,
+                price:  '' ,
                 slug:  '' ,
                 perex:  '' ,
-                category_id:  '' ,
                 published_at:  '' ,
                 enabled:  false ,
                 

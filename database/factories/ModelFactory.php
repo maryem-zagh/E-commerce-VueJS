@@ -34,3 +34,46 @@ $factory->define(App\Models\Product::class, static function (Faker\Generator $fa
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Product::class, static function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->sentence,
+        'description' => $faker->sentence,
+        'price' => $faker->randomNumber(5),
+        'slug' => $faker->unique()->slug,
+        'perex' => $faker->randomNumber(5),
+        'published_at' => $faker->date(),
+        'enabled' => $faker->boolean(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Category::class, static function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstName,
+        'slug' => $faker->unique()->slug,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\CategoryProduct::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\CategoryProduct::class, static function (Faker\Generator $faker) {
+    return [
+        'category_id' => $faker->randomNumber(5),
+        'product_id' => $faker->randomNumber(5),
+        
+        
+    ];
+});

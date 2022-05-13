@@ -54,5 +54,81 @@ return [
         ],
     ],
 
+    'product' => [
+        'title' => 'Products',
+
+        'actions' => [
+            'index' => 'Products',
+            'create' => 'New Product',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+            'will_be_published' => 'Product will be published at',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'description' => 'Description',
+            'price' => 'Price',
+            'slug' => 'Slug',
+            'perex' => 'Perex',
+            'published_at' => 'Published at',
+            'enabled' => 'Enabled',
+            
+        ],
+    ],
+
+    'category' => [
+        'title' => 'Categories',
+
+        'actions' => [
+            'index' => 'Categories',
+            'create' => 'New Category',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'name' => 'Name',
+            'slug' => 'Slug',
+            
+        ],
+    ],
+
+    'category-product' => [
+        'title' => 'Category-Product',
+
+        'actions' => [
+            'index' => 'Category-Product',
+            'create' => 'New Category-Product',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            
+        ],
+    ],
+
+    'category-product' => [
+        'title' => 'Category Product',
+
+        'actions' => [
+            'index' => 'Category Product',
+            'create' => 'New Category Product',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'category_id' => 'Category',
+            'product_id' => 'Product',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

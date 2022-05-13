@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\ProductsExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Product\BulkDestroyProduct;
 use App\Http\Requests\Admin\Product\DestroyProduct;
 use App\Http\Requests\Admin\Product\IndexProduct;
 use App\Http\Requests\Admin\Product\StoreProduct;
 use App\Http\Requests\Admin\Product\UpdateProduct;
-use App\Models\Category;
 use App\Models\Product;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
@@ -19,6 +19,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Illuminate\View\View;
 
 class ProductsController extends Controller
@@ -38,27 +40,22 @@ class ProductsController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'title', 'description', 'prix', 'perex', 'category_id', 'published_at', 'enabled'],
+            ['id', 'title', 'description', 'price', 'perex', 'published_at', 'enabled'],
 
             // set columns to searchIn
-            ['id', 'title', 'description', 'slug'],
+            ['id', 'title', 'description', 'slug']
+        );
 
-        function ($query) use ($request) {
-            $query->with(['category']);
-            if($request->has('categories')){
-                $query->whereIn('category_id', $request->get('categories'));
+        if ($request->ajax()) {
+            if ($request->has('bulk')) {
+                return [
+                    'bulkItems' => $data->pluck('id')
+                ];
             }
+            return ['data' => $data];
         }
-    );
 
-    if ($request->ajax()) {
-        return ['data' => $data];
-    }
-
-    return view('admin.articles-with-relationship.index', [
-        'data' => $data,
-        'authors' => Category::all()
-    ]);
+        return view('admin.product.index', ['data' => $data]);
     }
 
     /**
@@ -71,9 +68,7 @@ class ProductsController extends Controller
     {
         $this->authorize('admin.product.create');
 
-        return view('admin.product.create' , [
-            'authors' => Category::all(),
-        ]);
+        return view('admin.product.create');
     }
 
     /**
@@ -193,5 +188,15 @@ class ProductsController extends Controller
         });
 
         return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
+    }
+
+    /**
+     * Export entities
+     *
+     * @return BinaryFileResponse|null
+     */
+    public function export(): ?BinaryFileResponse
+    {
+        return Excel::download(app(ProductsExport::class), 'products.xlsx');
     }
 }
