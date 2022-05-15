@@ -28,6 +28,7 @@ class UpdateCategory extends FormRequest
         return [
             'name' => ['sometimes', 'string'],
             'slug' => ['sometimes', Rule::unique('categories', 'slug')->ignore($this->category->getKey(), $this->category->getKeyName()), 'string'],
+            'parent_id' => ['nullable', 'integer'],
             
         ];
     }

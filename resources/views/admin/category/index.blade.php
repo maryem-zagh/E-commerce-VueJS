@@ -14,7 +14,6 @@
                 <div class="card">
                     <div class="card-header">
                         <i class="fa fa-align-justify"></i> {{ trans('admin.category.actions.index') }}
-                        <a class="btn btn-primary btn-sm pull-right m-b-0 ml-2" href="{{ url('admin/categories/export') }}" role="button"><i class="fa fa-file-excel-o"></i>&nbsp; {{ trans('admin.category.actions.export') }}</a>
                         <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0" href="{{ url('admin/categories/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.category.actions.create') }}</a>
                     </div>
                     <div class="card-body" v-cloak>
@@ -52,11 +51,12 @@
 
                                         <th is='sortable' :column="'id'">{{ trans('admin.category.columns.id') }}</th>
                                         <th is='sortable' :column="'name'">{{ trans('admin.category.columns.name') }}</th>
+                                        <th is='sortable' :column="'parent_id'">{{ trans('admin.category.columns.parent_id') }}</th>
 
                                         <th></th>
                                     </tr>
                                     <tr v-show="(clickedBulkItemsCount > 0) || isClickedAll">
-                                        <td class="bg-bulk-info d-table-cell text-center" colspan="4">
+                                        <td class="bg-bulk-info d-table-cell text-center" colspan="5">
                                             <span class="align-middle font-weight-light text-dark">{{ trans('brackets/admin-ui::admin.listing.selected_items') }} @{{ clickedBulkItemsCount }}.  <a href="#" class="text-primary" @click="onBulkItemsClickedAll('/admin/categories')" v-if="(clickedBulkItemsCount < pagination.state.total)"> <i class="fa" :class="bulkCheckingAllLoader ? 'fa-spinner' : ''"></i> {{ trans('brackets/admin-ui::admin.listing.check_all_items') }} @{{ pagination.state.total }}</a> <span class="text-primary">|</span> <a
                                                         href="#" class="text-primary" @click="onBulkItemsClickedAllUncheck()">{{ trans('brackets/admin-ui::admin.listing.uncheck_all_items') }}</a>  </span>
 
@@ -77,6 +77,7 @@
 
                                     <td>@{{ item.id }}</td>
                                         <td>@{{ item.name }}</td>
+                                        <td>@{{ item.parent_id }}</td>
                                         
                                         <td>
                                             <div class="row no-gutters">

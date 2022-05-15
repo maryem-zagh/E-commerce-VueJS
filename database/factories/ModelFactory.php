@@ -95,3 +95,15 @@ $factory->define(App\Models\Product::class, static function (Faker\Generator $fa
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Category::class, static function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstName,
+        'slug' => $faker->unique()->slug,
+        'parent_id' => $faker->randomNumber(5),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});

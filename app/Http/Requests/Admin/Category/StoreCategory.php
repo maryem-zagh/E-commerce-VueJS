@@ -28,6 +28,7 @@ class StoreCategory extends FormRequest
         return [
             'name' => ['required', 'string'],
             'slug' => ['required', Rule::unique('categories', 'slug'), 'string'],
+            'parent_id' => ['nullable', 'integer'],
             
         ];
     }
