@@ -33,6 +33,8 @@ class StoreProduct extends FormRequest
             'perex' => ['nullable', 'integer'],
             'published_at' => ['nullable', 'date'],
             'enabled' => ['required', 'boolean'],
+            'imageSrc' => ['required', 'string'],
+            'imageAlt' => ['required', 'string'],
             
         ];
     }

@@ -40,10 +40,10 @@ class ProductsController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'title', 'description', 'price', 'perex', 'published_at', 'enabled'],
+            ['id', 'title', 'description', 'price', 'perex', 'published_at', 'enabled', 'imageSrc', 'imageAlt'],
 
             // set columns to searchIn
-            ['id', 'title', 'description', 'slug']
+            ['id', 'title', 'description', 'slug', 'imageSrc', 'imageAlt']
         );
 
         if ($request->ajax()) {

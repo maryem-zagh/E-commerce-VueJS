@@ -50,4 +50,20 @@
     </div>
 </div>
 
+<div class="form-group row align-items-center" :class="{'has-danger': errors.has('imageSrc'), 'has-success': fields.imageSrc && fields.imageSrc.valid }">
+    <label for="imageSrc" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.product.columns.imageSrc') }}</label>
+        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.imageSrc" v-validate="'required'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('imageSrc'), 'form-control-success': fields.imageSrc && fields.imageSrc.valid}" id="imageSrc" name="imageSrc" placeholder="{{ trans('admin.product.columns.imageSrc') }}">
+        <div v-if="errors.has('imageSrc')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('imageSrc') }}</div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center" :class="{'has-danger': errors.has('imageAlt'), 'has-success': fields.imageAlt && fields.imageAlt.valid }">
+    <label for="imageAlt" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.product.columns.imageAlt') }}</label>
+        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.imageAlt" v-validate="'required'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('imageAlt'), 'form-control-success': fields.imageAlt && fields.imageAlt.valid}" id="imageAlt" name="imageAlt" placeholder="{{ trans('admin.product.columns.imageAlt') }}">
+        <div v-if="errors.has('imageAlt')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('imageAlt') }}</div>
+    </div>
+</div>
+
 

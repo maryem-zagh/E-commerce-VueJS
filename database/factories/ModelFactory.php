@@ -77,3 +77,21 @@ $factory->define(App\Models\CategoryProduct::class, static function (Faker\Gener
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Product::class, static function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->sentence,
+        'description' => $faker->sentence,
+        'price' => $faker->randomNumber(5),
+        'slug' => $faker->unique()->slug,
+        'perex' => $faker->randomNumber(5),
+        'published_at' => $faker->date(),
+        'enabled' => $faker->boolean(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        'imageSrc' => $faker->sentence,
+        'imageAlt' => $faker->sentence,
+        
+        
+    ];
+});

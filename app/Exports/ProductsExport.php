@@ -32,6 +32,8 @@ class ProductsExport implements FromCollection, WithMapping, WithHeadings
             trans('admin.product.columns.perex'),
             trans('admin.product.columns.published_at'),
             trans('admin.product.columns.enabled'),
+            trans('admin.product.columns.imageSrc'),
+            trans('admin.product.columns.imageAlt'),
         ];
     }
 
@@ -51,6 +53,8 @@ class ProductsExport implements FromCollection, WithMapping, WithHeadings
             $product->perex,
             $product->published_at,
             $product->enabled,
+            $product->imageSrc,
+            $product->imageAlt,
         ];
     }
 }

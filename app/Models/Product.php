@@ -14,6 +14,8 @@ class Product extends Model
         'perex',
         'published_at',
         'enabled',
+        'imageSrc',
+        'imageAlt',
     
     ];
     
@@ -33,10 +35,12 @@ class Product extends Model
     {
         return url('/admin/products/'.$this->getKey());
     }
+
     public function categories()
     {
         return $this->belongsToMany(Category::class);
     }
+ 
     public function orders()
     {
         return $this->belongsToMany(Order::class);

@@ -12,6 +12,8 @@ Vue.component('product-form', {
                 perex:  '' ,
                 published_at:  '' ,
                 enabled:  false ,
+                imageSrc:  '' ,
+                imageAlt:  '' ,
                 
             }
         }

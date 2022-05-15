@@ -130,5 +130,31 @@ return [
         ],
     ],
 
+    'product' => [
+        'title' => 'Products',
+
+        'actions' => [
+            'index' => 'Products',
+            'create' => 'New Product',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+            'will_be_published' => 'Product will be published at',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'description' => 'Description',
+            'price' => 'Price',
+            'slug' => 'Slug',
+            'perex' => 'Perex',
+            'published_at' => 'Published at',
+            'enabled' => 'Enabled',
+            'imageSrc' => 'ImageSrc',
+            'imageAlt' => 'ImageAlt',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

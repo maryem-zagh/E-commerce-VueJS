@@ -34,6 +34,8 @@ class UpdateProduct extends FormRequest
             'perex' => ['nullable', 'integer'],
             'published_at' => ['nullable', 'date'],
             'enabled' => ['sometimes', 'boolean'],
+            'imageSrc' => ['sometimes', 'string'],
+            'imageAlt' => ['sometimes', 'string'],
             'publish_now' => ['nullable', 'boolean'],
             'unpublish_now' => ['nullable', 'boolean'],
 

@@ -58,11 +58,13 @@
                                         <th is='sortable' :column="'perex'">{{ trans('admin.product.columns.perex') }}</th>
                                         <th is='sortable' class="text-center" :column="'published_at'">{{ trans('admin.product.columns.published_at') }}</th>
                                         <th is='sortable' :column="'enabled'">{{ trans('admin.product.columns.enabled') }}</th>
+                                        <th is='sortable' :column="'imageSrc'">{{ trans('admin.product.columns.imageSrc') }}</th>
+                                        <th is='sortable' :column="'imageAlt'">{{ trans('admin.product.columns.imageAlt') }}</th>
 
                                         <th></th>
                                     </tr>
                                     <tr v-show="(clickedBulkItemsCount > 0) || isClickedAll">
-                                        <td class="bg-bulk-info d-table-cell text-center" colspan="9">
+                                        <td class="bg-bulk-info d-table-cell text-center" colspan="11">
                                             <span class="align-middle font-weight-light text-dark">{{ trans('brackets/admin-ui::admin.listing.selected_items') }} @{{ clickedBulkItemsCount }}.  <a href="#" class="text-primary" @click="onBulkItemsClickedAll('/admin/products')" v-if="(clickedBulkItemsCount < pagination.state.total)"> <i class="fa" :class="bulkCheckingAllLoader ? 'fa-spinner' : ''"></i> {{ trans('brackets/admin-ui::admin.listing.check_all_items') }} @{{ pagination.state.total }}</a> <span class="text-primary">|</span> <a
                                                         href="#" class="text-primary" @click="onBulkItemsClickedAllUncheck()">{{ trans('brackets/admin-ui::admin.listing.uncheck_all_items') }}</a>  </span>
 
@@ -117,6 +119,8 @@
                                             </label>
                                         </td>
 
+                                        <td>@{{ item.imageSrc }}</td>
+                                        <td>@{{ item.imageAlt }}</td>
                                         
                                         <td>
                                             <div class="row no-gutters">
