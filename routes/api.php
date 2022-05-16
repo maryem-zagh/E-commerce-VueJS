@@ -16,10 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('products', [ProductController::class,'index']);
-Route::post('products', [ProductController::class,'store']);
-Route::get('products/{id}', [ProductController::class,'show']);
-Route::get('purchase', [UserController::class,'purchase']);
+Route::get('products', [ProductController::class, 'index']);
+Route::get('categories', [ProductController::class, 'getCategories']);
+Route::post('products', [ProductController::class, 'store']);
+Route::get('products/{product}', [ProductController::class, 'show']);
+Route::get('products/related/{product}', [ProductController::class, 'relatedProducts']);
+Route::get('products/category/{slug}', [ProductController::class, 'filterProductsBycategory']);
+Route::get('purchase', [UserController::class, 'purchase']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
