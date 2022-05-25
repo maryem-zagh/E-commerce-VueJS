@@ -1,3 +1,4 @@
+<script setup></script>
 <template>
     <div class="bg-white">
         <div class="max-w-2xl mx-auto py-16 px-4 sm:px-6 lg:max-w-7xl lg:px-4">
@@ -19,7 +20,7 @@
                         Home /
                     </router-link>
                     <router-link
-                        v-if="product.categories[0]"
+                        v-if="product.categories.length > 0"
                         class="text-gray-500"
                         :to="{
                             name: 'products-category',
@@ -156,6 +157,9 @@
 </template>
 
 <script>
+import { useCartStore } from "../../stores/cart";
+
+const CartStore = useCartStore();
 import ProductsList from "./ProductsList.vue";
 export default {
     components: { ProductsList },
@@ -168,6 +172,8 @@ export default {
                 product_id: "",
                 name: "",
                 price: "",
+                imageSrc: "",
+                imageAlt: "",
                 order_id: "",
                 quantity: 1,
             },
@@ -178,6 +184,9 @@ export default {
             max: 10,
         };
     },
+    // computed: {
+    //     carts: CartStore.cart,
+    // },
     mounted() {
         this.$http
             .get(
@@ -199,9 +208,7 @@ export default {
             this.loadProduct();
         },
     },
-    updated() {
-        console.log("updated");
-    },
+
     methods: {
         // Product
         loadProduct() {
@@ -217,24 +224,6 @@ export default {
                 .catch((error) => {});
         },
         // Cart
-        plusQuantity() {
-            this.quantity++;
-        },
-        minusQuantity() {
-            this.quantity--;
-        },
-        viewCart() {
-            if (localStorage.getItem("carts")) {
-                this.carts = JSON.parse(localStorage.getItem("carts"));
-                this.badge = this.carts.length;
-                this.totalPrice = this.carts.reduce((total, item) => {
-                    return total + item.quantity * item.price;
-                });
-            } else {
-                this.carts = [];
-            }
-            console.log("total", this.totalPrice);
-        },
         isInCart(product) {
             if (!localStorage.getItem("carts")) {
                 localStorage.setItem("carts", JSON.stringify([]));
@@ -245,6 +234,23 @@ export default {
             console.log(cartItem);
             return Boolean(cartItem);
         },
+        viewCart() {
+            if (localStorage.getItem("carts")) {
+                this.carts = JSON.parse(localStorage.getItem("carts"));
+                this.badge = this.carts.length;
+                try {
+                    this.totalPrice = this.carts.reduce((total, item) => {
+                        return total + item.quantity * item.price;
+                    });
+                } catch (error) {
+                    this.totalPrice = 0;
+                }
+            } else {
+                this.carts = [];
+            }
+            console.log("total", this.totalPrice);
+        },
+
         addCart(product) {
             if (this.isInCart(product)) {
                 // console.log(product);
@@ -264,13 +270,24 @@ export default {
                     this.cartAdd.product_id = product.id;
                     this.cartAdd.name = product.title;
                     this.cartAdd.price = product.price;
+                    this.cartAdd.imageSrc = product.imageSrc;
+                    this.cartAdd.imageAlt = product.imageAlt;
                     this.cartAdd.quantity = this.quantity;
                     this.carts.push(this.cartAdd);
                 }
             }
             localStorage.setItem("carts", JSON.stringify(this.carts));
+            CartStore.$patch((state) => {
+                state.cart = JSON.parse(localStorage.getItem("carts"));
+            });
         },
         updateCart(product_id, quantity) {},
+        plusQuantity() {
+            this.quantity++;
+        },
+        minusQuantity() {
+            this.quantity--;
+        },
         removeFromCart(product) {
             const index = this.carts.findIndex(
                 ({ product_id }) => product_id === product.id

@@ -1,6 +1,8 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "@/components/HelloWorld.vue";
+import { useCartStore } from "./stores/cart";
+
+const CartStore = useCartStore();
 </script>
 
 <template>
@@ -9,6 +11,13 @@ import HelloWorld from "@/components/HelloWorld.vue";
             <div
                 class="flex justify-around fixed top-0 left-0 right-0 bg-slate-50 bg-opacity-75"
             >
+                <img
+                    alt="Vue logo"
+                    class="logo p-2"
+                    src="@/assets/Asset 2.svg"
+                    width="64"
+                    height="64"
+                />
                 <nav class="w-full mx-4 xl:w-5/6">
                     <RouterLink to="/" class="flex items-center">
                         <font-awesome-icon icon="bars" />
@@ -23,11 +32,10 @@ import HelloWorld from "@/components/HelloWorld.vue";
                         ></RouterLink
                     >
                     <RouterLink to="/cart" class="flex items-center">
-                        <font-awesome-icon icon="shopping-bag" />
-                        <span class="hidden md:block ml-2"
-                            >Cart</span
-                        ></RouterLink
-                    >
+                        <font-awesome-icon icon="shopping-bag" class="mr-2" />
+                        <span class="hidden md:block mr-2">Cart</span>
+                        {{ CartStore.$state.cart.length }}
+                    </RouterLink>
                 </nav>
             </div>
         </div>

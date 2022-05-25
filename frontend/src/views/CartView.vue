@@ -25,7 +25,7 @@
             <div>
                 <table class="table w-full">
                     <thead
-                        class="grid grid-cols-6 font-Gotham text-xs font-light tracking-wider text-left p-3"
+                        class="grid grid-cols-6 font-Gotham text-xs font-light tracking-wider text-center p-3"
                     >
                         <th class="grid col-span-2">PRODUCT</th>
                         <th>PRICE</th>
@@ -36,7 +36,7 @@
                     <tbody>
                         <tr
                             v-for="product in carts"
-                            class="grid grid-cols-6 font-Gotham text-base font-light tracking-wider text-left uppercase px-3 py-5 items-center"
+                            class="grid grid-cols-6 font-Gotham text-base font-light tracking-wider text-center uppercase px-3 py-5 items-center"
                         >
                             <td class="grid col-span-2">
                                 <div class="grid grid-cols-2">
@@ -44,8 +44,8 @@
                                         class="w-full aspect-w-1 aspect-h-1 bg-gray-200 overflow-hidden xl:aspect-w-7 xl:aspect-h-8"
                                     >
                                         <img
-                                            src="https:\/\/tailwindui.com\/img\/ecommerce-images\/category-page-04-image-card-01.jpg"
-                                            alt="tt"
+                                            :src="product.imageSrc"
+                                            :alt="product.imageAlt"
                                             class="w-full h-full object-center object-cover group-hover:opacity-75"
                                         />
                                     </div>
@@ -67,10 +67,13 @@
                                 {{ product.quantity }}
                             </td>
                             <td>{{ product.price }} <span>TND</span></td>
-                            <td>
-                                <button>X</button>
+                            <td class="">
+                                <button
+                                    @click="removeFromCart(product.product_id)"
+                                >
+                                    X
+                                </button>
                             </td>
-                            <hr class="solid w-full" />
                         </tr>
                         <hr class="solid w-full" />
                     </tbody>
@@ -160,6 +163,9 @@
 </template>
 
 <script>
+import { useCartStore } from "../stores/cart";
+
+const CartStore = useCartStore();
 export default {
     components: {},
     data() {
@@ -203,9 +209,13 @@ export default {
             if (localStorage.getItem("carts")) {
                 this.carts = JSON.parse(localStorage.getItem("carts"));
                 this.badge = this.carts.length;
-                this.totalPrice = this.carts.reduce((total, item) => {
-                    return total + item.quantity * item.price;
-                });
+                try {
+                    this.totalPrice = this.carts.reduce((total, item) => {
+                        return total + item.quantity * item.price;
+                    });
+                } catch (error) {
+                    this.totalPrice = 0;
+                }
             } else {
                 this.carts = [];
             }
@@ -247,12 +257,15 @@ export default {
             localStorage.setItem("carts", JSON.stringify(this.carts));
         },
         updateCart(product_id, quantity) {},
-        removeFromCart(product) {
+        removeFromCart(id) {
             const index = this.carts.findIndex(
-                ({ product_id }) => product_id === product.id
+                ({ product_id }) => product_id === id
             );
             this.carts.splice(index, 1);
             localStorage.setItem("carts", JSON.stringify(this.carts));
+            CartStore.$patch((state) => {
+                state.cart = JSON.parse(localStorage.getItem("carts"));
+            });
         },
     },
 };
