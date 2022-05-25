@@ -22,7 +22,7 @@ import HelloWorld from "@/components/HelloWorld.vue";
                             >Search</span
                         ></RouterLink
                     >
-                    <RouterLink to="#" class="flex items-center">
+                    <RouterLink to="/cart" class="flex items-center">
                         <font-awesome-icon icon="shopping-bag" />
                         <span class="hidden md:block ml-2"
                             >Cart</span

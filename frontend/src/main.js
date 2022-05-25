@@ -21,16 +21,23 @@ import {
     faBars,
     faSearch,
     faShoppingBag,
-    faGreaterThan
+    faGreaterThan,
+    faPlus
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faPhone, faBars, faSearch, faShoppingBag, faGreaterThan);
+library.add(faPhone, faBars, faSearch, faShoppingBag, faGreaterThan, faPlus);
 
 import {
     FontAwesomeIcon
 } from "@fortawesome/vue-fontawesome";
 
-
+if (typeof window !== 'undefined') {
+    console.log('You are on the browser')
+    // 👉️ can use localStorage here
+} else {
+    console.log('You are on the server')
+    // 👉️ can't use localStorage
+}
 const app = createApp(App);
 app.config.globalProperties.$http = Axios;
 // config fontawesome
