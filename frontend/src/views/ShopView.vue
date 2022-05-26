@@ -56,7 +56,7 @@ export default {
             <h1
                 class="text-5xl font-normal text-gray-900 capitalize font-Amaline tracking-wider"
             >
-                {{ this.$route.params.name }}
+                {{ this.$route.params.slug }}
             </h1>
             <p
                 class="text-3xl font-normal text-gray-600 capitalize pt-3 font-Gotham"
@@ -69,7 +69,7 @@ export default {
                 >
                     Home /
                 </router-link>
-                {{ this.$route.params.name }}
+                {{ this.$route.params.slug }}
             </p>
         </div>
 

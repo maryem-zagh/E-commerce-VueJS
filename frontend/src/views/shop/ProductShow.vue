@@ -108,13 +108,11 @@
                         <span class="mr-4"> Price</span> {{ product.price }} TND
                     </p>
 
-                    <div
-                        class="w-1/3 bg-slate-100 text-center justify-center p-2"
-                    >
+                    <div class="text-left justify-center p-2">
                         <input
                             type="button"
                             value="-"
-                            class="w-10 font-black text-xl"
+                            class="w-10 bg-slate-100 font-black text-xl"
                             @click="minusQuantity"
                         />
 
@@ -128,14 +126,14 @@
                         <input
                             type="button"
                             value="+"
-                            class="w-10 font-black text-xl"
+                            class="w-10 bg-slate-100 font-black text-xl"
                             @click="plusQuantity"
                         />
                     </div>
                     <div class="mt-10">
                         <button
                             @click="addCart(product)"
-                            class="w-4/5 bg-black hover:bg-gray-600 active:bg-gray-700 focus:outline-none focus:ring focus:ring-violet-300 px-24 py-4 text-white text-2xl font-Gotham font-normal"
+                            class="w-4/5 bg-black hover:bg-gray-600 active:bg-gray-700 focus:outline-none focus:ring focus:ring-violet-300 px-auto py-4 text-white text-2xl font-Gotham font-normal"
                         >
                             I want this
                         </button>

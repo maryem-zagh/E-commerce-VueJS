@@ -8,6 +8,7 @@ module.exports = {
 
             'Gotham': ['Gotham'],
             'Amaline': ['Amaline Trial'],
+            'Montserrat': ['Montserrat']
         },
         extend: {},
     },

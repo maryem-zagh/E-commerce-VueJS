@@ -1,30 +1,29 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import { useCartStore } from "./stores/cart";
+import TheFooter from "./components/TheFooter.vue";
+import SidebarNav from "./components/SidebarNav.vue";
+import Logo from "./components/Logo.vue";
 
 const CartStore = useCartStore();
 </script>
 
 <template>
+    <SidebarNav :open="open" />
     <header>
         <div class="relative z-50 items-center">
             <div
                 class="flex justify-around fixed top-0 left-0 right-0 bg-slate-50 bg-opacity-75"
             >
-                <img
-                    alt="Vue logo"
-                    class="logo p-2"
-                    src="@/assets/Asset 2.svg"
-                    width="64"
-                    height="64"
-                />
+                <RouterLink to="/" class="flex items-center">
+                    <Logo />
+                </RouterLink>
+
                 <nav class="w-full mx-4 xl:w-5/6">
-                    <RouterLink to="/" class="flex items-center">
+                    <div @click="toggle()" class="flex items-center">
                         <font-awesome-icon icon="bars" />
-                        <span class="hidden md:block ml-2"
-                            >Menu</span
-                        ></RouterLink
-                    >
+                        <span class="hidden md:block ml-2">Menu</span>
+                    </div>
                     <RouterLink to="#" class="flex items-center">
                         <font-awesome-icon icon="search" />
                         <span class="hidden md:block ml-2"
@@ -42,8 +41,24 @@ const CartStore = useCartStore();
     </header>
 
     <RouterView />
+    <TheFooter />
 </template>
-
+<script>
+export default {
+    data() {
+        return {
+            open: false,
+            dimmer: true,
+            right: false,
+        };
+    },
+    methods: {
+        toggle() {
+            this.open = !this.open;
+        },
+    },
+};
+</script>
 <style>
 @import "@/assets/base.css";
 

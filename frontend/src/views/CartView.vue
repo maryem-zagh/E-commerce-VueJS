@@ -22,7 +22,7 @@
                     Cart
                 </p>
             </div>
-            <div>
+            <div style="overflow-x: auto">
                 <table class="table w-full">
                     <thead
                         class="grid grid-cols-6 font-Gotham text-xs font-light tracking-wider text-center p-3"
@@ -36,7 +36,7 @@
                     <tbody>
                         <tr
                             v-for="product in carts"
-                            class="grid grid-cols-6 font-Gotham text-base font-light tracking-wider text-center uppercase px-3 py-5 items-center"
+                            class="grid grid-cols-6 font-Gotham text-base font-light md:tracking-wider text-center md:uppercase px-3 py-5 items-center"
                         >
                             <td class="grid col-span-2">
                                 <div class="grid grid-cols-2">
