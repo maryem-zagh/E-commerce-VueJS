@@ -183,11 +183,12 @@ import Logo from "./Logo.vue";
             </div>
         </div>
     </footer> -->
-    <footer>
+
+    <footer class="bg-black text-left text-white p-14">
         <div
-            class="bg-white sm:p-6 dark:bg-gray-800 grid grid-cols-3 font-Montserrat"
+            class="bg-black text-left text-white first-letter:sm:p-6 dark:bg-gray-800 grid lg:grid-cols-3 font-Montserrat"
         >
-            <div class="grid grid-cols-3">
+            <div class="grid justify-start md:grid-cols-3 p-4">
                 <img
                     alt="Vue logo"
                     class="logo p-2"
@@ -201,30 +202,32 @@ import Logo from "./Logo.vue";
                         Quick links
                     </p>
                     <ul>
-                        <li>Home</li>
-                        <li>Browse</li>
-                        <li>Nex Arrivals</li>
+                        <li class="p-0.5">Home</li>
+                        <li class="p-0.5">Browse</li>
+                        <li class="p-0.5">Nex Arrivals</li>
                     </ul>
                 </div>
-                <div>
+                <div class="mt-7">
                     <ul>
-                        <li>All Products</li>
-                        <li>Interior Gates</li>
-                        <li>Contact</li>
+                        <li class="p-0.5">All Products</li>
+                        <li class="p-0.5">Interior Gates</li>
+                        <li class="p-0.5">Contact</li>
                     </ul>
                 </div>
             </div>
             <div></div>
-            <div class="text-right">
-                <div>CONTACT</div>
-                <p>24 avenue Habib Bourguiba, Ain Zaghouan, Le Kram 1053</p>
-                <div class="grid grid-cols-3">
+            <div class="text-left lg:text-right p-4">
+                <div class="font-normal text-lg font-Montserrat">CONTACT</div>
+                <p class="p-2">
+                    24 avenue Habib Bourguiba, Ain Zaghouan, Le Kram 1053
+                </p>
+                <div class="grid md:grid-cols-3 p-2">
                     <div>(+216) 25 911 119</div>
                     <div>(+216) 71 911 119</div>
 
                     <div>(+216) 71 911 119</div>
                 </div>
-                <div class="flex mt-4 space-x-6 sm:justify-right sm:mt-0">
+                <div class="flex mt-4 space-x-6 justify-center lg:justify-end">
                     <a
                         href="#"
                         class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
@@ -312,20 +315,24 @@ import Logo from "./Logo.vue";
             </div>
         </div>
 
-        <div class="text-center font-Montserrat mb-5">
-            <h1 class="text-4xl">Join us</h1>
-            <p class="text-lg">for product updates</p>
-            <div>
-                <input
-                    type="text"
-                    name=""
-                    id=""
-                    class="border-solid border-b-2 border-black"
-                    placeholder="example@gmail.com"
-                />
-                <button class="border-solid border-b-2 border-black">
-                    Sbmit
-                </button>
+        <div class="flex justify-center">
+            <div class="text-center font-Montserrat mb-5 w-1/2">
+                <h1 class="text-4xl">Join us</h1>
+                <p class="text-base">for product updates</p>
+                <div class="flex justify-center text-left">
+                    <input
+                        type="text"
+                        name=""
+                        id=""
+                        class="border-solid border-b-2 border-white bg-black w-1/2 px-4"
+                        placeholder="example@gmail.com"
+                    />
+                    <button
+                        class="border-solid border-b-2 border-white px-4 text-center"
+                    >
+                        Submit
+                    </button>
+                </div>
             </div>
         </div>
 

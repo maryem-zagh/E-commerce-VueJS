@@ -25,7 +25,9 @@
                     />
                 </div>
             </div>
-            <div class="col-span-5 flex flex-col absolute top-56 right-0 w-4/6">
+            <div
+                class="col-span-5 flex flex-col absolute top-56 right-0 w-4/6 p-20"
+            >
                 <p
                     class="font-Gotham font-medium text-6xl text-right hidden lg:block"
                 >
@@ -46,7 +48,7 @@
         </div>
 
         <!-- Section Categories Start -->
-        <div class="grid grid-cols-1 md:grid-cols-2">
+        <div class="grid grid-cols-1 md:grid-cols-2 p-2">
             <!-- New arrivals -->
             <router-link
                 class="relative object-cover hover:opacity-75"
@@ -97,7 +99,7 @@
                 </div>
             </router-link>
         </div>
-        <div class="grid">
+        <div class="grid p-2">
             <div class="pt-3">
                 <router-link
                     class="relative object-cover hover:opacity-75"

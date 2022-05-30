@@ -49,7 +49,7 @@ export default {
 </script>
 
 <template>
-    <main>
+    <main class="h-max">
         <div
             class="flex flex-col flex-wrap items-center justify-center py-24 md:py-16"
         >

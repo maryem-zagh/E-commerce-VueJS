@@ -43,11 +43,13 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $products = Product::limit(2)->get();
-        if ($product->categories) {
+        try {
+
             $categories = $product->categories;
 
             $products = $categories[0]->products->take(3);
-            // dd($products);
+        } catch (\Throwable $th) {
+            $products = [];
         }
         return response()->json($products);
     }

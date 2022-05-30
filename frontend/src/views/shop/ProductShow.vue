@@ -1,6 +1,6 @@
 <script setup></script>
 <template>
-    <div class="bg-white">
+    <div class="h-full bg-white">
         <div class="max-w-2xl mx-auto py-16 px-4 sm:px-6 lg:max-w-7xl lg:px-4">
             <div class="flex flex-col flex-wrap items-center">
                 <h1
@@ -20,7 +20,7 @@
                         Home /
                     </router-link>
                     <router-link
-                        v-if="product.categories.length > 0"
+                        v-if="product.categories"
                         class="text-gray-500"
                         :to="{
                             name: 'products-category',

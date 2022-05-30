@@ -5,7 +5,7 @@
                 <h1
                     class="text-5xl font-normal text-gray-900 capitalize pt-10 font-Amaline tracking-wider"
                 >
-                    Cart
+                    Checkout
                 </h1>
                 <p
                     class="text-3xl font-normal text-gray-600 capitalize pt-3 pb-16 font-Gotham"
@@ -19,7 +19,7 @@
                         Home /
                     </router-link>
 
-                    Cart
+                    Checkout
                 </p>
             </div>
             <div style="overflow-x: auto">

@@ -63,7 +63,6 @@ export default {
 @import "@/assets/base.css";
 
 #app {
-    max-width: 1280px;
     margin: 0 auto;
     padding-top: 4.5%;
     font-weight: normal;

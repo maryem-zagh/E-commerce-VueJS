@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +23,9 @@ Route::post('products', [ProductController::class, 'store']);
 Route::get('products/{product}', [ProductController::class, 'show']);
 Route::get('products/related/{product}', [ProductController::class, 'relatedProducts']);
 Route::get('products/category/{slug}', [ProductController::class, 'filterProductsBycategory']);
-Route::get('purchase', [UserController::class, 'purchase']);
+Route::post('purchase', [UserController::class, 'purchase']);
+
+// Route::post('purchase', [OrderController::class, 'store']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
