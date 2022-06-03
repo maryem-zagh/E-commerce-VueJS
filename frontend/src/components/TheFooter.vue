@@ -184,15 +184,15 @@ import Logo from "./Logo.vue";
         </div>
     </footer> -->
 
-    <footer class="bg-black text-left text-white p-14">
+    <footer class="bg-black text-left text-white lg:px-14 lg:pt-5">
         <div
-            class="bg-black text-left text-white first-letter:sm:p-6 dark:bg-gray-800 grid lg:grid-cols-3 font-Montserrat"
+            class="text-white first-letter:sm:p-6 grid lg:grid-cols-3 font-Montserrat"
         >
             <div class="grid justify-start md:grid-cols-3 p-4">
                 <img
                     alt="Vue logo"
                     class="logo p-2"
-                    src="@/assets/Asset 2.svg"
+                    src="@/assets/Asset2.svg"
                     width="125"
                     height="125"
                 />
@@ -202,15 +202,23 @@ import Logo from "./Logo.vue";
                         Quick links
                     </p>
                     <ul>
-                        <li class="p-0.5">Home</li>
-                        <li class="p-0.5">Browse</li>
-                        <li class="p-0.5">Nex Arrivals</li>
+                        <li class="p-0.5">
+                            <a href="/home">Home</a>
+                        </li>
+                        <li class="p-0.5"><a href="#">Browse</a></li>
+                        <li class="p-0.5">
+                            <a href="/new-arrivals">New Arrivals</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="mt-7">
                     <ul>
-                        <li class="p-0.5">All Products</li>
-                        <li class="p-0.5">Interior Gates</li>
+                        <li class="p-0.5">
+                            <a href="/products">All Products</a>
+                        </li>
+                        <li class="p-0.5">
+                            <a href="/the-interior-gates">Interior Gates</a>
+                        </li>
                         <li class="p-0.5">Contact</li>
                     </ul>
                 </div>
@@ -218,10 +226,10 @@ import Logo from "./Logo.vue";
             <div></div>
             <div class="text-left lg:text-right p-4">
                 <div class="font-normal text-lg font-Montserrat">CONTACT</div>
-                <p class="p-2">
+                <p class="py-2">
                     24 avenue Habib Bourguiba, Ain Zaghouan, Le Kram 1053
                 </p>
-                <div class="grid md:grid-cols-3 p-2">
+                <div class="grid md:grid-cols-3 py-2">
                     <div>(+216) 25 911 119</div>
                     <div>(+216) 71 911 119</div>
 
@@ -315,8 +323,8 @@ import Logo from "./Logo.vue";
             </div>
         </div>
 
-        <div class="flex justify-center">
-            <div class="text-center font-Montserrat mb-5 w-1/2">
+        <div class="flex justify-center p-4">
+            <div class="text-center font-Montserrat mb-5">
                 <h1 class="text-4xl">Join us</h1>
                 <p class="text-base">for product updates</p>
                 <div class="flex justify-center text-left">
@@ -324,11 +332,11 @@ import Logo from "./Logo.vue";
                         type="text"
                         name=""
                         id=""
-                        class="border-solid border-b-2 border-white bg-black w-1/2 px-4"
+                        class="border-solid border-b-2 border-white bg-black"
                         placeholder="example@gmail.com"
                     />
                     <button
-                        class="border-solid border-b-2 border-white px-4 text-center"
+                        class="border-solid border-b-2 border-white text-center"
                     >
                         Submit
                     </button>
@@ -338,9 +346,8 @@ import Logo from "./Logo.vue";
 
         <hr class="solid w-full" />
 
-        <div class="sm:flex sm:items-center sm:justify-center">
-            <span
-                class="text-sm text-gray-500 sm:text-center dark:text-gray-400 p-3"
+        <div class="flex items-center justify-center">
+            <span class="text-sm text-gray-500 text-center p-3"
                 >All rights are reserved © 2022 - Designed and powered by
                 LouaiFatmi
             </span>

@@ -145,13 +145,13 @@ export default {
     //   components: {Products},
     created() {
         this.$http
-            .get("http://localhost:8000/api/categories")
+            .get("categories")
             .then((response) => {
                 this.categories = response.data;
                 console.log(this.categories);
             })
             .catch((error) => {
-                console.error(error);
+                // console.error(error);
             });
     },
 };

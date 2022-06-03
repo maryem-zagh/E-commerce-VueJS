@@ -8,122 +8,139 @@
                     Checkout
                 </h1>
                 <p
-                    class="text-3xl font-normal text-gray-600 capitalize pt-3 pb-16 font-Gotham"
+                    class="text-base font-normal text-gray-600 capitalize pt-3 pb-16 font-Gotham"
                 >
-                    <router-link
-                        class="text-gray-500"
-                        :to="{
-                            name: 'home',
-                        }"
-                    >
-                        Home /
-                    </router-link>
-
-                    Checkout
+                    Order Contact Information
                 </p>
             </div>
-            <div style="overflow-x: auto">
-                <table class="table w-full">
-                    <thead
-                        class="grid grid-cols-6 font-Gotham text-xs font-light tracking-wider text-center p-3"
+            <div>
+                <div class="grid grid-cols-2 gap-12 font-Gotham text-sm">
+                    <!--  -->
+                    <div
+                        class="flex justify-center text-left col-span-2 lg:col-span-1"
                     >
-                        <th class="grid col-span-2">PRODUCT</th>
-                        <th>PRICE</th>
-                        <th>QTY</th>
-                        <th>UNIT PRICE</th>
-                        <th>REMOVE</th>
-                    </thead>
-                    <tbody>
-                        <tr
-                            v-for="product in carts"
-                            class="grid grid-cols-6 font-Gotham text-base font-light md:tracking-wider text-center md:uppercase px-3 py-5 items-center"
-                        >
-                            <td class="grid col-span-2">
-                                <div class="grid grid-cols-2">
-                                    <div
-                                        class="w-full aspect-w-1 aspect-h-1 bg-gray-200 overflow-hidden xl:aspect-w-7 xl:aspect-h-8"
-                                    >
-                                        <img
-                                            :src="product.imageSrc"
-                                            :alt="product.imageAlt"
-                                            class="w-full h-full object-center object-cover group-hover:opacity-75"
-                                        />
-                                    </div>
-                                    <div
-                                        class="items-center grid justify-center"
-                                    >
-                                        <div>
-                                            {{ product.name }}
-                                        </div>
-                                        <p>colors: xXX</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                {{ product.price * product.quantity }}
-                                <span>TND</span>
-                            </td>
-                            <td>
-                                {{ product.quantity }}
-                            </td>
-                            <td>{{ product.price }} <span>TND</span></td>
-                            <td class="">
-                                <button
-                                    @click="removeFromCart(product.product_id)"
-                                >
-                                    X
-                                </button>
-                            </td>
-                        </tr>
-                        <hr class="solid w-full" />
-                    </tbody>
-                </table>
-            </div>
+                        <input
+                            v-model="form.name"
+                            type="text"
+                            name="name"
+                            id="name"
+                            class="border-solid border-gray-700 w-full px-4 inp"
+                            placeholder="Full Name *"
+                        />
+                    </div>
+                    <!--  -->
+                    <!--  -->
+                    <div class="flex justify-center text-left">
+                        <input
+                            v-model="form.phone"
+                            type="text"
+                            name="phone"
+                            id="phone"
+                            class="border-solid col-span-2 lg:col-span-1 border-gray-700 w-full px-4 inp"
+                            placeholder="Phone Number *"
+                        />
+                    </div>
+                    <!--  -->
+                    <!--  -->
+                    <div class="flex justify-center text-left col-span-2">
+                        <input
+                            v-model="form.adress"
+                            type="text"
+                            name="adress"
+                            id="adress"
+                            class="border-solid border-gray-700 w-full px-4 inp"
+                            placeholder="Adress *"
+                        />
+                    </div>
+                    <!--  -->
 
-            <div class="grid lg:grid-cols-3 mt-11 font-Gotham">
-                <div class="p-3">
-                    <div class="text-base uppercase mb-4">
-                        Delivery & Returns
+                    <!--  -->
+                    <div class="flex justify-center text-left">
+                        <input
+                            v-model="form.city"
+                            type="text"
+                            name="city"
+                            id="city"
+                            class="border-solid border-gray-700 w-full px-4 inp"
+                            placeholder="City *"
+                        />
                     </div>
-                    <div class="text-xs text-gray-400">
-                        Please click here to read about our return policy.
+                    <!--  -->
+                    <!--  -->
+                    <div class="flex justify-center text-left">
+                        <input
+                            v-model="form.country"
+                            type="text"
+                            name="country"
+                            id="country"
+                            class="border-solid border-gray-700 w-full px-4 inp"
+                            placeholder="Country *"
+                        />
                     </div>
-                </div>
-                <div class="p-3">
-                    <div class="text-base uppercase mb-4">
-                        International Shipping
+                    <!--  -->
+                    <!--  -->
+                    <div class="flex justify-center text-left">
+                        <input
+                            v-model="form.email"
+                            type="text"
+                            name="email"
+                            id="email"
+                            class="border-solid border-gray-700 w-full px-4 inp"
+                            placeholder="E-mail *"
+                        />
                     </div>
-                    <div class="text-xs text-gray-400">
-                        Additional Costum duty taxes are billed seperately by
-                        the courier. Please click here to reade more
-                    </div>
-                </div>
-                <div class="p-3">
-                    <div class="flex justify-between mb-8">
-                        <div class="text-base">Subtotal</div>
-                        <div class="text-base">{{ totalPrice }} DT</div>
-                    </div>
+                    <!--  -->
+                    <!--  -->
+                    <div class="flex justify-around text-base">
+                        <div class="form-group">
+                            <input
+                                v-model="form.isGift"
+                                type="radio"
+                                name="shipping"
+                                id="for_me"
+                                class="form-control"
+                                value="false"
+                            />
+                            <label for="for_me"> Ship for myself</label>
+                        </div>
 
-                    <div class="flex justify-between">
-                        <div class="text-base">Shipping Fees</div>
-                        <div class="text-base">{{ shipping }} DT</div>
-                    </div>
-                    <hr class="solid w-full my-8" />
-                    <div class="flex justify-between">
-                        <div class="text-xl">Total</div>
-                        <div class="text-xl">
-                            {{ totalPrice + shipping }} DT
+                        <div class="for-group">
+                            <input
+                                v-model="form.isGift"
+                                type="radio"
+                                name="shipping"
+                                id="as_gift"
+                                class="form-control"
+                                value="true"
+                            />
+                            <label for="as_gift">Ship as a Gift</label>
                         </div>
                     </div>
-                    <div class="mt-10">
-                        <button
-                            @click="checkout()"
-                            class="w-full capitalize bg-black hover:bg-gray-600 active:bg-gray-700 focus:outline-none focus:ring focus:ring-violet-300 px-auto py-4 text-white text-2xl font-Gotham font-normal"
-                        >
-                            checkout
-                        </button>
+                    <!--  -->
+                    <!--  -->
+                    <div class="flex justify-center text-left col-span-2">
+                        <input
+                            v-if="form.isGift == 'true'"
+                            v-model="form.message"
+                            type="text"
+                            name="message"
+                            id="message"
+                            class="border-solid border-gray-700 w-full px-4 inp"
+                            placeholder="Gift Message"
+                        />
                     </div>
+                    <!--  -->
                 </div>
+                <!-- Button -->
+                <div class="mt-10">
+                    <button
+                        @click="purchase()"
+                        class="w-full capitalize bg-black hover:bg-gray-600 active:bg-gray-700 focus:outline-none focus:ring focus:ring-violet-300 px-auto py-4 text-white text-2xl font-Gotham font-normal"
+                    >
+                        Submit Order
+                    </button>
+                </div>
+                <!--  -->
             </div>
         </div>
 
@@ -139,134 +156,63 @@ export default {
     components: {},
     data() {
         return {
-            products: [],
-            carts: [],
-            cartAdd: {
-                product_id: "",
+            carts: CartStore.cart,
+            form: {
                 name: "",
-                price: "",
-                order_id: "",
-                quantity: 1,
+                phone: "",
+                adress: "",
+                city: "",
+                country: "",
+                email: "",
+                message: "",
+                total: JSON.parse(localStorage.getItem("total")),
+                isGift: false,
             },
-            badge: 0,
-            totalPrice: 0,
-            shipping: 150,
-            quantity: 1,
-            min: 1,
-            max: 10,
         };
     },
-    // computed: {
-    //     total: (totalPriceWithShipping = this.totalPrice + 200),
-    // },
-    mounted() {},
-    created() {
-        this.viewCart();
+    mounted() {
+        // console.table("from checkout", this.carts);
     },
-    watch: {
-        $route: function (to, from) {
-            // console.log(to, from);
-            // this.loadProduct();
-        },
-    },
-    updated() {},
+
     methods: {
         // Checkout
-        checkout() {
-            console.table(this.carts);
-            /* 
-        product_id
-        order_id
-        quantity
-        total
-        */
-            this.$http.post("http://localhost:8000/api/purchase/", {
-                carts: this.carts,
-                total: this.totalPrice,
-            });
-        },
-
-        // Cart
-        plusQuantity() {
-            this.quantity++;
-        },
-        minusQuantity() {
-            this.quantity--;
-        },
-        viewCart() {
-            if (localStorage.getItem("carts")) {
-                this.carts = JSON.parse(localStorage.getItem("carts"));
-                this.badge = this.carts.length;
-
-                try {
-                    var valeurInitiale = 0;
-                    this.totalPrice = JSON.parse(
-                        localStorage.getItem("carts")
-                    ).reduce(function (accumulateur, valeurCourante) {
-                        return (
-                            accumulateur +
-                            valeurCourante.price * valeurCourante.quantity
-                        );
-                    }, valeurInitiale);
-                    // console.log(
-                    //     this.carts.reduce((total, item) => {
-                    //         return total + item.quantity * item.price;
-                    //     })
-                    // );
-                } catch (error) {
-                    console.log(error);
-                }
-            } else {
-                this.carts = [];
-            }
-            console.table("price", JSON.parse(localStorage.getItem("carts")));
-        },
-        isInCart(product) {
-            if (!localStorage.getItem("carts")) {
-                localStorage.setItem("carts", JSON.stringify([]));
-            }
-            let cartItem = this.carts.find(
-                (item) => item.product_id === product.id
-            );
-            console.log(cartItem);
-            return Boolean(cartItem);
-        },
-        addCart(product) {
-            if (this.isInCart(product)) {
-                // console.log(product);
-                const index = this.carts.findIndex(
-                    ({ product_id }) => product_id === product.id
-                );
-                let cartItem = this.carts[index];
-                if (cartItem.quantity + this.quantity <= 0) {
-                    this.removeFromCart(product);
-                } else {
-                    cartItem.quantity += this.quantity;
-                }
-
-                // console.log("item", cartItem);
-            } else {
-                if (this.quantity > 0) {
-                    this.cartAdd.product_id = product.id;
-                    this.cartAdd.name = product.title;
-                    this.cartAdd.price = product.price;
-                    this.cartAdd.quantity = this.quantity;
-                    this.carts.push(this.cartAdd);
-                }
-            }
-            localStorage.setItem("carts", JSON.stringify(this.carts));
-        },
-        updateCart(product_id, quantity) {},
-        removeFromCart(id) {
-            const index = this.carts.findIndex(
-                ({ product_id }) => product_id === id
-            );
-            this.carts.splice(index, 1);
-            localStorage.setItem("carts", JSON.stringify(this.carts));
-            CartStore.$patch((state) => {
-                state.cart = JSON.parse(localStorage.getItem("carts"));
-            });
-            this.viewCart();
+        purchase() {
+            console.table("from checkout", this.carts);
+            this.$http
+                .post(
+                    "purchase/",
+                    {
+                        carts: this.carts,
+                        form: this.form,
+                    },
+                    {
+                        headers: {
+                            // remove headers
+                        },
+                    }
+                )
+                .then((response) => {
+                    console.log(response.data);
+                    localStorage.clear();
+                    CartStore.$patch((state) => {
+                        state.cart = [];
+                        state.total = 0;
+                    });
+                    this.form = {
+                        name: "",
+                        phone: "",
+                        adress: "",
+                        city: "",
+                        country: "",
+                        email: "",
+                        message: "",
+                        total: 0,
+                        isGift: false,
+                    };
+                })
+                .catch((error) => {
+                    // console.error("eoor", error);
+                });
         },
     },
 };
@@ -275,5 +221,17 @@ export default {
 /* Solid border */
 hr.solid {
     border-top: 3px solid #bbb;
+}
+.inp {
+    border: none;
+    border-bottom: 2px solid #d8d8d8;
+    padding: 5px 10px;
+    outline: none;
+}
+
+[placeholder]:focus::-webkit-input-placeholder {
+    transition: text-indent 0.4s 0.4s ease;
+    text-indent: -100%;
+    opacity: 1;
 }
 </style>

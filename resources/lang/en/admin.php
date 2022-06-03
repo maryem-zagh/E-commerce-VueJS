@@ -174,5 +174,29 @@ return [
         ],
     ],
 
+    'order' => [
+        'title' => 'Orders',
+
+        'actions' => [
+            'index' => 'Orders',
+            'create' => 'New Order',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'name' => 'Name',
+            'phone' => 'Phone',
+            'email' => 'Email',
+            'adress' => 'Adress',
+            'city' => 'City',
+            'country' => 'Country',
+            'is_gift' => 'Is gift',
+            'message' => 'Message',
+            'total' => 'Total',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

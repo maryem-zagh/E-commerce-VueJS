@@ -33,10 +33,7 @@ export default {
     methods: {
         filterProducts() {
             this.$http
-                .get(
-                    "http://localhost:8000/api/products/category/" +
-                        this.$route.params.slug
-                )
+                .get("products/category/" + this.$route.params.slug)
                 .then((response) => {
                     this.products = response.data.products;
                     this.subCategories = response.data.subCategories;

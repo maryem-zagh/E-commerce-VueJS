@@ -80,7 +80,7 @@
                 </table>
             </div>
 
-            <div class="grid lg:grid-cols-3 mt-11 font-Gotham">
+            <div class="grid lg:grid-cols-3 mt-11 font-Gotham" v-if="badge">
                 <div class="p-3">
                     <div class="text-base uppercase mb-4">
                         Delivery & Returns
@@ -123,6 +123,11 @@
                             checkout
                         </button>
                     </div>
+                </div>
+            </div>
+            <div v-else>
+                <div class="flex justify-center p-12">
+                    <div class="text-base">Your cart is empty</div>
                 </div>
             </div>
         </div>
@@ -174,16 +179,18 @@ export default {
         // Checkout
         checkout() {
             console.table(this.carts);
+            localStorage.setItem("total", this.totalPrice + this.shipping);
+            this.$router.push("checkout");
             /* 
         product_id
         order_id
         quantity
         total
         */
-            this.$http.post("http://localhost:8000/api/purchase/", {
-                carts: this.carts,
-                total: this.totalPrice,
-            });
+            // this.$http.post("http://localhost:8000/api/purchase/", {
+            //     carts: this.carts,
+            //     total: this.totalPrice,
+            // });
         },
 
         // Cart

@@ -13,6 +13,8 @@ import './index.css'
 import Axios from 'axios'
 
 
+Axios.defaults.baseURL = 'http://localhost:8000/api';
+
 import {
     library
 } from "@fortawesome/fontawesome-svg-core";

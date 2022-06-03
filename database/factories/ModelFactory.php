@@ -107,3 +107,21 @@ $factory->define(App\Models\Category::class, static function (Faker\Generator $f
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Order::class, static function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstName,
+        'phone' => $faker->sentence,
+        'email' => $faker->email,
+        'adress' => $faker->sentence,
+        'city' => $faker->sentence,
+        'country' => $faker->sentence,
+        'is_gift' => $faker->boolean(),
+        'message' => $faker->sentence,
+        'total' => $faker->randomFloat,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});

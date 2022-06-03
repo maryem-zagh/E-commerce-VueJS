@@ -39,17 +39,17 @@ class ProductController extends Controller
         $category->setAttribute('subcategories', $subcategories);
         return response()->json(['products' => $products, 'subCategories' => $subcategories]);
     }
-    public function relatedProducts($id)
+    public function relatedProducts($slug)
     {
-        $product = Product::find($id);
-        $products = Product::limit(2)->get();
+        $product = Product::where('slug', $slug)->firstOrFail();
+
         try {
 
             $categories = $product->categories;
 
             $products = $categories[0]->products->take(3);
         } catch (\Throwable $th) {
-            $products = [];
+            $products = Product::limit(2)->get();
         }
         return response()->json($products);
     }

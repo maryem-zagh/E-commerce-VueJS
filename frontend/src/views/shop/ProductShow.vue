@@ -187,12 +187,10 @@ export default {
     // },
     mounted() {
         this.$http
-            .get(
-                "http://localhost:8000/api/products/related/" + this.product.id
-            )
+            .get("products/related/" + this.product.slug)
             .then((response) => {
                 this.products = response.data;
-                console.log("other products", this.products);
+                console.log("other products", response.data, this.product.slug);
             })
             .catch((error) => {});
     },
@@ -211,10 +209,7 @@ export default {
         // Product
         loadProduct() {
             this.$http
-                .get(
-                    "http://localhost:8000/api/products/" +
-                        this.$route.params.product
-                )
+                .get("products/" + this.$route.params.product)
                 .then((response) => {
                     this.product = response.data;
                     console.log(this.product);
@@ -237,16 +232,26 @@ export default {
                 this.carts = JSON.parse(localStorage.getItem("carts"));
                 this.badge = this.carts.length;
                 try {
-                    this.totalPrice = this.carts.reduce((total, item) => {
-                        return total + item.quantity * item.price;
-                    });
+                    var valeurInitiale = 0;
+                    this.totalPrice = JSON.parse(
+                        localStorage.getItem("carts")
+                    ).reduce(function (accumulateur, valeurCourante) {
+                        return (
+                            accumulateur +
+                            valeurCourante.price * valeurCourante.quantity
+                        );
+                    }, valeurInitiale);
+                    // console.log(
+                    //     this.carts.reduce((total, item) => {
+                    //         return total + item.quantity * item.price;
+                    //     })
+                    // );
                 } catch (error) {
-                    this.totalPrice = 0;
+                    console.log(error);
                 }
             } else {
                 this.carts = [];
             }
-            console.log("total", this.totalPrice);
         },
 
         addCart(product) {
@@ -277,6 +282,7 @@ export default {
             localStorage.setItem("carts", JSON.stringify(this.carts));
             CartStore.$patch((state) => {
                 state.cart = JSON.parse(localStorage.getItem("carts"));
+                state.total = this.totalPrice;
             });
         },
         updateCart(product_id, quantity) {},

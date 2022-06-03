@@ -13,43 +13,33 @@ const router = createRouter({
             component: HomeView,
         },
         {
+            path: "/contact",
+            name: "contact",
+            component: () => import("../views/ContactView.vue"),
+        },
+        {
             path: "/products",
             name: "products",
-            // route level code-splitting
-            // this generates a separate chunk (About.[hash].js) for this route
-            // which is lazy-loaded when the route is visited.
-            component: () => import("../views/shop/ProductsList.vue"),
+            component: () => import("../views/AllProductsView.vue"),
         },
         {
             path: "/product/:product",
             name: "product-details",
-            // route level code-splitting
-            // this generates a separate chunk (About.[hash].js) for this route
-            // which is lazy-loaded when the route is visited.
             component: () => import("../views/shop/ProductShow.vue"),
         },
         {
             path: "/:slug",
             name: "products-category",
-            // route level code-splitting
-            // this generates a separate chunk (About.[hash].js) for this route
-            // which is lazy-loaded when the route is visited.
             component: () => import("../views/ShopView.vue"),
         },
         {
             path: "/cart",
             name: "shopping-cart",
-            // route level code-splitting
-            // this generates a separate chunk (About.[hash].js) for this route
-            // which is lazy-loaded when the route is visited.
             component: () => import("../views/CartView.vue"),
         },
         {
             path: "/checkout",
             name: "checkout",
-            // route level code-splitting
-            // this generates a separate chunk (About.[hash].js) for this route
-            // which is lazy-loaded when the route is visited.
             component: () => import("../views/CheckoutView.vue"),
         },
     ],
