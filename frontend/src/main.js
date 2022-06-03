@@ -11,6 +11,7 @@ import router from "./router";
 import './index.css'
 
 import Axios from 'axios'
+import clickOutside from "vue3-clickoutside-component";
 
 
 Axios.defaults.baseURL = 'http://localhost:8000/api';
@@ -47,5 +48,5 @@ app.component("font-awesome-icon", FontAwesomeIcon)
 
 app.use(createPinia());
 app.use(router);
-
+app.use(clickOutside);
 app.mount("#app");

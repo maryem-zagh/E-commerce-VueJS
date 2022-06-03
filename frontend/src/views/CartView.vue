@@ -178,7 +178,7 @@ export default {
     methods: {
         // Checkout
         checkout() {
-            console.table(this.carts);
+            // console.table(this.carts);
             localStorage.setItem("total", this.totalPrice + this.shipping);
             this.$router.push("checkout");
             /* 
@@ -221,12 +221,12 @@ export default {
                     //     })
                     // );
                 } catch (error) {
-                    console.log(error);
+                    // console.log(error);
                 }
             } else {
                 this.carts = [];
             }
-            console.table("price", JSON.parse(localStorage.getItem("carts")));
+            // console.table("price", JSON.parse(localStorage.getItem("carts")));
         },
         isInCart(product) {
             if (!localStorage.getItem("carts")) {
@@ -235,7 +235,7 @@ export default {
             let cartItem = this.carts.find(
                 (item) => item.product_id === product.id
             );
-            console.log(cartItem);
+            // console.log(cartItem);
             return Boolean(cartItem);
         },
         addCart(product) {

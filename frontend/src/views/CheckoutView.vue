@@ -13,8 +13,8 @@
                     Order Contact Information
                 </p>
             </div>
-            <div>
-                <div class="grid grid-cols-2 gap-12 font-Gotham text-sm">
+            <form action="" method="post">
+                <div class="grid grid-cols-2 gap-6 font-Gotham text-sm">
                     <!--  -->
                     <div
                         class="flex justify-center text-left col-span-2 lg:col-span-1"
@@ -26,18 +26,22 @@
                             id="name"
                             class="border-solid border-gray-700 w-full px-4 inp"
                             placeholder="Full Name *"
+                            required
                         />
                     </div>
                     <!--  -->
                     <!--  -->
-                    <div class="flex justify-center text-left">
+                    <div
+                        class="flex justify-center text-left col-span-2 lg:col-span-1"
+                    >
                         <input
                             v-model="form.phone"
                             type="text"
                             name="phone"
                             id="phone"
-                            class="border-solid col-span-2 lg:col-span-1 border-gray-700 w-full px-4 inp"
+                            class="border-solid border-gray-700 w-full px-4 inp"
                             placeholder="Phone Number *"
+                            required
                         />
                     </div>
                     <!--  -->
@@ -50,6 +54,7 @@
                             id="adress"
                             class="border-solid border-gray-700 w-full px-4 inp"
                             placeholder="Adress *"
+                            required
                         />
                     </div>
                     <!--  -->
@@ -63,6 +68,7 @@
                             id="city"
                             class="border-solid border-gray-700 w-full px-4 inp"
                             placeholder="City *"
+                            required
                         />
                     </div>
                     <!--  -->
@@ -75,11 +81,14 @@
                             id="country"
                             class="border-solid border-gray-700 w-full px-4 inp"
                             placeholder="Country *"
+                            required
                         />
                     </div>
                     <!--  -->
                     <!--  -->
-                    <div class="flex justify-center text-left">
+                    <div
+                        class="flex justify-center text-left col-span-2 lg:col-span-1"
+                    >
                         <input
                             v-model="form.email"
                             type="text"
@@ -87,12 +96,15 @@
                             id="email"
                             class="border-solid border-gray-700 w-full px-4 inp"
                             placeholder="E-mail *"
+                            required
                         />
                     </div>
                     <!--  -->
                     <!--  -->
-                    <div class="flex justify-around text-base">
-                        <div class="form-group">
+                    <div
+                        class="flex justify-around text-base col-span-2 lg:col-span-1"
+                    >
+                        <div class="form-group p-2">
                             <input
                                 v-model="form.isGift"
                                 type="radio"
@@ -104,7 +116,7 @@
                             <label for="for_me"> Ship for myself</label>
                         </div>
 
-                        <div class="for-group">
+                        <div class="for-group p-2">
                             <input
                                 v-model="form.isGift"
                                 type="radio"
@@ -141,7 +153,7 @@
                     </button>
                 </div>
                 <!--  -->
-            </div>
+            </form>
         </div>
 
         <!-- <ProductsList :products="products" /> -->
@@ -192,7 +204,7 @@ export default {
                     }
                 )
                 .then((response) => {
-                    console.log(response.data);
+                    // console.log(response.data);
                     localStorage.clear();
                     CartStore.$patch((state) => {
                         state.cart = [];

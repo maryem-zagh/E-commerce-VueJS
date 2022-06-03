@@ -37,7 +37,7 @@ export default {
                 .then((response) => {
                     this.products = response.data.products;
                     this.categories = response.data.categories;
-                    console.log(this.products);
+                    // console.log(this.products);
                 })
                 .catch((error) => {});
         },

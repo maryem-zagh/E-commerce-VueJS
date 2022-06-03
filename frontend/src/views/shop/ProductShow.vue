@@ -190,7 +190,7 @@ export default {
             .get("products/related/" + this.product.slug)
             .then((response) => {
                 this.products = response.data;
-                console.log("other products", response.data, this.product.slug);
+                // console.log("other products", response.data, this.product.slug);
             })
             .catch((error) => {});
     },
@@ -212,7 +212,7 @@ export default {
                 .get("products/" + this.$route.params.product)
                 .then((response) => {
                     this.product = response.data;
-                    console.log(this.product);
+                    // console.log(this.product);
                 })
                 .catch((error) => {});
         },
@@ -224,7 +224,7 @@ export default {
             let cartItem = this.carts.find(
                 (item) => item.product_id === product.id
             );
-            console.log(cartItem);
+            // console.log(cartItem);
             return Boolean(cartItem);
         },
         viewCart() {
@@ -247,7 +247,7 @@ export default {
                     //     })
                     // );
                 } catch (error) {
-                    console.log(error);
+                    // console.log(error);
                 }
             } else {
                 this.carts = [];

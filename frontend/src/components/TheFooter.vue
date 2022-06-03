@@ -203,23 +203,31 @@ import Logo from "./Logo.vue";
                     </p>
                     <ul>
                         <li class="p-0.5">
-                            <a href="/home">Home</a>
+                            <RouterLink to="/">Home </RouterLink>
                         </li>
                         <li class="p-0.5"><a href="#">Browse</a></li>
                         <li class="p-0.5">
-                            <a href="/new-arrivals">New Arrivals</a>
+                            <RouterLink to="/new-arrivals">
+                                New Arrivals</RouterLink
+                            >
                         </li>
                     </ul>
                 </div>
                 <div class="mt-7">
                     <ul>
                         <li class="p-0.5">
-                            <a href="/products">All Products</a>
+                            <RouterLink to="/products">
+                                All Products</RouterLink
+                            >
                         </li>
                         <li class="p-0.5">
-                            <a href="/the-interior-gates">Interior Gates</a>
+                            <RouterLink to="/the-interior-gates"
+                                >The Interior Gates
+                            </RouterLink>
                         </li>
-                        <li class="p-0.5">Contact</li>
+                        <li class="p-0.5">
+                            <RouterLink to="/contact"> Contact</RouterLink>
+                        </li>
                     </ul>
                 </div>
             </div>

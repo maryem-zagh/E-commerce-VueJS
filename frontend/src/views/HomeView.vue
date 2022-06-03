@@ -19,7 +19,7 @@
                     class="w-full aspect-w-1 aspect-h-1 bg-gray-200 overflow-hidden xl:aspect-w-7 xl:aspect-h-8"
                 >
                     <img
-                        src="@/assets/hero.png"
+                        src="@/assets/hero.webp"
                         alt="product.imageAlt"
                         class="w-full h-full object-center object-cover"
                     />
@@ -58,7 +58,7 @@
                 }"
             >
                 <img
-                    src="@/assets/new-arrivals.png"
+                    src="@/assets/new-arrivals.webp"
                     alt="product.imageAlt"
                     class="w-full h-full pr-0 pb-3 md:pr-3 md:pb-0"
                 />
@@ -83,7 +83,7 @@
                 }"
             >
                 <img
-                    src="@/assets/shop.png"
+                    src="@/assets/shop.webp"
                     alt="product.imageAlt"
                     class="w-full h-full"
                 />
@@ -112,7 +112,7 @@
                     }"
                 >
                     <img
-                        src="@/assets/the-interior-gates.png"
+                        src="@/assets/the-interior-gates.webp"
                         alt="product.imageAlt"
                         class="w-full h-full"
                     />
@@ -148,7 +148,7 @@ export default {
             .get("categories")
             .then((response) => {
                 this.categories = response.data;
-                console.log(this.categories);
+                // console.log(this.categories);
             })
             .catch((error) => {
                 // console.error(error);
