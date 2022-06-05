@@ -132,7 +132,7 @@
                 <!-- Button -->
                 <div class="mt-10">
                     <button
-                        @click="purchase()"
+                        @click="showModal()"
                         class="w-full capitalize bg-black hover:bg-gray-600 active:bg-gray-700 focus:outline-none focus:ring focus:ring-violet-300 px-auto py-4 text-white text-2xl font-Gotham font-normal"
                     >
                         Submit
@@ -141,7 +141,33 @@
                 <!--  -->
             </form>
         </div>
+        <!-- Trigger/Open the Modal -->
 
+        <div class="w3-container">
+            <div class="w3-modal justify-center" :class="[open ? 'block' : '']">
+                <div class="w3-modal-content w-1/2 h-1/2 text-center fon">
+                    <div class="w3-container">
+                        <button
+                            @click="hideModal()"
+                            class="w3-button w3-display-topright text-5xl"
+                        >
+                            &times;
+                        </button>
+
+                        <div class="px-10 py-5 md:py-20">
+                            <p
+                                class="font-Amaline text-4xl md:text-5xl font-normal"
+                            >
+                                Your Contact has been submitted successfully
+                            </p>
+                            <p class="font-Montserrat text-base font-semibold">
+                                We will contact you in the next few days.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- <ProductsList :products="products" /> -->
     </div>
 </template>
@@ -151,6 +177,7 @@ export default {
     components: {},
     data() {
         return {
+            open: false,
             form: {
                 name: "",
                 phone: "",
@@ -165,21 +192,20 @@ export default {
     },
 
     methods: {
+        // Modal
+        showModal() {
+            this.open = true;
+        },
+        hideModal() {
+            this.open = false;
+        },
         // Checkout
         purchase() {
             this.$http
-                .post(
-                    "purchase/",
-                    {
-                        carts: this.carts,
-                        form: this.form,
-                    },
-                    {
-                        headers: {
-                            // remove headers
-                        },
-                    }
-                )
+                .post("purchase/", {
+                    carts: this.carts,
+                    form: this.form,
+                })
                 .then((response) => {
                     // console.log(response.data);
                     localStorage.clear();

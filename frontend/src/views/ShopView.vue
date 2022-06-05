@@ -21,7 +21,7 @@ export default {
     //         .catch((error) => {});
     // },
 
-    beforeMount() {
+    created() {
         this.filterProducts();
     },
     watch: {
@@ -33,7 +33,7 @@ export default {
     methods: {
         filterProducts() {
             this.$http
-                .get("products/category/" + this.$route.params.slug)
+                .get("/products/category/" + this.$route.params.slug)
                 .then((response) => {
                     this.products = response.data.products;
                     this.subCategories = response.data.subCategories;

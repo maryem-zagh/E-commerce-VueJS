@@ -151,6 +151,37 @@
         </div>
 
         <ProductsList :products="products" />
+
+        <!-- Trigger/Open the Modal -->
+
+        <div class="w3-container">
+            <div class="w3-modal justify-center" :class="[open ? 'block' : '']">
+                <div class="w3-modal-content w-1/3 h-fit text-center fon">
+                    <div class="w3-container">
+                        <button
+                            @click="hideModal()"
+                            class="w3-button w3-display-topright text-5xl"
+                        >
+                            &times;
+                        </button>
+
+                        <div class="px-10 py-5 md:py-20">
+                            <p class="font-Amaline text-5xl font-normal">
+                                Yess
+                            </p>
+                            <p class="font-Montserrat text-base font-semibold">
+                                Your product is in Shopping Cart
+                            </p>
+                            <button
+                                class="w-4/5 bg-black hover:bg-gray-600 active:bg-gray-700 focus:outline-none focus:ring focus:ring-violet-300 px-auto py-2 my-6 text-white text-2xl font-Gotham font-normal"
+                            >
+                                <RouterLink to="/cart"> Let’s Go </RouterLink>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -163,6 +194,7 @@ export default {
     components: { ProductsList },
     data() {
         return {
+            open: false,
             product: [],
             products: [],
             carts: [],
@@ -206,6 +238,13 @@ export default {
     },
 
     methods: {
+        // Modal
+        showModal() {
+            this.open = true;
+        },
+        hideModal() {
+            this.open = false;
+        },
         // Product
         loadProduct() {
             this.$http
@@ -284,6 +323,7 @@ export default {
                 state.cart = JSON.parse(localStorage.getItem("carts"));
                 state.total = this.totalPrice;
             });
+            this.showModal();
         },
         updateCart(product_id, quantity) {},
         plusQuantity() {

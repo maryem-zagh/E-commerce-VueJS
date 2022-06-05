@@ -9,12 +9,16 @@ import App from "./App.vue";
 import router from "./router";
 // Tailwindcss
 import './index.css'
-
+// modal
+// axios
 import Axios from 'axios'
 import clickOutside from "vue3-clickoutside-component";
 
 
-Axios.defaults.baseURL = 'http://localhost:8000/api';
+
+Axios.defaults.baseURL = 'https://feelnfill-admin.tundev.tn/api';
+// Axios.defaults.baseURL = 'http://localhost:8000/api';
+// Axios.defaults.headers.common['Access-Control-Allow-Origin'] = 'https://www.feelnfill-preprod.tundev.tn/'
 
 import {
     library

@@ -1,7 +1,7 @@
 <template>
+    <!--     v-click-outside="() => hideDropdown()"
+        @focus="toggle()" -->
     <div
-        v-click-outside="() => hideDropdown()"
-        @focus="toggle()"
         class="sidenav fixed inset-0 font-Gotham font-light transition-all bg-white h-screen z-50 overflow-hidden justify-center flex items-center text-xl text-gray-900"
         :class="[opened ? 'w-80' : 'w-0  ']"
     >
@@ -33,21 +33,28 @@
 </template>
 <script>
 export default {
-    // props: { open: Boolean },
+    props: { open: Boolean },
     data() {
         return {
-            opened: open,
+            opened: this.open,
             dimmer: true,
             right: false,
         };
+    },
+    watch: {
+        open: function (newVal, oldVal) {
+            // watch it
+            this.opened = newVal;
+        },
     },
     methods: {
         toggle() {
             this.opened = !this.opened;
         },
         hideDropdown() {
-            console.log("close dropdown");
-            this.toggle();
+            // console.log("close dropdown", this.opened);
+
+            this.opened = !this.opened;
         },
     },
 };

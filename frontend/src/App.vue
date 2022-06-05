@@ -20,7 +20,11 @@ const CartStore = useCartStore();
                 </RouterLink>
 
                 <nav class="w-full mx-4 xl:w-5/6">
-                    <div @click="toggle()" class="flex items-center">
+                    <div
+                        @click="toggle()"
+                        v-click-outside="() => hideDropdown()"
+                        class="flex items-center"
+                    >
                         <font-awesome-icon icon="bars" />
                         <span class="hidden md:block ml-2">Menu</span>
                     </div>
@@ -55,6 +59,10 @@ export default {
     methods: {
         toggle() {
             this.open = !this.open;
+        },
+        hideDropdown() {
+            console.log("close dropdown");
+            this.open = false;
         },
     },
 };

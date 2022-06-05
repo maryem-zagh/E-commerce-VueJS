@@ -13,7 +13,7 @@
                     Order Contact Information
                 </p>
             </div>
-            <form action="" method="post">
+            <form>
                 <div class="grid grid-cols-2 gap-6 font-Gotham text-sm">
                     <!--  -->
                     <div
@@ -155,19 +155,49 @@
                 <!--  -->
             </form>
         </div>
+        <!-- Trigger/Open the Modal -->
 
+        <div class="w3-container">
+            <div class="w3-modal justify-center" :class="[open ? 'block' : '']">
+                <div class="w3-modal-content w-1/2 h-fit text-center fon">
+                    <div class="w3-container">
+                        <button
+                            @click="hideModal()"
+                            class="w3-button w3-display-topright text-5xl"
+                        >
+                            &times;
+                        </button>
+
+                        <div class="px-10 py-5 md:py-20">
+                            <p
+                                class="font-Amaline text-3xl md:text-5xl font-normal"
+                            >
+                                Your order has been submitted successfully
+                            </p>
+                            <p class="font-Montserrat text-base font-semibold">
+                                We will contact you in the next few days.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- <ProductsList :products="products" /> -->
     </div>
 </template>
 
 <script>
 import { useCartStore } from "../stores/cart";
-
+const headers = {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+};
 const CartStore = useCartStore();
 export default {
     components: {},
     data() {
         return {
+            open: false,
             carts: CartStore.cart,
             form: {
                 name: "",
@@ -187,44 +217,50 @@ export default {
     },
 
     methods: {
+        // Modal
+        showModal() {
+            this.open = true;
+        },
+        hideModal() {
+            this.open = false;
+        },
         // Checkout
         purchase() {
-            console.table("from checkout", this.carts);
-            this.$http
-                .post(
-                    "purchase/",
-                    {
-                        carts: this.carts,
-                        form: this.form,
-                    },
-                    {
-                        headers: {
-                            // remove headers
-                        },
-                    }
-                )
-                .then((response) => {
-                    // console.log(response.data);
-                    localStorage.clear();
-                    CartStore.$patch((state) => {
-                        state.cart = [];
-                        state.total = 0;
-                    });
-                    this.form = {
-                        name: "",
-                        phone: "",
-                        adress: "",
-                        city: "",
-                        country: "",
-                        email: "",
-                        message: "",
-                        total: 0,
-                        isGift: false,
-                    };
-                })
-                .catch((error) => {
-                    // console.error("eoor", error);
-                });
+            // console.table("from checkout", this.carts);
+            this.showModal();
+            // this.$http
+            //     .post(
+            //         "purchase",
+            //         {
+            //             carts: this.carts,
+            //             form: this.form,
+            //         },
+            //         {
+            //             headers: headers,
+            //         }
+            //     )
+            //     .then((response) => {
+            //         // console.log(response.data);
+            //         localStorage.clear();
+            //         CartStore.$patch((state) => {
+            //             state.cart = [];
+            //             state.total = 0;
+            //         });
+            //         this.form = {
+            //             name: "",
+            //             phone: "",
+            //             adress: "",
+            //             city: "",
+            //             country: "",
+            //             email: "",
+            //             message: "",
+            //             total: 0,
+            //             isGift: false,
+            //         };
+            //     })
+            //     .catch((error) => {
+            //         // console.error("eoor", error);
+            //     });
         },
     },
 };
