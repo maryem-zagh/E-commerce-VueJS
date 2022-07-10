@@ -3,8 +3,10 @@ import Logo from "./Logo.vue";
 </script>
 <template>
     <footer class="bg-primary h-72 flex justify-center">
-        <div class="absolute bottom-8 text-white font-Quicksand">
-            <span class="p-3"
+        <div
+            class="absolute bottom-8 text-white font-Quicksand self-centet flex"
+        >
+            <span class="p-3 text-center"
                 >Copyright @ 2022 INTONE DIGITALS. All Right Reserved - Powered
                 by Tundev
             </span>

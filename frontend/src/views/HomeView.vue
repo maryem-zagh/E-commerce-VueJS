@@ -1,6 +1,6 @@
 <template>
-    <main class="mt-12">
-        <div class="grid grid-cols-2 ml-24 font-ProductSans">
+    <main class="mt-32 lg:mt-12">
+        <div class="grid md:grid-cols-2 px-6 lg:p-24 font-ProductSans">
             <div>
                 <div
                     class="text-primary text-6xl font-bold tracking-wide mb-14"
@@ -19,7 +19,7 @@
                     projets, élements et stock créatifs en un seul endroit en
                     fonction de vos besoins.
                 </div>
-                <div class="mt-8">
+                <div class="my-8">
                     <span class="text-secondary font-bold text-2xl">
                         Decouvrir Intone Digitals Market
                     </span>

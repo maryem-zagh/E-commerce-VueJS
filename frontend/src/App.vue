@@ -16,6 +16,10 @@ const CartStore = useCartStore();
                 </RouterLink>
 
                 <nav class="w-full mx-4 xl:w-5/6 text-primary">
+                    <font-awesome-icon
+                        icon="bars"
+                        class="block md:hidden mr-6 lg:mr-12"
+                    />
                     <RouterLink to="#" class="flex items-center">
                         <span class="hidden md:block mr-12"
                             >Home</span
