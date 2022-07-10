@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
     content: [
         "./index.html",
@@ -6,9 +8,21 @@ module.exports = {
     theme: {
         fontFamily: {
 
-            'Gotham': ['Gotham'],
-            'Amaline': ['Amaline Trial'],
-            'Montserrat': ['Montserrat']
+            'ProductSans': ['Product Sans'],
+            'Quicksand': ['Quicksand'],
+
+        },
+        colors: {
+            transparent: 'transparent',
+            current: 'currentColor',
+            black: colors.black,
+            white: colors.white,
+            gray: colors.gray,
+
+            primary: '#1D1D1D',
+            secondary: '#1D57A6',
+            info: '#464646',
+
         },
         extend: {},
     },

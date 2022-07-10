@@ -1,135 +1,38 @@
 <template>
-    <main>
-        <!-- <div class="flex flex-col text-center my-32">
-            <router-link
-                v-for="category in categories"
-                :key="category.id"
-                class="text-5xl font-normal text-gray-900 capitalize pt-10 font-Amaline tracking-wider"
-                :to="{
-                    name: 'products-category',
-                    params: { slug: category.slug, name: category.name },
-                }"
-            >
-                {{ category.name }}
-            </router-link>
-        </div> -->
-        <div class="grid grid-cols-1 md:grid-cols-12 pb-3">
-            <div class="md:col-span-7">
+    <main class="mt-12">
+        <div class="grid grid-cols-2 ml-24 font-ProductSans">
+            <div>
                 <div
-                    class="w-full aspect-w-1 aspect-h-1 bg-gray-200 overflow-hidden xl:aspect-w-7 xl:aspect-h-8"
+                    class="text-primary text-6xl font-bold tracking-wide mb-14"
                 >
-                    <img
-                        src="@/assets/hero.webp"
-                        alt="product.imageAlt"
-                        class="w-full h-full object-center object-cover"
+                    Trouvez les meilleurs projets digitals
+                </div>
+
+                <img
+                    alt="Vue logo"
+                    class="logo"
+                    src="@/assets/intone-market.svg"
+                    width="342"
+                />
+                <div class="mt-5 text-xl font-normal text-info">
+                    Vous allez trouvez entre vos mains un nombre illimité de
+                    projets, élements et stock créatifs en un seul endroit en
+                    fonction de vos besoins.
+                </div>
+                <div class="mt-8">
+                    <span class="text-secondary font-bold text-2xl">
+                        Decouvrir Intone Digitals Market
+                    </span>
+                    <font-awesome-icon
+                        icon="greater-than"
+                        class="text-secondary font-bold"
                     />
                 </div>
             </div>
-            <div
-                class="col-span-5 flex flex-col absolute top-56 right-0 w-4/6 p-20"
-            >
-                <p
-                    class="font-Gotham font-medium text-6xl text-right hidden lg:block"
-                >
-                    01
-                </p>
-                <p
-                    class="font-Amaline font-normal text-8xl text-right hidden lg:block"
-                >
-                    The Hidden----- Garden
-                </p>
-                <p
-                    class="font-Gotham font-light text-2xl text-right hidden lg:block"
-                >
-                    <span class="mr-2"> Discover now</span>
-                    <font-awesome-icon icon="greater-than" />
-                </p>
+            <div class="justify-end flex">
+                <img src="@/assets/shop.png" alt="shop" />
             </div>
         </div>
-
-        <!-- Section Categories Start -->
-        <div class="grid grid-cols-1 md:grid-cols-2 p-2">
-            <!-- New arrivals -->
-            <router-link
-                class="relative object-cover hover:opacity-75"
-                :to="{
-                    name: 'products-category',
-                    params: { slug: 'new-arrivals', name: 'New Arrivals' },
-                }"
-            >
-                <img
-                    src="@/assets/new-arrivals.webp"
-                    alt="product.imageAlt"
-                    class="w-full h-full pr-0 pb-3 md:pr-3 md:pb-0"
-                />
-                <div
-                    class="absolute w-full bottom-1/2 text-center text-4xl font-normal text-white capitalize font-Amaline tracking-wider"
-                >
-                    New Arrivals
-                </div>
-                <div
-                    class="absolute w-full top-2/4 text-center text-2xl font-light text-white capitalize font-Gotham tracking-wider"
-                >
-                    Discover now
-                </div>
-            </router-link>
-
-            <!-- Shop -->
-            <router-link
-                class="relative object-cover hover:opacity-75"
-                :to="{
-                    name: 'products-category',
-                    params: { slug: 'shop', name: 'shop' },
-                }"
-            >
-                <img
-                    src="@/assets/shop.webp"
-                    alt="product.imageAlt"
-                    class="w-full h-full"
-                />
-                <div
-                    class="absolute w-full bottom-1/2 text-center text-4xl font-normal text-white capitalize font-Amaline tracking-wider"
-                >
-                    Shop
-                </div>
-                <div
-                    class="absolute w-full top-2/4 text-center text-2xl font-light text-white capitalize font-Gotham tracking-wider"
-                >
-                    Discover now
-                </div>
-            </router-link>
-        </div>
-        <div class="grid p-2">
-            <div class="pt-3">
-                <router-link
-                    class="relative object-cover hover:opacity-75"
-                    :to="{
-                        name: 'products-category',
-                        params: {
-                            slug: 'the-interior-gates',
-                            name: 'The Interior Gates',
-                        },
-                    }"
-                >
-                    <img
-                        src="@/assets/the-interior-gates.webp"
-                        alt="product.imageAlt"
-                        class="w-full h-full"
-                    />
-                    <div
-                        class="absolute w-full bottom-1/2 text-center text-4xl font-normal text-white capitalize font-Amaline tracking-wider"
-                    >
-                        The Interior Gates
-                    </div>
-                    <div
-                        class="absolute w-full top-2/4 text-center text-2xl font-light text-white capitalize font-Gotham tracking-wider"
-                    >
-                        Discover now
-                    </div>
-                </router-link>
-            </div>
-        </div>
-        <!-- <Products /> -->
     </main>
 </template>
 <script>

@@ -1,9 +1,8 @@
 <template>
     <img
         alt="Vue logo"
-        class="logo p-2"
-        src="@/assets/Asset2.svg"
-        width="64"
-        height="64"
+        class="logo ml-24 mt-8"
+        src="@/assets/logo-black.svg"
+        width="150"
     />
 </template>
