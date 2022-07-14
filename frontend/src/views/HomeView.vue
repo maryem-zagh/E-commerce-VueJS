@@ -1,6 +1,8 @@
 <template>
     <main class="mt-32 lg:mt-12">
-        <div class="grid md:grid-cols-2 px-6 lg:p-24 font-ProductSans">
+        <div
+            class="grid md:grid-cols-2 px-6 lg:pl-24 lg:pt-24 lg:pr-0 font-ProductSans"
+        >
             <div>
                 <div
                     class="text-primary text-6xl font-bold tracking-wide mb-14"
@@ -14,7 +16,7 @@
                     src="@/assets/intone-market.svg"
                     width="342"
                 />
-                <div class="mt-5 text-xl font-normal text-info">
+                <div class="mt-5 text-2xl font-normal text-info">
                     Vous allez trouvez entre vos mains un nombre illimité de
                     projets, élements et stock créatifs en un seul endroit en
                     fonction de vos besoins.
@@ -34,374 +36,391 @@
                 <img src="@/assets/shop.png" alt="shop" />
             </div>
         </div>
-         <div class="grid md:grid-cols-2 px-6 lg:p-24 font-ProductSans">
+        <div class="grid md:grid-cols-2 px-6 lg:p-24 font-ProductSans">
             <div>
-                <div
-                    class="text-primary text-4xl font-bold tracking-wide mb-14"
-                >
+                <div class="text-primary text-4xl font-bold tracking-wide mb-4">
                     A propos
                 </div>
 
-                <img
-                    alt="Vue logo"
-                    class="logo"
-                    src="@/assets/linge.png"
-                    width="145"
-                />
-                <div class="mt-5 text-xl font-normal text-info">
-                    Intone Digitals est une nouvelle agence créative présente à l'échelle internationale basée
-                     entre Paris et Tunis qui se spécialise dans plusieurs domaines tels que les services Digitaux
-                     et la formation.
-                    Comme une entité innovante, Nous garantissons à l'avance la satisfaction à nos clients à travers
-                     une technique de travail fluide et solide en offrant des "projets prêts" à exécuter ou des services
-                      de conseil "sur mesure" dans plusieurs activités comme le design, le marketing digital, le codage web,
-                     mobile et le e-learning.
-
+                <img alt="linge" src="@/assets/linge.png" width="145" />
+                <div class="mt-6 text-2xl font-normal text-info">
+                    Intone Digitals est une nouvelle agence créative présente à
+                    l'échelle internationale basée entre Paris et Tunis qui se
+                    spécialise dans plusieurs domaines tels que les services
+                    Digitaux et la formation.
                 </div>
-                 <div class="my-9 shrink-0">
+                <div class="mt-6 text-2xl font-normal text-info">
+                    Comme une entité innovante, Nous garantissons à l'avance la
+                    satisfaction à nos clients à travers une technique de
+                    travail fluide et solide en offrant des "projets prêts" à
+                    exécuter ou des services de conseil "sur mesure" dans
+                    plusieurs activités comme le design, le marketing digital,
+                    le codage web, mobile et le e-learning.
+                </div>
+                <div class="my-9 shrink-0">
                     <div
-                    class="text-primary text-4xl font-bold tracking-wide mb-14 "
-                >
-                    #La simplicité est la sophistication ultime
+                        class="text-primary text-5xl font-bold tracking-wide mb-14"
+                    >
+                        #La simplicité est la sophistication ultime
+                    </div>
                 </div>
-               
-                 </div>
-              
             </div>
             <!-- produit -->
-            <div class="justify-end flex">
-                <img src="@/assets/apropos.png"   alt="shop" />
+            <div class="justify-center flex">
+                <img src="@/assets/about.svg" width="340" alt="shop" />
             </div>
         </div>
-         <div class="grid md:grid-cols-1 px-6 lg:p-24 font-ProductSans ">
-            <div>
+        <div class="grid px-6 lg:p-24 lg:pt-12 font-ProductSans">
+            <div
+                class="text-primary text-4xl font-bold tracking-wide text-center mb-14"
+            >
+                Produits
+            </div>
+            <div
+                class="mt-5 text-lg text-stone-100 font-normal text-center text-info"
+            >
+                Des spécialités qui vont vous donner la main libre d’atteindre
+                facilement <br />vos objectifs.
+            </div>
+
+            <div
+                class="grid sm:grid-cols-2 xl:grid-cols-4 gap-24 px-6 py-16 xl:p-20"
+            >
+                <!-- product 1 -->
                 <div
-                    class="text-primary text-4xl font-bold tracking-wide text-center mb-14"
+                    class="bg-white rounded-[30px] p-4 border-gray-200 shadow-2xl w-full mt-2 inline-grid justify-items-center"
                 >
-                    Produits
+                    <div
+                        class="w-20 h-20 -top-8 rounded-full bg-[#1D57A6] text-white flex justify-center items-center"
+                    >
+                        <a href="# " class="">
+                            <img
+                                alt="park"
+                                class="park"
+                                src="@/assets/icons/park.svg"
+                                width="48"
+                            />
+                        </a>
+                    </div>
+                    <div class="text-primary text-center font-bold">
+                        #We_Design
+                    </div>
+                    <div
+                        class="mt-2 text-stone-100 font-normal text-center text-info"
+                    >
+                        Nous concevons des œuvres d'art qui inspirent les
+                        esprits et racontent des histoires percutantes.
+                    </div>
+                    <div class="mt-4 text-center">
+                        <span
+                            class="text-secondary font-bold text-center text-base"
+                        >
+                            Decouvrir
+                        </span>
+                        <font-awesome-icon
+                            icon="greater-than"
+                            class="text-secondary font-bold"
+                        />
+                    </div>
                 </div>
-                <div class="mt-5 text-lg text-stone-100 font-normal text-center text-info">
-                    Des spécialités qui vont vous donner la main libre d’atteindre facilement <br/>vos objectifs.
+                <!-- product 1 -->
+                <div
+                    class="bg-white rounded-[30px] p-4 border-gray-200 shadow-2xl w-full mt-2 inline-grid justify-items-center"
+                >
+                    <div
+                        class="w-20 h-20 -top-8 rounded-full bg-[#1D57A6] text-white flex justify-center items-center"
+                    >
+                        <a href="#">
+                            <img
+                                alt="park"
+                                class="park"
+                                src="@/assets/icons/web-stories.svg"
+                                width="48"
+                            />
+                        </a>
+                    </div>
+                    <div class="text-primary text-center font-bold">
+                        #We_Create
+                    </div>
+                    <div
+                        class="mt-2 text-stone-100 font-normal text-center text-info"
+                    >
+                        Nous concevons des œuvres d'art qui inspirent les
+                        esprits et racontent des histoires percutantes.
+                    </div>
+                    <div class="mt-4 text-center">
+                        <span
+                            class="text-secondary font-bold text-center text-base"
+                        >
+                            Decouvrir
+                        </span>
+                        <font-awesome-icon
+                            icon="greater-than"
+                            class="text-secondary font-bold"
+                        />
+                    </div>
                 </div>
 
-                
-               <div class="grid grid-cols-4 gap-4 px-6  lg:p-20 ">
-                
-                <div class=" bg-white rounded-[30px] p-4 flex-col-3 static w-48 h-64 border-gray-200 shadow-2xl ">
-                       
-                     <!-- <div class=" rounded-full bg-blue-500 absolute left-16">
-                    <a href="#">
-                        <svg
-                            class="w-5 h-5"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                                clip-rule="evenodd"
+                <!-- product 1 -->
+                <div
+                    class="bg-white rounded-[30px] p-4 border-gray-200 shadow-2xl w-full mt-2 inline-grid justify-items-center"
+                >
+                    <div
+                        class="w-20 h-20 -top-8 rounded-full bg-[#1D57A6] text-white flex justify-center items-center"
+                    >
+                        <a href="#">
+                            <img
+                                alt="park"
+                                class="park"
+                                src="@/assets/icons/graph.svg"
+                                width="48"
                             />
-                        </svg>
-                    </a>
-                        </div> -->
-                         <div class="w-20 h-20 -top-8 left-16 rounded-full  bg-[#1D57A6] text-white flex justify-center items-center">
-                                <a href="#">
-                                        <svg
-                            class="w-9 h-9"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                                       >
-                            <path
-                                    fill-rule="evenodd"
-                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                                clip-rule="evenodd"
-                             />
-                                 </svg>
-                                </a>    
-                    
-                         </div>
-                           <div
-                    class="text-primary text-center font-bold "
-                >
-                    #We_Design
-                </div>
-                     <div class="mt-2  text-stone-100 font-normal text-center text-info">
-                        Nous concevons des œuvres d'art qui inspirent les esprits et racontent des histoires percutantes.
-                     </div>
-                       <div class="mt-2 text-center">
-                    <span class="text-secondary font-bold text-center">
-                        Decouvrir 
-                    </span>
-                    <font-awesome-icon
-                        icon="greater-than"
-                        class="text-secondary font-bold"
-                    />
-                </div>
-                 </div>
-                 <div class="max-w-sm bg-white rounded-[30px] border w-48 h-64 text-white border-gray-200 shadow-2xl">
-                        
-                     <div class="w-20 h-20  -top-8 left-16 rounded-full  bg-[#1D57A6] flex justify-center items-center">
-                              <a href="#">
-                        <svg
-                            class="w-9 h-9"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
+                        </a>
+                    </div>
+                    <div class="text-primary text-center font-bold">
+                        #We_Promote
+                    </div>
+                    <div
+                        class="mt-2 text-stone-100 font-normal text-center text-info"
+                    >
+                        Nous concevons des œuvres d'art qui inspirent les
+                        esprits et racontent des histoires percutantes.
+                    </div>
+                    <div class="mt-4 text-center">
+                        <span
+                            class="text-secondary font-bold text-center text-base"
                         >
-                            <path
-                                fill-rule="evenodd"
-                                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
-                                clip-rule="evenodd"
-                            />
-                        </svg>
-                    </a>    
-                         </div>
-                               <div
-                    class="text-primary text-center font-bold "
+                            Decouvrir
+                        </span>
+                        <font-awesome-icon
+                            icon="greater-than"
+                            class="text-secondary font-bold"
+                        />
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white rounded-[30px] pb-2 border-gray-200 shadow-2xl w-full mt-2 inline-grid justify-items-center"
                 >
-                    #We_Create
-                </div>
-                     <div class="mt-2  text-stone-100 font-normal text-center text-info">
-                        Nous concevons des œuvres d'art qui inspirent les esprits et racontent des histoires percutantes.
-                     </div>
-                     <div class="mt-2 text-center">
-                    <span class="text-secondary font-bold text-center">
-                        Decouvrir 
-                    </span>
-                    <font-awesome-icon
-                        icon="greater-than"
-                        class="text-secondary font-bold"
-                    />
-                </div>
-                 </div>
-                 <div class="max-w-sm bg-white rounded-[30px] border w-48 h-64 text-white border-gray-200 shadow-2xl">
-                        
-                     <div class="w-20 h-20  -top-8 left-16 rounded-full  bg-[#1D57A6] flex justify-center items-center">
-                              <a href="#">
-                        <svg
-                            class="w-9 h-9"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
+                    <div
+                        class="w-20 h-20 -top-8 rounded-full bg-[#F87524] flex justify-center items-center"
+                    >
+                        <a href="#">
+                            <img
+                                alt="park"
+                                class="park"
+                                src="@/assets/icons/learning.svg"
+                                width="48"
+                            />
+                        </a>
+                    </div>
+                    <div class="text-primary text-center font-bold">
+                        Cours<br />
+                        En Ligne
+                    </div>
+                    <div
+                        class="mt-5 w-full bg-[#F87524] skew-y-[18.57deg] text-white text-center font-bold"
+                    >
+                        Bientot
+                    </div>
+                    <div class="mt-9 text-center">
+                        <span
+                            class="text-secondary font-bold text-center text-base"
                         >
-                            <path
-                                fill-rule="evenodd"
-                                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
-                                clip-rule="evenodd"
-                            />
-                        </svg>
-                    </a>    
-                         </div>
-                             <div
-                    class="text-primary text-center font-bold "
-                >
-                    #We_Promote
+                            Decouvrir
+                        </span>
+                        <font-awesome-icon
+                            icon="greater-than"
+                            class="text-secondary font-bold"
+                        />
+                    </div>
                 </div>
-                     <div class="mt-2  text-slate-200 font-normal text-center text-info">
-                        Nous concevons des œuvres d'art qui inspirent les esprits et racontent des histoires percutantes.
-                     </div>
-                     <div class="mt-2 text-center">
-                    <span class="text-secondary font-bold text-center">
-                        Decouvrir 
-                    </span>
-                    <font-awesome-icon
-                        icon="greater-than"
-                        class="text-secondary font-bold"
-                    />
-                </div>
-                 </div>
-                 <div class="max-w-sm bg-white rounded-[30px] border w-48 h-64 text-white border-gray-200 shadow-2xl">
-                        
-                     <div class="w-20 h-20  -top-8 left-16 rounded-full  bg-[#F87524] flex justify-center items-center">
-                               <a href="#">
-                        <svg
-                            class="w-9 h-9"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
-                                clip-rule="evenodd"
-                            />
-                        </svg>
-                    </a>   
-                         </div>
-                         <div
-                    class="text-primary text-center font-bold "
-                >
-                    Cours<br/> En Ligne
-                </div>
-                          <div
-                    class="mt-5 bg-[#F87524] skew-y-[18.57deg] text-white   text-center font-bold "
-                >
-                      Bientot 
-                </div>
-                      <div class="mt-9 text-center">
-                    <span class="text-secondary font-bold text-center">
-                        Decouvrir 
-                    </span>
-                    <font-awesome-icon
-                        icon="greater-than"
-                        class="text-secondary font-bold"
-                    />
-                </div>
-                    
-                 </div>
-                </div> 
-               
             </div>
-          
         </div>
         <!-- contact -->
-         <div class="grid md:grid-cols-2 px-6 lg:p-24 font-ProductSans space-x-7">
-             <div>
+        <div
+            class="grid md:grid-cols-2 p-6 lg:px-24 lg:gap-x-60 font-ProductSans space-x-7"
+        >
+            <div>
                 <div
-                    class="text-primary text-6xl font-bold tracking-wide mb-14"
+                    class="text-primary text-5xl pr-16 font-bold tracking-wide mb-14"
                 >
                     Intéressés par une collaboration avec nous ?
                 </div>
 
-                <div class="mt-5 text-gray-400 text-xl font-normal text-info">
-                   Vous pouvez nous contacter directement & nous suivre sur les réseaux sociaux pour etres a jour.
+                <div class="mt-5 text-base pr-24 font-normal text-info">
+                    Vous pouvez nous contacter directement & nous suivre sur les
+                    réseaux sociaux pour etres a jour.
                 </div>
-              
-                <div class=" flex mt-6 space-x-10 justify-left lg:justify-start">
-                    <a href="#">
-                        <svg
-                            class="w-5 h-5"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
+
+                <div class="rounded-lg grid lg:grid-cols-3 font-Montserrat">
+                    <div class="col-span-2">
+                        <div
+                            class="flex mt-6 space-x-10 justify-left lg:justify-start"
                         >
-                            <path
-                                fill-rule="evenodd"
-                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                                clip-rule="evenodd"
-                            />
-                        </svg>
-                    </a>
-                    <a href="#">
-                        <svg
-                            class="w-5 h-5"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
-                                clip-rule="evenodd"
-                            />
-                        </svg>
-                    </a>
-                    <a href="#">
-                        <svg
-                            class="w-5 h-5"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                        >
-                            <path
-                                d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
-                            />
-                        </svg>
-                    </a>
-                    <a href="#">
-                        <svg
-                            class="w-5 h-5"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                                clip-rule="evenodd"
-                            />
-                        </svg>
-                    </a>
-                    <a href="#">
-                        <svg
-                            class="w-5 h-5"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z"
-                                clip-rule="evenodd"
-                            />
-                        </svg>
-                    </a>
-               <!-- <div class="justify-end flex rounded-lg ">
+                            <a href="#">
+                                <svg
+                                    class="w-5 h-5"
+                                    fill="currentColor"
+                                    viewBox="0 0 24 24"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                        clip-rule="evenodd"
+                                    />
+                                </svg>
+                            </a>
+                            <a href="#">
+                                <svg
+                                    class="w-5 h-5"
+                                    fill="currentColor"
+                                    viewBox="0 0 24 24"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                                        clip-rule="evenodd"
+                                    />
+                                </svg>
+                            </a>
+                            <a href="#">
+                                <svg
+                                    class="w-5 h-5"
+                                    fill="currentColor"
+                                    viewBox="0 0 24 24"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+                                    />
+                                </svg>
+                            </a>
+                            <a href="#">
+                                <svg
+                                    class="w-5 h-5"
+                                    fill="currentColor"
+                                    viewBox="0 0 24 24"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                                        clip-rule="evenodd"
+                                    />
+                                </svg>
+                            </a>
+                            <a href="#">
+                                <svg
+                                    class="w-5 h-5"
+                                    fill="currentColor"
+                                    viewBox="0 0 24 24"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z"
+                                        clip-rule="evenodd"
+                                    />
+                                </svg>
+                            </a>
+                            <!-- <div class="justify-end flex rounded-lg ">
                 <img src="@/assets/qr.png" alt="shop" width="138" />
             </div> -->
+                        </div>
+                        <div class="grid grid-cols-3">
+                            <div class="mt-9">
+                                <ul
+                                    class="text-sm text-primary font-medium flex-col space-y-6"
+                                >
+                                    <li>Adresse</li>
+                                    <li>Téléphone</li>
+                                </ul>
+                            </div>
+                            <div class="mt-9 col-span-2">
+                                <ul class="text-sm text-gray-700 pr-8">
+                                    <li class="mb-2">
+                                        22 rue de la concorde, 92600 Asniéres
+                                        sur Seine
+                                    </li>
+                                    <li>00 33 01 35 42 85 32</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="text-center justify-center flex rounded-lg p-4 col-span-2 lg:col-span-1"
+                    >
+                        <img src="@/assets/qr.png" alt="shop" width="138" />
+                    </div>
                 </div>
-                <div class=" rounded-lg grid lg:grid-cols-3 font-Montserrat">
-                    <div class="mt-9">
-                <ul class=" text-sm text-gray-700 flex-col space-y-4 ">  
-                    <li>Adresse </li>
-                    <li>Téléphone </li>
-                </ul>   
-                </div>
-                                <div class="mt-9">
-                                     <ul class=" text-sm text-gray-700 ">
-                                        <li>22 rue de la concorde, 92600 Asniéres sur Seine</li>
-                                        <li>00 33 01 35 42 85 32</li>
-                                     </ul>
-                                </div>   
-                                <div class="justify-end flex rounded-lg ">
-                <img src="@/assets/qr.png" alt="shop" width="138" />
             </div>
 
-             </div>
-                
-                </div>
-               
-                <div class="justify-end  ">
-                                      
-                                      
-          <form>
-            <div class="grid gap-6 mb-6 lg:grid-cols-1">
-                 
-                     <input type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Nom & prénom">
+            <div class="justify-center">
+                <form>
+                    <div class="grid gap-6 mb-6 lg:grid-cols-1">
+                        <input
+                            type="text"
+                            id="default-input"
+                            class="bg-[#F4F4F4] text-gray-900 text-sm rounded-lg block w-full p-4"
+                            placeholder="Nom & prénom"
+                        />
+                    </div>
+                    <div class="mb-6">
+                        <input
+                            type="text"
+                            id="default-input"
+                            class="bg-[#F4F4F4] text-gray-900 text-sm rounded-lg block w-full p-4"
+                            placeholder="Adresse éléctorinque"
+                        />
+                    </div>
+                    <div class="grid gap-2 mb-6 lg:grid-cols-2">
+                        <div>
+                            <input
+                                type="text"
+                                id="last_name"
+                                class="bg-[#F4F4F4] text-gray-900 text-sm rounded-lg block w-full p-4"
+                                placeholder="Code"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <input
+                                type="text"
+                                id="last_name"
+                                class="bg-[#F4F4F4] text-gray-900 text-sm rounded-lg block w-full p-4"
+                                placeholder="Numéro de téléphone"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <textarea
+                            id="message"
+                            rows="5"
+                            class="bg-[#F4F4F4] text-gray-900 text-sm rounded-lg block w-full p-4"
+                            placeholder="Bonjour,..."
+                        ></textarea>
+                    </div>
+                    <div class="mb-6">
+                        <button
+                            type="button"
+                            class="text-white bg-black font-medium rounded-lg text-sm w-full p-4"
+                        >
+                            Envoyer
+                        </button>
+                    </div>
+                </form>
             </div>
-        <div class="mb-6">
-                 <input type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Adresse éléctorinque">
         </div>
-         <div class="grid gap-2 mb-6 lg:grid-cols-2">
-              <div>
-              <input type="text" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Code" required>
-              </div>
-              <div>
-              <input type="text" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Numéro de téléphone" required>
-              </div>
-        </div>
-          
-           <div class="mb-6">
-        <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Bonjour,..."></textarea>
-          </div>
-           <div class="mb-6">
-                    <button type="button" class="text-white bg-black    font-medium rounded-lg text-sm  w-full p-2.5 ">Envoyer</button>
-                   </div>    
-
-        </form>
-                    
-
-                </div>
-            
-            
-         </div>
     </main>
 </template>
 <script>
 // import Products from "./shop/ProductsList.vue";
-
 export default {
     data() {
         return {

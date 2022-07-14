@@ -2,7 +2,7 @@
 import Logo from "./Logo.vue";
 </script>
 <template>
-      <footer class="bg-primary text-left text-white xl:px-14 xl:pt-5">
+      <footer class="bg-primary text-left text-white flex xl:px-14 xl:pt-5">
         <div
             class="text-white  first-letter:sm:p-6 grid lg:grid-cols-1 font-Montserrat"
         >

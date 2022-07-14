@@ -28,7 +28,7 @@ const CartStore = useCartStore();
                     <RouterLink to="#" class="flex items-center">
                         <span class="hidden md:block mr-12">A Propos</span>
                     </RouterLink>
-                    <RouterLink to="#" class="flex items-center">
+                    <RouterLink to="/shop" class="flex items-center">
                         <span class="hidden md:block mr-12">produits</span>
                     </RouterLink>
                     <RouterLink to="#" class="flex items-center">
