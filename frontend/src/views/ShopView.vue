@@ -24,39 +24,33 @@ const sortOptions = [
   { name: 'Price: High to Low', href: '#', current: false },
 ]
 const subCategories = [
-  { name: 'Totes', href: '#' },
-  { name: 'Backpacks', href: '#' },
-  { name: 'Travel Bags', href: '#' },
-  { name: 'Hip Bags', href: '#' },
-  { name: 'Laptop Sleeves', href: '#' },
+  { name: 'Identité Visuelle', href: '#' },
+  { name: 'Logos', href: '#' },
+  { name: '3D', href: '#' },
+ 
 ]
 const filters = [
   {
     id: 'color',
-    name: 'Color',
+    name: 'Filtres',
     options: [
-      { value: 'white', label: 'White', checked: false },
-      { value: 'beige', label: 'Beige', checked: false },
-      { value: 'blue', label: 'Blue', checked: true },
-      { value: 'brown', label: 'Brown', checked: false },
-      { value: 'green', label: 'Green', checked: false },
-      { value: 'purple', label: 'Purple', checked: false },
+      { value: 'Derniers projets', label: 'Derniers projets', checked: false },
+      { value: 'Projets en réduction', label: 'Projets en réduction', checked: false },
+      
     ],
   },
   {
-    id: 'category',
-    name: 'Category',
+    id: 'Propriétés',
+    name: 'Propriétés',
     options: [
-      { value: 'new-arrivals', label: 'New Arrivals', checked: false },
-      { value: 'sale', label: 'Sale', checked: false },
-      { value: 'travel', label: 'Travel', checked: true },
-      { value: 'organization', label: 'Organization', checked: false },
-      { value: 'accessories', label: 'Accessories', checked: false },
+      { value: 'Vecteurs', label: 'Vecteurs', checked: false },
+      { value: 'Superposé', label: 'Superposé', checked: false },
+      
     ],
   },
   {
     id: 'size',
-    name: 'Size',
+    name: 'Prix',
     options: [
       { value: '2l', label: '2L', checked: false },
       { value: '6l', label: '6L', checked: false },
@@ -67,22 +61,53 @@ const filters = [
     ],
   },
 ]
+const products = [
+  {
+    id: 1,
+    name: 'Logo Zebra Brand',
+    href: '#',
+    imageSrc: 'src/assets/zebra.png',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '$86',
+    
+  },
+   {
+    id: 1,
+    name: 'Logo Zebra Brand',
+    href: '#',
+    imageSrc: 'src/assets/zebra2.png',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '$105',
+    
+  },
+   {
+    id: 1,
+    name: 'Logo Zebra Brand',
+    href: '#',
+    imageSrc: 'src/assets/zebra3.png',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '180 €',
+    
+  },
+  // More products...
+]
+
 
 const mobileFiltersOpen = ref(false)
 </script>
 
 <template>
 
-    <main class="   " >
+    <main class="mt-32 lg:mt-12" >
 
-        <div class="text-center text-2xl font-[700] text-[48px] bg-[url('@/assets/shopbg.png')] h-[440px]" > 
-       
-       <h1>Meilleures projets créatifs</h1>
-       
-       <div class="flex justify-center mt-12 ">
+        <div class=" relatve bg-[url('@/assets/shopbg.png')] h-[440px] -mt-28" > 
+            <div class="absolute top-[40%]  ">
+             <h1 class="text-2xl font-[700] text-[48px] -right-[64%]  ">Meilleures projets créatifs</h1>
+            </div>
+       <div class="flex absolute top-[50%] mt-12 right-[29%] ">
         
         <button id="dropdown-button-2" data-dropdown-toggle="dropdown-search-city" class="flex-shrink-0  inline-flex items-center py-2.5 px-9 text-sm font-medium text-center text-gray-500 bg-gray-100 border border-gray-300 rounded-l-[30px] hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100" type="button">
-           
+            
             Toutes Catégories 
             <svg class=" text-secondary ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
         </button> 
@@ -97,8 +122,8 @@ const mobileFiltersOpen = ref(false)
        
        </div> 
         
-           <div class="flex flex-row mt-32 justify-center  gap-4">
-           <select class="">
+           <div class="flex flex-row mt-24 justify-center  gap-4">
+           <select class=" ">
                <option>Modéles Graphique</option>
                <option>No</option>
                <option>Maybe</option>
@@ -149,11 +174,11 @@ const mobileFiltersOpen = ref(false)
 
                 <!-- Filters -->
                 <form class="mt-4 border-t border-gray-200">
-                  <h3 class="sr-only">Categories</h3>
+                  <h3 class="sr-only">Propriétés</h3>
                   <ul role="list" class="font-medium text-gray-900 px-2 py-3">
-                    <li v-for="category in subCategories" :key="category.name">
-                      <a :href="category.href" class="block px-2 py-3">
-                        {{ category.name }}
+                    <li v-for="Propriétés in subCategories" :key="Propriétés.name">
+                      <a :href="Propriétés.href" class="block px-2 py-3">
+                        {{ Propriétés.name }}
                       </a>
                     </li>
                   </ul>
@@ -190,7 +215,7 @@ const mobileFiltersOpen = ref(false)
 
       <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="relative z-10 flex items-baseline justify-between pt-24 pb-6 border-b border-gray-200">
-          <h1 class="text-4xl font-extrabold tracking-tight text-gray-900">New Arrivals</h1>
+          <h1 class="text-4xl font-extrabold tracking-tight text-gray-900"></h1>
 
           <div class="flex items-center">
             <Menu as="div" class="relative inline-block text-left">
@@ -231,14 +256,16 @@ const mobileFiltersOpen = ref(false)
           <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-8 gap-y-10">
             <!-- Filters -->
             <form class="hidden lg:block">
-              <h3 class="sr-only">Categories</h3>
+              <h3 class="sr-only">Propriétés</h3>
               <ul role="list" class="text-sm font-medium text-gray-900 space-y-4 pb-6 border-b border-gray-200">
-                <li v-for="category in subCategories" :key="category.name">
-                  <a :href="category.href">
-                    {{ category.name }}
+                <h1>category</h1>
+                <li v-for="Propriétés in subCategories" :key="Propriétés.name">
+                  <a :href="Propriétés.href">
+                    {{ Propriétés.name }}
                   </a>
                 </li>
               </ul>
+              
 
               <Disclosure as="div" v-for="section in filters" :key="section.id" class="border-b border-gray-200 py-6" v-slot="{ open }">
                 <h3 class="-my-3 flow-root">
@@ -252,6 +279,7 @@ const mobileFiltersOpen = ref(false)
                     </span>
                   </DisclosureButton>
                 </h3>
+                
                 <DisclosurePanel class="pt-6">
                   <div class="space-y-4">
                     <div v-for="(option, optionIdx) in section.options" :key="option.value" class="flex items-center">
@@ -268,7 +296,53 @@ const mobileFiltersOpen = ref(false)
             <!-- Product grid -->
             <div class="lg:col-span-3">
               <!-- Replace with your content -->
-              <div class="border-4 border-dashed border-gray-200 rounded-lg h-96 lg:h-full" />
+              <div class="h-96 lg:h-full" >
+                <div class="justify-center flex">
+                <img src="@/assets/shopseas.png" alt="shop" />
+            </div>
+            
+    
+        <div   class="grid sm:grid-cols-3 xl:grid-cols-3 gap-24 px-4 py-16 xl:p-20">
+          <div v-for="product in products" :key="product.id" class="group relative">
+                <!-- product 1 -->
+                <div
+                    class="bg-white rounded-[30px]  border-gray-200 shadow-2xl w-full mt-2 inline-grid justify-items-center"
+                >
+                    
+                    <div class=" ">
+                       <img :src="product.imageSrc" :alt="product.imageAlt" />
+                    </div>
+                    <div
+                        class="mt-2 text-stone-100 font-[400] text-center text-info " aria-hidden="true"
+                    >
+                        {{ product.name }}
+                    </div>
+                    <div
+                        class="mt-2 text-stone-900 font-[700] text-center"
+                    >
+                      {{ product.price }}
+                    </div>
+                    <div class="mt-4 text-center">
+                        <span
+                            class="text-secondary font-bold text-center text-base"
+                        >
+                          Acheter
+                        </span>
+                        <font-awesome-icon
+                        icon="greater-than"
+                        class="text-secondary font-bold"
+                    />
+                       
+                    </div>
+                </div>
+                <!-- product 1 -->
+               
+                
+         </div>
+</div>
+
+                </div>
+                
               <!-- /End replace -->
             </div>
           </div>
