@@ -70,9 +70,9 @@
                 <img src="@/assets/about.svg" width="340" alt="shop" />
             </div>
         </div>
-        <div class="grid px-6 lg:p-24 lg:pt-12 font-ProductSans">
+        <div class="grid px-6 lg:px-24 lg:pb-16 lg:pt-0 font-ProductSans">
             <div
-                class="text-primary text-4xl font-bold tracking-wide text-center mb-14"
+                class="text-primary text-4xl font-bold tracking-wide text-center"
             >
                 Produits
             </div>
@@ -83,9 +83,7 @@
                 facilement <br />vos objectifs.
             </div>
 
-            <div
-                class="grid sm:grid-cols-2 xl:grid-cols-4 gap-24 px-6 py-16 xl:p-20"
-            >
+            <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-24 pt-12">
                 <!-- product 1 -->
                 <div
                     class="bg-white rounded-[30px] p-4 border-gray-200 shadow-2xl w-full mt-2 inline-grid justify-items-center"
@@ -239,7 +237,7 @@
         </div>
         <!-- contact -->
         <div
-            class="grid md:grid-cols-2 p-6 lg:px-24 lg:gap-x-60 font-ProductSans space-x-7"
+            class="grid mb-5 md:grid-cols-2 px-6 py-24 lg:px-24 lg:gap-x-60 font-ProductSans space-x-7"
         >
             <div>
                 <div
