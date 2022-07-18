@@ -69,12 +69,13 @@ export default {
     margin: 0 auto;
     padding-top: 4.5%;
     font-weight: normal;
+    padding-top: 0%;
 }
-@media (max-width: 576px) {
+/* @media (max-width: 576px) {
     #app {
         padding-top: 0%;
     }
-}
+} */
 
 nav {
     text-align: center;
