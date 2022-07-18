@@ -29,10 +29,12 @@ import {
     faSearch,
     faShoppingBag,
     faGreaterThan,
-    faPlus
+    faPlus,
+    faCheck
+    
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faPhone, faBars, faSearch, faShoppingBag, faGreaterThan, faPlus);
+library.add(faPhone, faBars, faSearch, faShoppingBag, faGreaterThan, faPlus,faCheck);
 
 import {
     FontAwesomeIcon

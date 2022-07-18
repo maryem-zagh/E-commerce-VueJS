@@ -2,11 +2,11 @@
 import Logo from "./Logo.vue";
 </script>
 <template>
-      <footer class="bg-primary text-left text-white flex xl:px-14 xl:pt-5">
+      <!-- <footer class=" bg-primary text-left text-white flex xl:px-14 xl:pt-5">
         <div
             class="text-white  first-letter:sm:p-6 grid lg:grid-cols-1 font-Montserrat"
         >
-        <!-- md:grid-cols-3 -->
+     
             <div class="grid grid-cols-5  p-4">
                 <div
                     class="xl:pr-12 pr-8 pb-3 col-span-2 md:col-span-1 justify-self-start"
@@ -81,7 +81,7 @@ import Logo from "./Logo.vue";
       
 
        
-    </footer>
+    </footer> -->
 </template>
 <style>
 span {
