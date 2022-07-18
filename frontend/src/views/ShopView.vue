@@ -29,38 +29,20 @@ const subCategories = [
   { name: '3D', href: '#' },
  
 ]
-const filters = [
-  {
-    id: 'color',
-    name: 'Filtres',
-    options: [
-      { value: 'Derniers projets', label: 'Derniers projets', checked: false },
-      { value: 'Projets en réduction', label: 'Projets en réduction', checked: false },
-      
-    ],
-  },
-  {
-    id: 'Propriétés',
-    name: 'Propriétés',
-    options: [
-      { value: 'Vecteurs', label: 'Vecteurs', checked: false },
-      { value: 'Superposé', label: 'Superposé', checked: false },
-      
-    ],
-  },
-  {
-    id: 'size',
-    name: 'Prix',
-    options: [
-      { value: '2l', label: '2L', checked: false },
-      { value: '6l', label: '6L', checked: false },
-      { value: '12l', label: '12L', checked: false },
-      { value: '18l', label: '18L', checked: false },
-      { value: '20l', label: '20L', checked: false },
-      { value: '40l', label: '40L', checked: true },
-    ],
-  },
+const subFilters = [
+  { name: 'Derniers projets', href: '#' },
+  { name: 'Projets en réduction', href: '#' },
+  
+ 
 ]
+const subPropriétés = [
+  { name: 'Vecteurs', href: '#' },
+  { name: 'Superposé', href: '#' },
+ 
+ 
+]
+
+
 const products = [
   {
     id: 1,
@@ -89,6 +71,15 @@ const products = [
     price: '180 €',
     
   },
+   {
+    id: 1,
+    name: 'Logo Zebra Brand',
+    href: '#',
+    imageSrc: 'src/assets/zebra3.png',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '180 €',
+    
+  },
   // More products...
 ]
 
@@ -98,63 +89,87 @@ const mobileFiltersOpen = ref(false)
 
 <template>
 
-    <main class="mt-32 lg:mt-12" >
+    
 
-        <div class=" relatve bg-[url('@/assets/shopbg.png')] h-[440px] -mt-28" > 
-            <div class="absolute top-[40%]  ">
-             <h1 class="text-2xl font-[700] text-[48px] -right-[64%]  ">Meilleures projets créatifs</h1>
-            </div>
-       <div class="flex absolute top-[50%] mt-12 right-[29%] ">
-        
-        <button id="dropdown-button-2" data-dropdown-toggle="dropdown-search-city" class="flex-shrink-0  inline-flex items-center py-2.5 px-9 text-sm font-medium text-center text-gray-500 bg-gray-100 border border-gray-300 rounded-l-[30px] hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100" type="button">
-            
-            Toutes Catégories 
-            <svg class=" text-secondary ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-        </button> 
+      
+      <main class="  h-full ">
+
+
+         <div
+            class=" bg-[url('@/assets/shopbg.png')]  pt-24 px-8 pb-4"
+        >
+            <div>
+               
+                <div
+                    class=" text-center text-white md:text-[48px] text-2xl font-[700] tracking-wide mb-14"
+                >
+                    Meilleures projets créatifs
+                </div>
+
+                
+                
+                <div class="flex  justify-center  my-8">
+                    <select class="flex-shrink-0  inline-flex items-center py-2.5 px-9 text-sm font-medium text-center text-gray-500 bg-gray-100 border border-gray-300 rounded-l-[30px]  focus:ring-4 focus:outline-none ">
+               <option>Toutes Catégories</option>
+               <option>No</option>
+               <option>Maybe</option>
+           </select>
         
         <div class="relative w-96 ">
             <input type="search" id="location-search" class=" text-center block p-2.5 w-full z-20 text-sm text-gray-900  bg-gray-50 rounded-r-[30px] border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Recherche produit, catégory ..." required>
             
+        </div>  
+                </div>
+            </div>
+            <!-- apropos -->
+           
         </div>
-        
-    </div>
-       
-       
-       </div> 
-        
-           <div class="flex flex-row mt-24 justify-center  gap-4">
-           <select class=" ">
+
+           
+             
+<div class=" flex flex-wrap justify-center gap-x-2  ">
+  <!-- grid sm:grid-cols-1 xl:grid-cols-3 gap-24 px-4 py-16 xl:p-20 justify-center -->
+           <select class="border-0 ">
                <option>Modéles Graphique</option>
                <option>No</option>
                <option>Maybe</option>
            </select>
-        <select>
+        <select  class="border-0 ">
                <option>Documents</option>
                <option>No</option>
                <option>Maybe</option>
            </select>
-          <select>
+          <select  class="border-0 ">
                <option>Modéles 3D</option>
                <option>No</option>
                <option>Maybe</option>
            </select>
-          <select>
+          <select  class="border-0 ">
                <option>UX / UI</option>
                <option>No</option>
                <option>Maybe</option>
            </select>
-          <select>
+          <select  class="border-0 ">
                <option>Vidéos</option>
                <option>No</option>
                <option>Maybe</option>
            </select>
+           
+
+</div>
+
+           
 
 
 
-           </div>
+
+
+      </main>
+       
+      
     <div class="bg-white">
     <div>
-      <!-- Mobile filter dialog -->
+      
       <TransitionRoot as="template" :show="mobileFiltersOpen">
         <Dialog as="div" class="relative z-40 lg:hidden" @close="mobileFiltersOpen = false">
           <TransitionChild as="template" enter="transition-opacity ease-linear duration-300" enter-from="opacity-0" enter-to="opacity-100" leave="transition-opacity ease-linear duration-300" leave-from="opacity-100" leave-to="opacity-0">
@@ -172,10 +187,11 @@ const mobileFiltersOpen = ref(false)
                   </button>
                 </div>
 
-                <!-- Filters -->
+           
                 <form class="mt-4 border-t border-gray-200">
                   <h3 class="sr-only">Propriétés</h3>
                   <ul role="list" class="font-medium text-gray-900 px-2 py-3">
+                      <h1 class="font-[700]">category</h1>
                     <li v-for="Propriétés in subCategories" :key="Propriétés.name">
                       <a :href="Propriétés.href" class="block px-2 py-3">
                         {{ Propriétés.name }}
@@ -183,29 +199,43 @@ const mobileFiltersOpen = ref(false)
                     </li>
                   </ul>
 
-                  <Disclosure as="div" v-for="section in filters" :key="section.id" class="border-t border-gray-200 px-4 py-6" v-slot="{ open }">
-                    <h3 class="-mx-2 -my-3 flow-root">
-                      <DisclosureButton class="px-2 py-3 bg-white w-full flex items-center justify-between text-gray-400 hover:text-gray-500">
-                        <span class="font-medium text-gray-900">
-                          {{ section.name }}
-                        </span>
-                        <span class="ml-6 flex items-center">
-                          <PlusSmIcon v-if="!open" class="h-5 w-5" aria-hidden="true" />
-                          <MinusSmIcon v-else class="h-5 w-5" aria-hidden="true" />
-                        </span>
-                      </DisclosureButton>
-                    </h3>
-                    <DisclosurePanel class="pt-6">
-                      <div class="space-y-6">
-                        <div v-for="(option, optionIdx) in section.options" :key="option.value" class="flex items-center">
-                          <input :id="`filter-mobile-${section.id}-${optionIdx}`" :name="`${section.id}[]`" :value="option.value" type="checkbox" :checked="option.checked" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500" />
-                          <label :for="`filter-mobile-${section.id}-${optionIdx}`" class="ml-3 min-w-0 flex-1 text-gray-500">
-                            {{ option.label }}
-                          </label>
-                        </div>
-                      </div>
-                    </DisclosurePanel>
-                  </Disclosure>
+                 <h3 class="sr-only">Propriétés</h3>
+                  <ul role="list" class="font-medium text-gray-900 px-2 py-3">
+                      <h1 class="font-[700]">Filters</h1>
+                    <li v-for="Propriétés in subFilters" :key="Propriétés.name">
+                      <a :href="Propriétés.href" class="block px-2 py-3">
+                        {{ Propriétés.name }}
+                      </a>
+                    </li>
+                  </ul>
+                  <h3 class="sr-only">Propriétés</h3>
+                  <ul role="list" class="font-medium text-gray-900 px-2 py-3">
+                      <h1 class="font-[700]">Propriétés</h1>
+                    <li v-for="Propriétés in subPropriétés" :key="Propriétés.name">
+                      <a :href="Propriétés.href" class="block px-2 py-3">
+                        {{ Propriétés.name }}
+                      </a>
+                    </li>
+                  </ul>
+                  <h3 class="sr-only">Propriétés</h3>
+                  <ul role="list" class="font-medium text-gray-900 px-2 py-3">
+                      <h1 class="font-[700]">Prix</h1>
+                    <input id="minmax-range" type="range" min="0" max="10" value="5" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
+              <div class="flex flex-row gap-4">
+                <div>
+                  <label for="small-input" class="block mb-2 text-sm font-medium text-gray-900 ">min</label>
+              <input type="text" id="small-input" class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 d"/>
+              </div>
+              <div>
+                <label for="small-input" class="block mb-2 text-sm font-medium text-gray-900 ">max</label>
+              <input type="text" id="small-input" class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 d"/>
+             </div>
+             
+             </div>
+             <div class="flex flex-row gap-4">
+              
+             </div>
+                  </ul>
                 </form>
               </DialogPanel>
             </TransitionChild>
@@ -213,12 +243,12 @@ const mobileFiltersOpen = ref(false)
         </Dialog>
       </TransitionRoot>
 
-      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="relative z-10 flex items-baseline justify-between pt-24 pb-6 border-b border-gray-200">
+      <div class=" ">
+         <div class="relative z-10 flex items-baseline justify-between pt-4  border-b border-gray-200">
           <h1 class="text-4xl font-extrabold tracking-tight text-gray-900"></h1>
 
           <div class="flex items-center">
-            <Menu as="div" class="relative inline-block text-left">
+            <!-- <Menu as="div" class="relative inline-block text-left">
               <div>
                 <MenuButton class="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
                   Sort
@@ -237,28 +267,28 @@ const mobileFiltersOpen = ref(false)
                   </div>
                 </MenuItems>
               </transition>
-            </Menu>
+            </Menu> -->
 
-            <button type="button" class="p-2 -m-2 ml-5 sm:ml-7 text-gray-400 hover:text-gray-500">
+            <!-- <button type="button" class="p-2 -m-2 ml-5 sm:ml-7 text-gray-400 hover:text-gray-500">
               <span class="sr-only">View grid</span>
               <ViewGridIcon class="w-5 h-5" aria-hidden="true" />
-            </button>
-            <button type="button" class="p-2 -m-2 ml-4 sm:ml-6 text-gray-400 hover:text-gray-500 lg:hidden" @click="mobileFiltersOpen = true">
+            </button> -->
+            <button type="button" class="p-2  ml-4 mr-5 text-gray-400 hover:text-gray-500 lg:hidden" @click="mobileFiltersOpen = true">
               <span class="sr-only">Filters</span>
               <FilterIcon class="w-5 h-5" aria-hidden="true" />
             </button>
           </div>
-        </div>
+        </div> 
 
         <section aria-labelledby="products-heading" class="pt-6 pb-24">
           <h2 id="products-heading" class="sr-only">Products</h2>
 
-          <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-8 gap-y-10">
-            <!-- Filters -->
+          <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-14 gap-y-6 lg:px-24 px-4">
+          
             <form class="hidden lg:block">
               <h3 class="sr-only">Propriétés</h3>
               <ul role="list" class="text-sm font-medium text-gray-900 space-y-4 pb-6 border-b border-gray-200">
-                <h1>category</h1>
+                <h1 class="font-[700]">category</h1>
                 <li v-for="Propriétés in subCategories" :key="Propriétés.name">
                   <a :href="Propriétés.href">
                     {{ Propriétés.name }}
@@ -267,51 +297,60 @@ const mobileFiltersOpen = ref(false)
               </ul>
               
 
-              <Disclosure as="div" v-for="section in filters" :key="section.id" class="border-b border-gray-200 py-6" v-slot="{ open }">
-                <h3 class="-my-3 flow-root">
-                  <DisclosureButton class="py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500">
-                    <span class="font-medium text-gray-900">
-                      {{ section.name }}
-                    </span>
-                    <span class="ml-6 flex items-center">
-                      <PlusSmIcon v-if="!open" class="h-5 w-5" aria-hidden="true" />
-                      <MinusSmIcon v-else class="h-5 w-5" aria-hidden="true" />
-                    </span>
-                  </DisclosureButton>
-                </h3>
-                
-                <DisclosurePanel class="pt-6">
-                  <div class="space-y-4">
-                    <div v-for="(option, optionIdx) in section.options" :key="option.value" class="flex items-center">
-                      <input :id="`filter-${section.id}-${optionIdx}`" :name="`${section.id}[]`" :value="option.value" type="checkbox" :checked="option.checked" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500" />
-                      <label :for="`filter-${section.id}-${optionIdx}`" class="ml-3 text-sm text-gray-600">
-                        {{ option.label }}
-                      </label>
-                    </div>
-                  </div>
-                </DisclosurePanel>
-              </Disclosure>
+               <ul role="list" class="text-sm font-medium text-gray-900 space-y-4 pb-6 border-b border-gray-200">
+                <h1 class="font-[700]" >Filtres</h1>
+                <li v-for="Propriétés in subFilters" :key="Propriétés.name">
+                  <a :href="Propriétés.href">
+                    {{ Propriétés.name }}
+                  </a>
+                </li>
+              </ul>
+               <ul role="list" class="text-sm font-medium text-gray-900 space-y-4 pb-6 border-b border-gray-200">
+                <h1 class="font-[700]">Propriétés</h1>
+                <li v-for="Propriétés in subPropriétés" :key="Propriétés.name">
+                  <a :href="Propriétés.href">
+                    {{ Propriétés.name }}
+                  </a>
+                </li>
+              </ul>
+              <ul role="list" class="text-sm font-medium text-gray-900 space-y-4 pb-6 border-b border-gray-200">
+                <h1 class="font-[700]">Prix</h1>
+                <input id="minmax-range" type="range" min="0" max="10" value="5" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
+              <div class="flex flex-row gap-4">
+                <div>
+                  <label for="small-input" class="block mb-2 text-sm font-medium text-gray-900 ">min</label>
+              <input type="text" id="small-input" class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 d"/>
+              </div>
+              <div>
+                <label for="small-input" class="block mb-2 text-sm font-medium text-gray-900 ">max</label>
+              <input type="text" id="small-input" class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 d"/>
+             </div>
+             
+             </div>
+             <div class="flex flex-row gap-4">
+              
+             </div>
+              </ul>
             </form>
 
-            <!-- Product grid -->
-            <div class="lg:col-span-3">
-              <!-- Replace with your content -->
-              <div class="h-96 lg:h-full" >
-                <div class="justify-center flex">
-                <img src="@/assets/shopseas.png" alt="shop" />
-            </div>
+            
+            <div class="lg:col-span-3 sm:grid-cols-2 xl:grid-cols-3   ">
+
+              
+                
+                    <img src="@/assets/shopseas.png" alt="shop" class="w-full  " />
+                
             
     
-        <div   class="grid sm:grid-cols-3 xl:grid-cols-3 gap-24 px-4 py-16 xl:p-20">
-          <div v-for="product in products" :key="product.id" class="group relative">
-                <!-- product 1 -->
+        <div   class=" font-ProductSans grid md:grid-cols-2 xl:grid-cols-3 gap-24  py-16 ">
+         
                 <div
-                    class="bg-white rounded-[30px]  border-gray-200 shadow-2xl w-full mt-2 inline-grid justify-items-center"
+                     v-for="product in products" :key="product.id"  class="bg-white rounded-[30px]  border-gray-200 shadow-2xl  w-full mt-0 inline-grid justify-items-center"
                 >
                     
-                    <div class=" ">
-                       <img :src="product.imageSrc" :alt="product.imageAlt" />
-                    </div>
+                    
+                       <img :src="product.imageSrc" :alt="product.imageAlt" class=" w-full "/>
+                    
                     <div
                         class="mt-2 text-stone-100 font-[400] text-center text-info " aria-hidden="true"
                     >
@@ -322,35 +361,31 @@ const mobileFiltersOpen = ref(false)
                     >
                       {{ product.price }}
                     </div>
-                    <div class="mt-4 text-center">
+                    <div class="my-4 text-center">
                         <span
                             class="text-secondary font-bold text-center text-base"
                         >
                           Acheter
                         </span>
-                        <font-awesome-icon
-                        icon="greater-than"
-                        class="text-secondary font-bold"
-                    />
-                       
+                        
+                       <font-awesome-icon  class="text-secondary font-bold" icon="check" />
                     </div>
-                </div>
-                <!-- product 1 -->
+                
+               
                
                 
          </div>
 </div>
 
-                </div>
                 
-              <!-- /End replace -->
+        
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
-  </div>
-</main>
+  </div> 
+
        
 
      
