@@ -308,7 +308,7 @@ const mobileFiltersOpen = ref(false);
 
             <div class=" ">
                 <div
-                    class="relative z-10 flex items-baseline justify-between pt-4 border-b border-gray-200"
+                    class="relative z-10 flex items-baseline justify-between pt-4"
                 >
                     <h1
                         class="text-4xl font-extrabold tracking-tight text-gray-900"
@@ -361,9 +361,13 @@ const mobileFiltersOpen = ref(false);
                             <h3 class="sr-only">Propriétés</h3>
                             <ul
                                 role="list"
-                                class="text-sm font-medium text-gray-900 space-y-4 pb-6 border-b border-gray-200"
+                                class="text-sm font-medium text-gray-900 space-y-4 pb-6"
                             >
-                                <h1 class="font-[700]">category</h1>
+                                <h1
+                                    class="font-bold font-ProductSans text-lg capitalize"
+                                >
+                                    category
+                                </h1>
                                 <li
                                     v-for="Propriétés in subCategories"
                                     :key="Propriétés.name"
@@ -376,9 +380,13 @@ const mobileFiltersOpen = ref(false);
 
                             <ul
                                 role="list"
-                                class="text-sm font-medium text-gray-900 space-y-4 pb-6 border-b border-gray-200"
+                                class="text-sm font-medium text-gray-900 space-y-4 pb-6"
                             >
-                                <h1 class="font-[700]">Filtres</h1>
+                                <h1
+                                    class="font-bold font-ProductSans text-lg capitalize"
+                                >
+                                    Filtres
+                                </h1>
                                 <li
                                     v-for="Propriétés in subFilters"
                                     :key="Propriétés.name"
@@ -390,9 +398,13 @@ const mobileFiltersOpen = ref(false);
                             </ul>
                             <ul
                                 role="list"
-                                class="text-sm font-medium text-gray-900 space-y-4 pb-6 border-b border-gray-200"
+                                class="text-sm font-medium text-gray-900 space-y-4 pb-6"
                             >
-                                <h1 class="font-[700]">Propriétés</h1>
+                                <h1
+                                    class="font-bold font-ProductSans text-lg capitalize"
+                                >
+                                    Propriétés
+                                </h1>
                                 <li
                                     v-for="Propriétés in subPropriétés"
                                     :key="Propriétés.name"
@@ -404,7 +416,7 @@ const mobileFiltersOpen = ref(false);
                             </ul>
                             <ul
                                 role="list"
-                                class="text-sm font-medium text-gray-900 space-y-4 pb-6 border-b border-gray-200"
+                                class="text-sm font-medium text-gray-900 space-y-4 pb-6"
                             >
                                 <h1 class="font-[700]">Prix</h1>
                                 <input
@@ -413,7 +425,7 @@ const mobileFiltersOpen = ref(false);
                                     min="0"
                                     max="10"
                                     value="5"
-                                    class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+                                    class="w-56 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
                                 />
                                 <div class="flex flex-row gap-4">
                                     <div>
@@ -425,7 +437,7 @@ const mobileFiltersOpen = ref(false);
                                         <input
                                             type="text"
                                             id="small-input"
-                                            class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 d"
+                                            class="h-10 w-[100px] block p-2 text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500"
                                         />
                                     </div>
                                     <div>
@@ -437,7 +449,7 @@ const mobileFiltersOpen = ref(false);
                                         <input
                                             type="text"
                                             id="small-input"
-                                            class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 d"
+                                            class="h-10 w-[100px] block p-2 text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 d"
                                         />
                                     </div>
                                 </div>

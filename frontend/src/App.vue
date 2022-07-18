@@ -70,6 +70,7 @@ export default {
     padding-top: 4.5%;
     font-weight: normal;
     padding-top: 0%;
+    font-family: "Product Sans";
 }
 /* @media (max-width: 576px) {
     #app {
