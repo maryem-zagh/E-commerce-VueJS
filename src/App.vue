@@ -3,8 +3,11 @@ import { RouterLink, RouterView } from "vue-router";
 import { useCartStore } from "./stores/cart";
 import TheFooter from "./components/TheFooter.vue";
 import Logo from "./components/Logo.vue";
-
+ 
 const CartStore = useCartStore();
+function   changeLanguage(obj){
+            localStorage.setItem('language',obj.target.value)
+        }
 </script>
 
 <template>
@@ -34,6 +37,10 @@ const CartStore = useCartStore();
                     <RouterLink to="#" class="flex items-center">
                         <span class="hidden md:block mr-12">contact</span>
                     </RouterLink>
+                       <select class="border-none bg-transparent  " v-model="$i18n.locale" @change="changeLanguage">
+        <option value="en">En</option>
+        <option value="fr">Fr</option>
+    </select>
                 </nav>
             </div>
         </div>

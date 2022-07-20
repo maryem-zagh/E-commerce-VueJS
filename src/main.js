@@ -4,7 +4,24 @@ import {
 import {
     createPinia
 } from "pinia";
-
+import {
+    createI18n
+} from 'vue-i18n'
+import messages from './lang'
+// const messages = {
+//     'en': {
+//         welcomeMsg: 'Trouvez les meilleurs projets digitals'
+//     },
+//     'es': {
+//         welcomeMsg: 'Find the best digital projects'
+//     }
+// };
+const i18n = createI18n({
+    // something vue-i18n options here ...
+    locale: 'en', // set locale
+    fallbackLocale: 'es', // set fallback locale
+    messages, // set locale messages
+})
 import App from "./App.vue";
 import router from "./router";
 // Tailwindcss
@@ -31,10 +48,10 @@ import {
     faGreaterThan,
     faPlus,
     faCheck
-    
+
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faPhone, faBars, faSearch, faShoppingBag, faGreaterThan, faPlus,faCheck);
+library.add(faPhone, faBars, faSearch, faShoppingBag, faGreaterThan, faPlus, faCheck);
 
 import {
     FontAwesomeIcon
@@ -51,7 +68,8 @@ const app = createApp(App);
 app.config.globalProperties.$http = Axios;
 // config fontawesome
 app.component("font-awesome-icon", FontAwesomeIcon)
-
+// 
+app.use(i18n)
 app.use(createPinia());
 app.use(router);
 app.use(clickOutside);

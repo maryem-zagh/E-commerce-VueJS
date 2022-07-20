@@ -7,9 +7,10 @@
                 <div
                     class="text-primary text-6xl font-bold tracking-wide mb-14"
                 >
-                    Trouvez les meilleurs projets digitals
+                    <h1>{{ $t('welcomeMsg') }}</h1>
+                   
                 </div>
-
+ 
                 <img
                     alt="Vue logo"
                     class="logo"
