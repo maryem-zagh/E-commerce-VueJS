@@ -1,16 +1,16 @@
 <template>
       <footer class=" bg-[#1D57A6]  ">
         <div
-            class="text-white   grid grid-cols-2 font-Montserrat"
+            class="text-white   grid md:grid-cols-2 font-Montserrat"
         >
      
            
                 <div
-                    class=" px-24 py-11  md:col-span-1 "
+                    class=" px-24 py-11   "
                 >
                     <img
                         alt="Vue logo"
-                        class="logo pb-2"
+                        class="logo "
                         src="@/assets/logo-w-intone.png"
                         width="332"
                     />
