@@ -7,10 +7,9 @@
                 <div
                     class="text-primary text-6xl font-bold tracking-wide mb-14"
                 >
-                    <h1>{{ $t('welcomeMsg') }}</h1>
-                   
+                    Trouvez les meilleurs projets digitals
                 </div>
- 
+
                 <img
                     alt="Vue logo"
                     class="logo"
@@ -71,9 +70,9 @@
                 <img src="@/assets/about.svg" width="340" alt="shop" />
             </div>
         </div>
-        <div class="grid px-6 lg:px-24 lg:pb-16 lg:pt-0 font-ProductSans">
+        <div class="grid px-6 lg:p-24 lg:pt-12 font-ProductSans">
             <div
-                class="text-primary text-4xl font-bold tracking-wide text-center"
+                class="text-primary text-4xl font-bold tracking-wide text-center mb-14"
             >
                 Produits
             </div>
@@ -84,7 +83,9 @@
                 facilement <br />vos objectifs.
             </div>
 
-            <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-24 pt-12">
+            <div
+                class="grid sm:grid-cols-2 xl:grid-cols-4 gap-24 px-6 py-16 xl:p-20"
+            >
                 <!-- product 1 -->
                 <div
                     class="bg-white rounded-[30px] p-4 border-gray-200 shadow-2xl w-full mt-2 inline-grid justify-items-center"
@@ -110,17 +111,45 @@
                         Nous concevons des œuvres d'art qui inspirent les
                         esprits et racontent des histoires percutantes.
                     </div>
-                    <div class="mt-4 text-center">
-                        <span
-                            class="text-secondary font-bold text-center text-base"
-                        >
-                            Decouvrir
-                        </span>
-                        <font-awesome-icon
+                    <div class="mt-4 ">
+                       <button class="text-secondary font-bold text-center text-base" @click="toggleModal = !toggleModal">Decouvrir <font-awesome-icon
                             icon="greater-than"
                             class="text-secondary font-bold"
-                        />
-                    </div>
+                        /></button>
+                       <div class="fixed overflow-x-hidden overflow-y-auto inset-0 flex justify-center items-center z-50" v-if="toggleModal">
+                       <div class="relative p-4 w-[1122px] h-full  ">
+                        <div class="relative bg-white rounded-lg h-[570px] shadow ">
+                            <div class="flex justify-between items-start p-4  ">
+                                 <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" @click="toggleModal=false">
+                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+                            </div>
+                            <div class="grid md:grid-cols-3 px-4 lg:p-16 font-ProductSans">
+                                <div
+                class="text-primary text-2xl font-bold col-span-2 tracking-wide  mb-14"
+            >
+                Desgin Graphique
+                 <div class="mt-10 text-sm font-[400] text-info">
+                    La conception graphique est un métier où les professionnels créent du contenu visuel pour
+communiquer des messages. En appliquant des techniques de hiérarchie visuelle et de mise
+en page, les concepteurs utilisent la typographie et les images pour répondre aux besoins
+spécifiques des utilisateurs et se concentrent sur la logique d'affichage des éléments dans les
+conceptions interactives, afin d'optimiser l'expérience utilisateur.
+
+                </div>
+
+            </div>
+            <div class="justify-end flex">
+                <img src="@/assets/desgin.png" alt="shop" />
+            </div>
+           
+                        </div>
+                        </div>
+                       </div>
+                       </div>
+                       <div v-if="toggleModal" class="absolute z-40 insert-0 opacity-25 bg-[#2d2d2e]"></div>
+                       </div>
                 </div>
                 <!-- product 1 -->
                 <div
@@ -147,16 +176,41 @@
                         Nous concevons des œuvres d'art qui inspirent les
                         esprits et racontent des histoires percutantes.
                     </div>
-                    <div class="mt-4 text-center">
-                        <span
-                            class="text-secondary font-bold text-center text-base"
-                        >
-                            Decouvrir
-                        </span>
-                        <font-awesome-icon
+                    <div class="mt-4 ">
+                        <div class="mt-4 ">
+                       <button class="text-secondary font-bold text-center text-base" @click="toggleModal1 = !toggleModal1">Decouvrir <font-awesome-icon
                             icon="greater-than"
                             class="text-secondary font-bold"
-                        />
+                        /></button>
+                       <div class="fixed overflow-x-hidden overflow-y-auto inset-0 flex justify-center items-center z-50" v-if="toggleModal1">
+                       <div class="relative p-4 w-[1122px] h-full  ">
+                        <div class="relative bg-white rounded-lg h-[570px] shadow ">
+                            <div class="flex justify-between items-start p-4  ">
+                                 <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" @click="toggleModal1=false">
+                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+                            </div>
+                            <div class="grid md:grid-cols-3 px-4 lg:p-16 font-ProductSans">
+                                <div
+                class="text-primary text-2xl font-bold col-span-2 tracking-wide  mb-14"
+            >
+                 Dévelopment Web & Mobile
+                 <div class="mt-10 text-sm font-normal text-info">
+                   Notre expérience dans la création de sites et applications Web et Mobile est acquise grâce à la coopération avec des entreprises qui suivent divers modèles commerciaux et opèrent dans divers domaines d’activité, y compris Education, Santé, Commerce électronique et autres.
+                </div>
+
+            </div>
+            <div class="justify-end flex">
+                <img src="@/assets/web.png" alt="shop" />
+            </div>
+           
+                        </div>
+                        </div>
+                       </div>
+                       </div>
+                       <div v-if="toggleModal" class="absolute z-40 insert-0 opacity-25 bg-[#2d2d2e]"></div>
+                       </div>
                     </div>
                 </div>
 
@@ -185,16 +239,46 @@
                         Nous concevons des œuvres d'art qui inspirent les
                         esprits et racontent des histoires percutantes.
                     </div>
-                    <div class="mt-4 text-center">
-                        <span
-                            class="text-secondary font-bold text-center text-base"
-                        >
-                            Decouvrir
-                        </span>
-                        <font-awesome-icon
+                    <div class="mt-4 ">
+                       <div class="mt-4 ">
+                       <button class="text-secondary font-bold text-center text-base" @click="toggleModal2 = !toggleModal2">Decouvrir <font-awesome-icon
                             icon="greater-than"
                             class="text-secondary font-bold"
-                        />
+                        /></button>
+                       <div class="fixed overflow-x-hidden overflow-y-auto inset-0 flex justify-center items-center z-50" v-if="toggleModal2">
+                       <div class="relative p-4 w-[1122px] h-full  ">
+                        <div class="relative bg-white rounded-lg h-[570px] shadow ">
+                            <div class="flex justify-between items-start p-4  ">
+                                 <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" @click="toggleModal2=false">
+                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+                            </div>
+                            <div class="grid md:grid-cols-3 px-4 lg:p-16 font-ProductSans">
+                                <div
+                class="text-primary col-span-2 text-2xl font-bold tracking-wide  mb-14"
+            >
+                Marketing Digitale
+                 <div class="mt-10 text-sm font-normal text-info">
+                   Le marketing digital est un excellent moyen, si ce n’est le meilleur aujourd’hui, pour
+atteindre votre cible dépendamment de votre activité, et il existe justement, plusieurs types
+différents de marketing digital pour y arriver selon votre activité et vos objectifs.
+Pour y arriver, nous devons comprendre en quoi consiste cette stratégie, comment elle
+fonctionne et les types de marketing digital qui peuvent être utilisés.
+
+                </div>
+
+            </div>
+            <div class="justify-end flex">
+                <img src="@/assets/marketing.png" alt="shop" />
+            </div>
+           
+                        </div>
+                        </div>
+                       </div>
+                       </div>
+                       <div v-if="toggleModal" class="absolute z-40 insert-0 opacity-25 bg-[#2d2d2e]"></div>
+                       </div>
                     </div>
                 </div>
 
@@ -238,7 +322,7 @@
         </div>
         <!-- contact -->
         <div
-            class="grid mb-5 md:grid-cols-2 px-6 py-24 lg:px-24 lg:gap-x-60 font-ProductSans space-x-7"
+            class="grid md:grid-cols-2 p-6 lg:px-24 lg:gap-x-60 font-ProductSans space-x-7"
         >
             <div>
                 <div
@@ -419,12 +503,17 @@
     </main>
 </template>
 <script>
+
 // import Products from "./shop/ProductsList.vue";
 export default {
+    name: "modal",
     data() {
         return {
             products: [],
             categories: [],
+            toggleModal : false,
+            toggleModal1: false,
+            toggleModal2: false
         };
     },
     //   components: {Products},
