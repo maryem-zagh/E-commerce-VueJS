@@ -9,7 +9,7 @@ module.exports = {
         fontFamily: {
 
             'ProductSans': ['Product Sans'],
-            'Quicksand': ['Quicksand'],
+            // 'Quicksand': ['Quicksand'],
 
         },
         colors: {
@@ -22,6 +22,7 @@ module.exports = {
             primary: '#1D1D1D',
             secondary: '#1D57A6',
             info: '#464646',
+            grai: '#818181'
 
         },
         extend: {},

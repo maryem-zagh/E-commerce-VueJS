@@ -2,7 +2,9 @@
 import { RouterLink, RouterView } from "vue-router";
 import { useCartStore } from "./stores/cart";
 import TheFooter from "./components/TheFooter.vue";
-import Logo from "./components/Logo.vue";
+ import TheHomeFooter from "./components/TheHomeFooter.vue";
+import TheHomeMenu from "./components/TheHomeMenu.vue";
+import TheMenu from "./components/TheMenu.vue";
  
 const CartStore = useCartStore();
 function   changeLanguage(obj){
@@ -11,43 +13,18 @@ function   changeLanguage(obj){
 </script>
 
 <template>
-    <header>
-        <div class="relative z-50 items-center">
-            <div class="flex justify-around fixed top-0 left-0 right-0">
-                <RouterLink to="/" class="flex items-center">
-                    <Logo />
-                </RouterLink>
-
-                <nav class="w-full mx-4 xl:w-5/6 text-primary">
-                    <font-awesome-icon
-                        icon="bars"
-                        class="block md:hidden mr-6 lg:mr-12"
-                    />
-                    <RouterLink to="#" class="flex items-center">
-                        <span class="hidden md:block mr-12"
-                            >Home</span
-                        ></RouterLink
-                    >
-                    <RouterLink to="#" class="flex items-center">
-                        <span class="hidden md:block mr-12">A Propos</span>
-                    </RouterLink>
-                    <RouterLink to="/shop" class="flex items-center">
-                        <span class="hidden md:block mr-12">produits</span>
-                    </RouterLink>
-                    <RouterLink to="#" class="flex items-center">
-                        <span class="hidden md:block mr-12">contact</span>
-                    </RouterLink>
-                       <select class="border-none bg-transparent  " v-model="$i18n.locale" @change="changeLanguage">
-        <option value="en">En</option>
-        <option value="fr">Fr</option>
-    </select>
-                </nav>
-            </div>
-        </div>
-    </header>
-
+ <div v-if="this.$route.path==='/'">
+       <TheHomeMenu />
     <RouterView />
-    <TheFooter />
+    <TheHomeFooter />
+ </div>
+ <div v-else>
+           <TheMenu />
+
+     <RouterView />
+        <TheFooter />
+
+ </div>
 </template>
 <script>
 export default {

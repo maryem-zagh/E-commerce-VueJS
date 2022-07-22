@@ -96,13 +96,12 @@ const mobileFiltersOpen = ref(false)
 
 
          <div
-            class=" bg-[url('@/assets/shopbg.png')]  pt-24 px-8 pb-4"
+                     class="bg-[url('@/assets/shopbg.png')] pt-24 md:pt-40 px-8 pb-4 font-ProductSans text-white bg-no-repeat bg-cover"
         >
             <div>
                
                 <div
-                    class=" text-center text-white md:text-[48px] text-2xl font-[700] tracking-wide mb-14"
-                >
+class=" text-center text-white md:text-[48px] text-2xl font-[700] tracking-wide mb-14"                 >
                     Meilleures projets créatifs
                 </div>
 

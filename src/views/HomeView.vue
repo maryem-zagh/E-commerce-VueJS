@@ -7,7 +7,7 @@
                 <div
                     class="text-primary text-6xl font-bold tracking-wide mb-14"
                 >
-                    Trouvez les meilleurs projets digitals
+                                         {{ $t('welcomeMsg') }} 
                 </div>
 
                 <img
@@ -70,14 +70,14 @@
                 <img src="@/assets/about.svg" width="340" alt="shop" />
             </div>
         </div>
-        <div class="grid px-6 lg:p-24 lg:pt-12 font-ProductSans">
+        <div class="grid p-6 lg:p-24 lg:pt-12 font-ProductSans">
             <div
-                class="text-primary text-4xl font-bold tracking-wide text-center mb-14"
+                class="text-primary text-4xl font-bold tracking-wide text-center pb-4  "
             >
                 Produits
             </div>
             <div
-                class="mt-5 text-lg text-stone-100 font-normal text-center text-info"
+                class="  text-lg text-stone-100 font-normal text-center text-info"
             >
                 Des spécialités qui vont vous donner la main libre d’atteindre
                 facilement <br />vos objectifs.
@@ -322,7 +322,7 @@ fonctionne et les types de marketing digital qui peuvent être utilisés.
         </div>
         <!-- contact -->
         <div
-            class="grid md:grid-cols-2 p-6 lg:px-24 lg:gap-x-60 font-ProductSans space-x-7"
+            class="grid md:grid-cols-2 p-6 lg:px-24 lg:gap-x-60 font-ProductSans  "
         >
             <div>
                 <div
@@ -339,7 +339,7 @@ fonctionne et les types de marketing digital qui peuvent être utilisés.
                 <div class="rounded-lg grid lg:grid-cols-3 font-Montserrat">
                     <div class="col-span-2">
                         <div
-                            class="flex mt-6 space-x-10 justify-left lg:justify-start"
+                            class="flex mt-6 space-x-7 justify-left lg:justify-start"
                         >
                             <a href="#">
                                 <svg
@@ -410,8 +410,8 @@ fonctionne et les types de marketing digital qui peuvent être utilisés.
                                 </svg>
                             </a>
                             <!-- <div class="justify-end flex rounded-lg ">
-                <img src="@/assets/qr.png" alt="shop" width="138" />
-            </div> -->
+                         <img src="@/assets/qr.png" alt="shop" width="138" />
+                         </div> -->
                         </div>
                         <div class="grid grid-cols-3">
                             <div class="mt-9">
@@ -435,15 +435,15 @@ fonctionne et les types de marketing digital qui peuvent être utilisés.
                     </div>
 
                     <div
-                        class="text-center justify-center flex rounded-lg p-4 col-span-2 lg:col-span-1"
+                        class="   rounded-lg p-4 col-span-2 lg:col-span-1"
                     >
-                        <img src="@/assets/qr.png" alt="shop" width="138" />
+                        <img src="@/assets/qr.png" alt="shop" width="138" class=""/>
                     </div>
                 </div>
             </div>
 
-            <div class="justify-center">
-                <form>
+     
+                <form class=" mt-5 ">
                     <div class="grid gap-6 mb-6 lg:grid-cols-1">
                         <input
                             type="text"
@@ -498,7 +498,7 @@ fonctionne et les types de marketing digital qui peuvent être utilisés.
                         </button>
                     </div>
                 </form>
-            </div>
+         
         </div>
     </main>
 </template>
