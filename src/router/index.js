@@ -18,6 +18,11 @@ const router = createRouter({
             component: () => import("../views/ContactView.vue"),
         },
         {
+            path: "/intone-market",
+            name: "intone-market",
+            component: () => import("../views/ProductsSliderView.vue"),
+        },
+        {
             path: "/products",
             name: "products",
             component: () => import("../views/AllProductsView.vue"),

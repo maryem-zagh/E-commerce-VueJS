@@ -27,6 +27,8 @@ import router from "./router";
 // Tailwindcss
 import './index.css'
 // modal
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
 // axios
 import Axios from 'axios'
 import clickOutside from "vue3-clickoutside-component";
@@ -73,4 +75,6 @@ app.use(i18n)
 app.use(createPinia());
 app.use(router);
 app.use(clickOutside);
+app.use(VueSweetalert2);
+
 app.mount("#app");
