@@ -1,7 +1,7 @@
 <template>
     <header>
         <div class="relative z-50 items-center">
-            <div class="flex justify-around fixed top-0 left-0 right-0 items-end ">
+            <div class="flex justify-around fixed top-0 left-0 right-0   ">
                 <RouterLink to="/" class="flex items-center">
                     <!-- <Logo /> -->
                  <img
