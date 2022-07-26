@@ -60,10 +60,10 @@
                 facilement <br />vos objectifs.
             </div>
 
-            <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-24 px-6 py-16 xl:p-20">
+            <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-24 px-6 py-16 xl:p-20 justify-items-center">
                 <!-- product 1 -->
                 <div
-                    class="bg-white rounded-[30px] p-4 border-gray-200 shadow-2xl w-full mt-2 inline-grid justify-items-center">
+                    class="bg-white rounded-[30px] p-4 border-gray-200 shadow-2xl w-full max-w-xs mt-2 inline-grid justify-items-center">
                     <div class="w-20 h-20 -top-8 rounded-full bg-[#1D57A6] text-white flex justify-center items-center">
                         <a href="# " class="">
                             <img alt="park" class="park" src="@/assets/icons/park.svg" width="48" />
@@ -132,7 +132,7 @@
                 </div>
                 <!-- product 1 -->
                 <div
-                    class="bg-white rounded-[30px] p-4 border-gray-200 shadow-2xl w-full mt-2 inline-grid justify-items-center">
+                    class="bg-white rounded-[30px] p-4 border-gray-200 shadow-2xl w-full max-w-xs mt-2 inline-grid justify-items-center">
                     <div class="w-20 h-20 -top-8 rounded-full bg-[#1D57A6] text-white flex justify-center items-center">
                         <a href="#">
                             <img alt="park" class="park" src="@/assets/icons/web-stories.svg" width="48" />
@@ -201,7 +201,7 @@
 
                 <!-- product 1 -->
                 <div
-                    class="bg-white rounded-[30px] p-4 border-gray-200 shadow-2xl w-full mt-2 inline-grid justify-items-center">
+                    class="bg-white rounded-[30px] p-4 border-gray-200 shadow-2xl w-full max-w-xs mt-2 inline-grid justify-items-center">
                     <div class="w-20 h-20 -top-8 rounded-full bg-[#1D57A6] text-white flex justify-center items-center">
                         <a href="#">
                             <img alt="park" class="park" src="@/assets/icons/graph.svg" width="48" />
@@ -270,7 +270,7 @@
                 </div>
 
                 <div
-                    class="bg-white rounded-[30px] pb-2 border-gray-200 shadow-2xl w-full mt-2 inline-grid justify-items-center">
+                    class="bg-white rounded-[30px] pb-2 border-gray-200 shadow-2xl w-full max-w-xs mt-2 inline-grid justify-items-center">
                     <div class="w-20 h-20 -top-8 rounded-full bg-[#F87524] flex justify-center items-center">
                         <a href="#">
                             <img alt="park" class="park" src="@/assets/icons/learning.svg" width="48" />
