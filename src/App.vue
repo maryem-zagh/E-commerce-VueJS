@@ -22,7 +22,7 @@ function changeLanguage(obj) {
         <TheMenu />
 
         <RouterView />
-        <TheFooter v-if="this.$route.path === '/ontone-market'" />
+        <TheFooter v-if="this.$route.path !== '/intone-market'" />
 
     </div>
 </template>
