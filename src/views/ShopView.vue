@@ -575,10 +575,10 @@ const mobileFiltersOpen = ref(false)
               <div
                 class=" font-ProductSans grid md:grid-cols-2 xl:grid-cols-3 gap-y-6 gap-x-14    py-16 justify-items-center  ">
 
-                <div v-for="product in products" :key="product.id"
+                <div v-for="product in products" :key="product.id" 
                   class="bg-white rounded-[30px] border  border-gray-300 shadow-2xl  w-full  max-w-xs mt-0 inline-grid justify-items-center  text-primary ">
 
-
+                   <RouterLink to="/product/:product" class="w-full">
                   <img :src="product.imageSrc" :alt="product.imageAlt" class="rounded-[30px] h-60   
                       object-cover   w-full " />
 
@@ -588,6 +588,7 @@ const mobileFiltersOpen = ref(false)
                   <div class="mt-2  text-2xl  font-[700] text-center">
                     {{ product.price }}
                   </div>
+                  </RouterLink>
                   <div class="mt-2 mb-4 text-center">
                     <span class="text-secondary font-bold text-center font-ProductSans text-base">
                       Acheter

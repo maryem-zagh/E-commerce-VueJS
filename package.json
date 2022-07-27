@@ -22,6 +22,7 @@
     "@vue-hero-icons/outline": "^1.7.2",
     "@vue-hero-icons/solid": "^1.7.2",
     "axios": "^0.27.2",
+    "hooper": "^0.3.4",
     "pinia": "^2.0.13",
     "save": "^2.5.0",
     "tw-elements": "^1.0.0-alpha12",

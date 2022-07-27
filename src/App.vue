@@ -20,11 +20,12 @@ function changeLanguage(obj) {
     </div>
     <div v-else>
         <TheMenu />
-
+          <ProductShow />
         <RouterView />
-        <TheFooter v-if="this.$route.path !== '/intone-market'" />
+         <TheFooter v-if="this.$route.path !== '/intone-market'" />
 
     </div>
+    
 </template>
 <script>
 export default {
