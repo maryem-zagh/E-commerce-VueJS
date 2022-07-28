@@ -24,7 +24,7 @@ export default {
 </script>
 
 <template>
-  <main class="font-ProductSans text-primary">
+  <main class="lg:px-24 ">
     <div
       class="bg-white pt-24 md:pt-40 px-8 pb-4 font-ProductSans flex flex-wrap justify-center gap-x-2"
     >
@@ -378,10 +378,11 @@ export default {
         </transition>
       </Menu>
     </div>
-    <div class="grid md:grid-cols-2 lg:px-24 lg:gap-28">
+    <!-- details products -->
+    <div class="grid md:grid-cols-2  lg:gap-28  md:gap-10  ">
       <div>
-        <div class="flex flex-row gap-5">
-          <div>
+        <div class="flex flex-row lg:gap-5 px-5 ">
+          <div class="px-2">
             <button
               type="button"
               class="bg-[#dff1f8b0] text-[#0064D2] border border-blue-700 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-1.5 text-center inline-flex items-center"
@@ -431,7 +432,7 @@ export default {
             </ul>
           </div>
         </div>
-        <div class="group col-span-4">
+        <div class="group col-span-4 px-5">
           <div
             class="w-full aspect-w-1 aspect-h-1 bg-gray-200 overflow-hidden xl:aspect-w-7 xl:aspect-h-8"
           >
@@ -443,7 +444,7 @@ export default {
         </div>
       </div>
       <div>
-        <div class="grid grid-cols-2 py-14">
+        <div class="grid grid-cols-2 py-14 px-5 ">
           <div>
             <h1 class="font-bold text-2xl">Minimal Zebra Logo</h1>
             <p class="font-ProductSans text-sm">
@@ -454,7 +455,7 @@ export default {
             <h1 class="font-bold text-4xl lg:px-24">€580</h1>
           </div>
         </div>
-        <div>
+        <div class="px-5">
           <div class="font-semibold text-base">Discription</div>
           <ul class="list-disc px-6 text-sm font-semibold">
             <li>15 cm (6.1-inch) Super Retina XDR display</li>
@@ -475,7 +476,7 @@ export default {
             </li>
           </ul>
         </div>
-        <div class="py-28">
+        <div class="lg:py-28 px-5">
           <div class="mb-5">
             <button
               type="button" @click="toggleModal = !toggleModal"
