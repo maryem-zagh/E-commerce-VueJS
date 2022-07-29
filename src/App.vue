@@ -27,6 +27,7 @@ function changeLanguage(obj) {
         <RouterView />
         <TheFooter />
     </div>
+
 </template>
 <script>
 export default {

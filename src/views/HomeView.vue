@@ -66,7 +66,7 @@
                     class="bg-white rounded-[30px] p-4 border-gray-200 shadow-2xl w-full max-w-xs mt-2 inline-grid justify-items-center">
                     <div class="w-20 h-20 -top-8 rounded-full bg-[#1D57A6] text-white flex justify-center items-center">
                         <a href="# " class="">
-                            <img alt="park" class="park" src="@/assets/icons/park.svg" width="48" />
+                            <img alt="park" @click="showDesignModal" class="park" src="@/assets/icons/park.svg" width="48" />
                         </a>
                     </div>
                     <div class="text-primary text-center font-bold">
@@ -135,7 +135,7 @@
                     class="bg-white rounded-[30px] p-4 border-gray-200 shadow-2xl w-full max-w-xs mt-2 inline-grid justify-items-center">
                     <div class="w-20 h-20 -top-8 rounded-full bg-[#1D57A6] text-white flex justify-center items-center">
                         <a href="#">
-                            <img alt="park" class="park" src="@/assets/icons/web-stories.svg" width="48" />
+                            <img alt="park" class="park"  @click="showCodingModal" src="@/assets/icons/web-stories.svg" width="48" />
                         </a>
                     </div>
                     <div class="text-primary text-center font-bold">
@@ -204,7 +204,7 @@
                     class="bg-white rounded-[30px] p-4 border-gray-200 shadow-2xl w-full max-w-xs mt-2 inline-grid justify-items-center">
                     <div class="w-20 h-20 -top-8 rounded-full bg-[#1D57A6] text-white flex justify-center items-center">
                         <a href="#">
-                            <img alt="park" class="park" src="@/assets/icons/graph.svg" width="48" />
+                            <img alt="park" class="park"  @click="showMarketingModal" src="@/assets/icons/graph.svg" width="48" />
                         </a>
                     </div>
                     <div class="text-primary text-center font-bold">

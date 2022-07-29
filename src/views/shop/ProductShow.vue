@@ -1,344 +1,407 @@
-<script setup></script>
-<template>
-    <div class="h-full bg-white">
-        <div class="max-w-2xl mx-auto py-16 px-4 sm:px-6 lg:max-w-7xl lg:px-4">
-            <div class="flex flex-col flex-wrap items-center">
-                <h1
-                    class="text-5xl font-normal text-gray-900 capitalize pt-10 font-Amaline tracking-wider"
-                >
-                    {{ product.title }}
-                </h1>
-                <p
-                    class="text-3xl font-normal text-gray-600 capitalize pt-3 pb-16 font-Gotham"
-                >
-                    <router-link
-                        class="text-gray-500"
-                        :to="{
-                            name: 'home',
-                        }"
-                    >
-                        Home /
-                    </router-link>
-                    <router-link
-                        v-if="product.categories"
-                        class="text-gray-500"
-                        :to="{
-                            name: 'products-category',
-                            params: {
-                                slug: product.categories[0].slug,
-                                name: product.categories[0].name,
-                            },
-                        }"
-                    >
-                        {{ product.categories[0].name }} /
-                    </router-link>
+<script setup>
+import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
 
-                    {{ product.title }}
-                </p>
-            </div>
+import {
+  ChevronDownIcon,
 
-            <div
-                class="grid grid-cols-1 gap-y-10 gap-x-10 md:grid-cols-5 lg:grid-cols-9 xl:grid-cols-9"
-            >
-                <div class="group col-span-4">
-                    <div
-                        class="w-full aspect-w-1 aspect-h-1 bg-gray-200 overflow-hidden xl:aspect-w-7 xl:aspect-h-8"
-                    >
-                        <img
-                            :src="product.imageSrc"
-                            :alt="product.imageAlt"
-                            class="w-full h-full object-center object-cover group-hover:opacity-75"
-                        />
-                    </div>
-                </div>
+} from "@heroicons/vue/solid";
 
-                <div
-                    class="grid grid-cols-4 gap-x-2 gap-y-2 md:grid-cols-1 lg:grid-cols-1"
-                >
-                    <div
-                        class="w-full aspect-w-1 aspect-h-1 bg-gray-200 overflow-hidden xl:aspect-w-7 xl:aspect-h-8"
-                    >
-                        <img
-                            :src="product.imageSrc"
-                            :alt="product.imageAlt"
-                            class="w-full h-full object-center object-cover hover:opacity-75"
-                        />
-                    </div>
 
-                    <div
-                        class="w-full aspect-w-1 aspect-h-1 bg-gray-200 overflow-hidden xl:aspect-w-7 xl:aspect-h-8"
-                    >
-                        <img
-                            :src="product.imageSrc"
-                            :alt="product.imageAlt"
-                            class="w-full h-full object-center object-cover hover:opacity-75"
-                        />
-                    </div>
-                    <div
-                        class="w-full aspect-w-1 aspect-h-1 bg-gray-200 overflow-hidden xl:aspect-w-7 xl:aspect-h-8"
-                    >
-                        <img
-                            :src="product.imageSrc"
-                            :alt="product.imageAlt"
-                            class="w-full h-full object-center object-cover hover:opacity-75"
-                        />
-                    </div>
-                    <div
-                        class="w-full aspect-w-1 aspect-h-1 bg-gray-200 overflow-hidden xl:aspect-w-7 xl:aspect-h-8"
-                    >
-                        <img
-                            :src="product.imageSrc"
-                            :alt="product.imageAlt"
-                            class="w-full h-full object-center object-cover hover:opacity-75"
-                        />
-                    </div>
-                </div>
-                <div class="col-span-4">
-                    <div>Ref: Nb524X01</div>
-                    <h3 class="mt-4 text-sm font-medium text-gray-900">
-                        {{ product.title }}
-                    </h3>
-                    <p class="mt-1 text-lg text-gray-700">
-                        {{ product.description }}
-                    </p>
-                    <div>Available colors: X X</div>
-                    <p
-                        class="my-4 text-3xl font-Gotham font-light text-gray-900"
-                    >
-                        <span class="mr-4"> Price</span> {{ product.price }} TND
-                    </p>
-
-                    <div class="text-left justify-center p-2">
-                        <input
-                            type="button"
-                            value="-"
-                            class="w-10 bg-slate-100 font-black text-xl"
-                            @click="minusQuantity"
-                        />
-
-                        <input
-                            v-model.number="quantity"
-                            :min="min"
-                            :max="max"
-                            class="w-20 col-span-4 text-center text-xl bg-slate-100"
-                        />
-
-                        <input
-                            type="button"
-                            value="+"
-                            class="w-10 bg-slate-100 font-black text-xl"
-                            @click="plusQuantity"
-                        />
-                    </div>
-                    <div class="mt-10">
-                        <button
-                            @click="addCart(product)"
-                            class="w-4/5 bg-black hover:bg-gray-600 active:bg-gray-700 focus:outline-none focus:ring focus:ring-violet-300 px-auto py-4 text-white text-2xl font-Gotham font-normal"
-                        >
-                            I want this
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="flex flex-col flex-wrap items-center">
-            <h1
-                class="text-3xl font-normal text-gray-900 capitalize pt-28 pb-16 font-Amaline tracking-wider"
-            >
-                Related products
-            </h1>
-        </div>
-
-        <ProductsList :products="products" />
-
-        <!-- Trigger/Open the Modal -->
-
-        <div class="w3-container">
-            <div class="w3-modal justify-center" :class="[open ? 'block' : '']">
-                <div class="w3-modal-content w-1/3 h-fit text-center fon">
-                    <div class="w3-container">
-                        <button
-                            @click="hideModal()"
-                            class="w3-button w3-display-topright text-5xl"
-                        >
-                            &times;
-                        </button>
-
-                        <div class="px-10 py-5 md:py-20">
-                            <p class="font-Amaline text-5xl font-normal">
-                                Yess
-                            </p>
-                            <p class="font-Montserrat text-base font-semibold">
-                                Your product is in Shopping Cart
-                            </p>
-                            <button
-                                class="w-4/5 bg-black hover:bg-gray-600 active:bg-gray-700 focus:outline-none focus:ring focus:ring-violet-300 px-auto py-2 my-6 text-white text-2xl font-Gotham font-normal"
-                            >
-                                <RouterLink to="/cart"> Let’s Go </RouterLink>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</template>
-
-<script>
-import { useCartStore } from "../../stores/cart";
-
-const CartStore = useCartStore();
-import ProductsList from "./ProductsList.vue";
-export default {
-    components: { ProductsList },
-    data() {
-        return {
-            open: false,
-            product: [],
-            products: [],
-            carts: [],
-            cartAdd: {
-                product_id: "",
-                name: "",
-                price: "",
-                imageSrc: "",
-                imageAlt: "",
-                order_id: "",
-                quantity: 1,
-            },
-            badge: "0",
-            totalPrice: " 0",
-            quantity: 1,
-            min: 1,
-            max: 10,
-        };
-    },
-    // computed: {
-    //     carts: CartStore.cart,
-    // },
-    mounted() {
-        this.$http
-            .get("products/related/" + this.product.slug)
-            .then((response) => {
-                this.products = response.data;
-                // console.log("other products", response.data, this.product.slug);
-            })
-            .catch((error) => {});
-    },
-    created() {
-        this.loadProduct();
-        this.viewCart();
-    },
-    watch: {
-        $route: function (to, from) {
-            // console.log(to, from);
-            this.loadProduct();
-        },
-    },
-
-    methods: {
-        // Modal
-        showModal() {
-            this.open = true;
-        },
-        hideModal() {
-            this.open = false;
-        },
-        // Product
-        loadProduct() {
-            this.$http
-                .get("products/" + this.$route.params.product)
-                .then((response) => {
-                    this.product = response.data;
-                    // console.log(this.product);
-                })
-                .catch((error) => {});
-        },
-        // Cart
-        isInCart(product) {
-            if (!localStorage.getItem("carts")) {
-                localStorage.setItem("carts", JSON.stringify([]));
-            }
-            let cartItem = this.carts.find(
-                (item) => item.product_id === product.id
-            );
-            // console.log(cartItem);
-            return Boolean(cartItem);
-        },
-        viewCart() {
-            if (localStorage.getItem("carts")) {
-                this.carts = JSON.parse(localStorage.getItem("carts"));
-                this.badge = this.carts.length;
-                try {
-                    var valeurInitiale = 0;
-                    this.totalPrice = JSON.parse(
-                        localStorage.getItem("carts")
-                    ).reduce(function (accumulateur, valeurCourante) {
-                        return (
-                            accumulateur +
-                            valeurCourante.price * valeurCourante.quantity
-                        );
-                    }, valeurInitiale);
-                    // console.log(
-                    //     this.carts.reduce((total, item) => {
-                    //         return total + item.quantity * item.price;
-                    //     })
-                    // );
-                } catch (error) {
-                    // console.log(error);
-                }
-            } else {
-                this.carts = [];
-            }
-        },
-
-        addCart(product) {
-            if (this.isInCart(product)) {
-                // console.log(product);
-                const index = this.carts.findIndex(
-                    ({ product_id }) => product_id === product.id
-                );
-                let cartItem = this.carts[index];
-                if (cartItem.quantity + this.quantity <= 0) {
-                    this.removeFromCart(product);
-                } else {
-                    cartItem.quantity += this.quantity;
-                }
-
-                // console.log("item", cartItem);
-            } else {
-                if (this.quantity > 0) {
-                    this.cartAdd.product_id = product.id;
-                    this.cartAdd.name = product.title;
-                    this.cartAdd.price = product.price;
-                    this.cartAdd.imageSrc = product.imageSrc;
-                    this.cartAdd.imageAlt = product.imageAlt;
-                    this.cartAdd.quantity = this.quantity;
-                    this.carts.push(this.cartAdd);
-                }
-            }
-            localStorage.setItem("carts", JSON.stringify(this.carts));
-            CartStore.$patch((state) => {
-                state.cart = JSON.parse(localStorage.getItem("carts"));
-                state.total = this.totalPrice;
-            });
-            this.showModal();
-        },
-        updateCart(product_id, quantity) {},
-        plusQuantity() {
-            this.quantity++;
-        },
-        minusQuantity() {
-            this.quantity--;
-        },
-        removeFromCart(product) {
-            const index = this.carts.findIndex(
-                ({ product_id }) => product_id === product.id
-            );
-            this.carts.splice(index, 1);
-            localStorage.setItem("carts", JSON.stringify(this.carts));
-        },
-    },
-};
 </script>
+<script>
+export default {
+  name: "modal",
+  data() {
+    return {
+      products: [],
+      categories: [],
+      toggleModal: false,
+      toggleModal1: false,
+      toggleModal2: false
+    };
+  },
+}
+</script>
+
+<template>
+  <img src="@/assets/bg-2.png" class="block bg-no-repeat bg-cover min-h-[110px] w-full " alt="Motorbike Smoke" />
+
+  <main class="lg:px-24 ">
+
+    <div class="bg-white  px-8 pb-4 font-ProductSans flex flex-wrap justify-center gap-x-2">
+      <Menu as="div" class="relative inline-block text-left">
+        <div>
+          <MenuButton
+            class="inline-flex justify-center w-full rounded-md px-4 py-2 text-base font-medium text-primary hover:bg-gray-50">
+            Modèle Graphique
+            <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
+          </MenuButton>
+        </div>
+
+        <transition enter-active-class="transition ease-out duration-100"
+          enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100"
+          leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100"
+          leave-to-class="transform opacity-0 scale-95">
+          <MenuItems
+            class="origin-top-left absolute left-0 mt-2 w-32 z-50 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <div class="py-1">
+              <MenuItem v-slot="{ active }">
+              <a href="#" :class="[
+                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                'block px-4 py-2 text-sm',
+              ]">Account settings</a>
+              </MenuItem>
+              <MenuItem v-slot="{ active }">
+              <a href="#" :class="[
+                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                'block px-4 py-2 text-sm',
+              ]">Support</a>
+              </MenuItem>
+              <MenuItem v-slot="{ active }">
+              <a href="#" :class="[
+                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                'block px-4 py-2 text-sm',
+              ]">License</a>
+              </MenuItem>
+              <form method="POST" action="#">
+                <MenuItem v-slot="{ active }">
+                <button type="submit" :class="[
+                  active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                  'block w-full text-left px-4 py-2 text-sm',
+                ]">
+                  Sign out
+                </button>
+                </MenuItem>
+              </form>
+            </div>
+          </MenuItems>
+        </transition>
+      </Menu>
+      <!--   Documents -->
+      <Menu as="div" class="relative inline-block text-left">
+        <div>
+          <MenuButton
+            class="inline-flex justify-center w-full rounded-md px-4 py-2 text-base font-medium text-primary hover:bg-gray-50">
+            Documents
+            <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
+          </MenuButton>
+        </div>
+
+        <transition enter-active-class="transition ease-out duration-100"
+          enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100"
+          leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100"
+          leave-to-class="transform opacity-0 scale-95">
+          <MenuItems
+            class="origin-top-left absolute left-0 mt-2 w-32 z-50 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <div class="py-1">
+              <MenuItem v-slot="{ active }">
+              <a href="#" :class="[
+                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                'block px-4 py-2 text-sm',
+              ]">Account settings</a>
+              </MenuItem>
+              <MenuItem v-slot="{ active }">
+              <a href="#" :class="[
+                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                'block px-4 py-2 text-sm',
+              ]">Support</a>
+              </MenuItem>
+              <MenuItem v-slot="{ active }">
+              <a href="#" :class="[
+                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                'block px-4 py-2 text-sm',
+              ]">License</a>
+              </MenuItem>
+              <form method="POST" action="#">
+                <MenuItem v-slot="{ active }">
+                <button type="submit" :class="[
+                  active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                  'block w-full text-left px-4 py-2 text-sm',
+                ]">
+                  Sign out
+                </button>
+                </MenuItem>
+              </form>
+            </div>
+          </MenuItems>
+        </transition>
+      </Menu>
+      <!--   Modéles 3D -->
+      <Menu as="div" class="relative inline-block text-left">
+        <div>
+          <MenuButton
+            class="inline-flex justify-center w-full rounded-md px-4 py-2 text-base font-medium text-primary hover:bg-gray-50">
+            Modéles 3D
+            <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
+          </MenuButton>
+        </div>
+
+        <transition enter-active-class="transition ease-out duration-100"
+          enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100"
+          leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100"
+          leave-to-class="transform opacity-0 scale-95">
+          <MenuItems
+            class="origin-top-left absolute left-0 mt-2 w-32 z-50 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <div class="py-1">
+              <MenuItem v-slot="{ active }">
+              <a href="#" :class="[
+                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                'block px-4 py-2 text-sm',
+              ]">Account settings</a>
+              </MenuItem>
+              <MenuItem v-slot="{ active }">
+              <a href="#" :class="[
+                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                'block px-4 py-2 text-sm',
+              ]">Support</a>
+              </MenuItem>
+              <MenuItem v-slot="{ active }">
+              <a href="#" :class="[
+                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                'block px-4 py-2 text-sm',
+              ]">License</a>
+              </MenuItem>
+              <form method="POST" action="#">
+                <MenuItem v-slot="{ active }">
+                <button type="submit" :class="[
+                  active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                  'block w-full text-left px-4 py-2 text-sm',
+                ]">
+                  Sign out
+                </button>
+                </MenuItem>
+              </form>
+            </div>
+          </MenuItems>
+        </transition>
+      </Menu>
+      <!--   UX / UI -->
+      <Menu as="div" class="relative inline-block text-left">
+        <div>
+          <MenuButton
+            class="inline-flex justify-center w-full rounded-md px-4 py-2 text-base font-medium text-primary hover:bg-gray-50">
+            UX / UI
+            <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
+          </MenuButton>
+        </div>
+
+        <transition enter-active-class="transition ease-out duration-100"
+          enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100"
+          leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100"
+          leave-to-class="transform opacity-0 scale-95">
+          <MenuItems
+            class="origin-top-left absolute left-0 mt-2 w-32 z-50 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <div class="py-1">
+              <MenuItem v-slot="{ active }">
+              <a href="#" :class="[
+                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                'block px-4 py-2 text-sm',
+              ]">Account settings</a>
+              </MenuItem>
+              <MenuItem v-slot="{ active }">
+              <a href="#" :class="[
+                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                'block px-4 py-2 text-sm',
+              ]">Support</a>
+              </MenuItem>
+              <MenuItem v-slot="{ active }">
+              <a href="#" :class="[
+                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                'block px-4 py-2 text-sm',
+              ]">License</a>
+              </MenuItem>
+              <form method="POST" action="#">
+                <MenuItem v-slot="{ active }">
+                <button type="submit" :class="[
+                  active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                  'block w-full text-left px-4 py-2 text-sm',
+                ]">
+                  Sign out
+                </button>
+                </MenuItem>
+              </form>
+            </div>
+          </MenuItems>
+        </transition>
+      </Menu>
+      <!--   Vidéos -->
+      <Menu as="div" class="relative inline-block text-left">
+        <div>
+          <MenuButton
+            class="inline-flex justify-center w-full rounded-md px-4 py-2 text-base font-medium text-primary hover:bg-gray-50">
+            Vidéos
+            <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
+          </MenuButton>
+        </div>
+
+        <transition enter-active-class="transition ease-out duration-100"
+          enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100"
+          leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100"
+          leave-to-class="transform opacity-0 scale-95">
+          <MenuItems
+            class="origin-top-left absolute left-0 mt-2 w-32 z-50 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <div class="py-1">
+              <MenuItem v-slot="{ active }">
+              <a href="#" :class="[
+                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                'block px-4 py-2 text-sm',
+              ]">Account settings</a>
+              </MenuItem>
+              <MenuItem v-slot="{ active }">
+              <a href="#" :class="[
+                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                'block px-4 py-2 text-sm',
+              ]">Support</a>
+              </MenuItem>
+              <MenuItem v-slot="{ active }">
+              <a href="#" :class="[
+                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                'block px-4 py-2 text-sm',
+              ]">License</a>
+              </MenuItem>
+              <form method="POST" action="#">
+                <MenuItem v-slot="{ active }">
+                <button type="submit" :class="[
+                  active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                  'block w-full text-left px-4 py-2 text-sm',
+                ]">
+                  Sign out
+                </button>
+                </MenuItem>
+              </form>
+            </div>
+          </MenuItems>
+        </transition>
+      </Menu>
+    </div>
+    <!-- details products -->
+    <div class="grid md:grid-cols-2  lg:gap-28  md:gap-10  ">
+      <div>
+        <div class="flex flex-row lg:gap-5 px-5 ">
+          <div class="px-2">
+            <button type="button"
+              class="bg-[#dff1f8b0] text-[#0064D2] border border-blue-700 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-1.5 text-center inline-flex items-center">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
+                </path>
+              </svg>
+              <span class="sr-only">Icon description</span>
+            </button>
+          </div>
+          <div class="py-2">
+            <ul class="flex flex-row gap-2">
+              <li>
+                <a href="/" class="no-underline hover:underline font-semibold text-sm leading-5 text-black">Home</a>
+              </li>
+              <li>/</li>
+              <li>
+                <a href="/shop"
+                  class="no-underline hover:underline font-semibold text-sm leading-5 text-black">Desgin</a>
+              </li>
+              <li>/</li>
+              <li>
+                <a href="#" class="no-underline hover:underline font-semibold text-sm leading-5 text-[#0064D2]">Minimal
+                  Zebra Logo</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="group col-span-4 px-5">
+          <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
+            <img src="@/assets/shop.png" class="w-full h-full object-center object-cover group-hover:opacity-75" />
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="grid grid-cols-2 py-14 px-5 ">
+          <div>
+            <h1 class="font-bold text-2xl">Minimal Zebra Logo</h1>
+            <p class="font-ProductSans text-sm">
+              Free 2 Days Shipping | 1 Year Warranty
+            </p>
+          </div>
+          <div class="">
+            <h1 class="font-bold text-4xl lg:px-24">€580</h1>
+          </div>
+        </div>
+        <div class="px-5">
+          <div class="font-semibold text-base">Discription</div>
+          <ul class="list-disc px-6 text-sm font-semibold">
+            <li>15 cm (6.1-inch) Super Retina XDR display</li>
+            <li>
+              2MP TrueDepth front camera with Night mode, 4K Dolby Vision HDR
+              recording
+            </li>
+            <li>A15 Bionic chip for lightning-fast performance</li>
+            <li>Up to 19 hours of video playback</li>
+            <li>Durable design with Ceramic Shield</li>
+            <li>Industry-leading IP68 water resistance</li>
+            <li>
+              iOS 15 packs new features to do more with iPhone than ever before
+            </li>
+            <li>
+              Supports MagSafe accessories for easy attachment and faster
+              wireless charging
+            </li>
+          </ul>
+        </div>
+        <div class="lg:py-28 px-5">
+          <div class="mb-5">
+            <button type="button" @click="toggleModal = !toggleModal"
+              class="text-white bg-[#0064D2] leading-6 font-medium rounded-lg text-base w-full p-4">
+              Acheter Maintenant
+            </button>
+            <div class="fixed overflow-x-hidden overflow-y-auto inset-0 flex justify-center items-center z-50"
+              v-if="toggleModal">
+              <div class="relative p-4 w-[750px] h-full  ">
+                <div class="relative bg-white rounded-lg h-[570px] shadow ">
+                  <div class="flex justify-between items-start p-4  ">
+                    <button type="button"
+                      class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                      @click="toggleModal = false">
+                      <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      <span class="sr-only">Close modal</span>
+                    </button>
+                  </div>
+
+                  <div class=" px-20 font-ProductSans">
+                    <div class="text-primary text-2xl font-extrabold col-span-2 tracking-wide  mb-4">
+                      Desgin Graphique
+                      <div class="mt-5 text-sm font-[400] text-info">
+                        Des projets suivis et créés de A à Z dans des délais raccourcis par rapport à une agence de
+                        communication.
+                        Des tarifs plus attractifs et totalement maîtrisés et sans surprises qu’en agences de com’ ou de
+                        publicité.
+                        Remplissez le formulaire suivant :
+
+                      </div>
+                      <form>
+                        <input type="text">
+                      </form>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div v-if="toggleModal" class="absolute z-40 insert-0 opacity-25 bg-[#2d2d2e]"></div>
+          </div>
+
+          <div class="mb-6">
+            <button type="button"
+              class="text-black bg-white text-base border leading-6 border-b-gray-400 font-medium rounded-lg w-full p-4">
+              Je veux une conception personnalisée
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</template>
