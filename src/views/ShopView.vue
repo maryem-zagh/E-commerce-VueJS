@@ -103,6 +103,21 @@ const products = [
 
 
 const mobileFiltersOpen = ref(false)
+
+// export default {
+//   name: '',
+//   props: {
+
+//   },
+//   setup(props) {
+
+//   }
+// }
+function ShowModal() {
+
+}
+
+
 </script>
 
 <template>

@@ -33,6 +33,7 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 import Axios from 'axios'
 import clickOutside from "vue3-clickoutside-component";
 import 'tw-elements';
+import 'flowbite';
 
 
 

@@ -4,6 +4,7 @@ module.exports = {
     content: [
         "./index.html",
         "./src/**/*.{vue,js,ts,jsx,tsx}",
+        "./node_modules/flowbite/**/*.js"
     ],
     theme: {
         fontFamily: {
@@ -29,7 +30,8 @@ module.exports = {
     },
     plugins: [
         require('@tailwindcss/forms'),
-        require('tw-elements/dist/plugin')
+        require('tw-elements/dist/plugin'),
+        require('flowbite/plugin')
 
     ],
 }

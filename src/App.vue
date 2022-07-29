@@ -18,12 +18,14 @@ function changeLanguage(obj) {
         <RouterView />
         <TheHomeFooter />
     </div>
+    <div v-else-if="this.$route.path === '/intone-market'">
+        <TheMenu />
+        <RouterView />
+    </div>
     <div v-else>
         <TheMenu />
-
         <RouterView />
-        <TheFooter v-if="this.$route.path !== '/intone-market'" />
-
+        <TheFooter />
     </div>
 </template>
 <script>
