@@ -13,13 +13,37 @@ export default {
   name: "modal",
   data() {
     return {
-      products: [],
+      product: {
+        "url": "/src/assets/shop.png"
+      },
+      products: [
+        {
+          "id": 1,
+          "url": "/src/assets/zebra.png",
+
+        },
+        {
+          "id": 2,
+          "url": "/src/assets/zebra2.png",
+
+        },
+        {
+          "id": 3,
+          "url": "/src/assets/zebra3.png",
+
+        },
+      ],
       categories: [],
       toggleModal: false,
       toggleModal1: false,
       toggleModal2: false
     };
   },
+  methods: {
+    changeImage(data) {
+      this.product.url = data
+    }
+  }
 }
 </script>
 
@@ -309,10 +333,18 @@ export default {
         </div>
         <div class="group col-span-4 px-5">
           <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-            <img src="@/assets/shop.png" class="w-full h-full object-center object-cover group-hover:opacity-75" />
+            <img :src="product.url" class="w-full h-full object-center object-cover group-hover:opacity-75" />
+
+          </div>
+          <div class="grid grid-cols-3 gap-4 mt-4">
+
+            <img v-for="product in products" @click="changeImage(product.url)" :src="product.url" alt="">
+
           </div>
         </div>
+
       </div>
+
       <div>
         <div class="grid grid-cols-2 py-14 px-5 ">
           <div>
@@ -376,7 +408,8 @@ export default {
                       <div class="mt-5 text-sm font-[400] text-info">
                         Des projets suivis et créés de A à Z dans des délais raccourcis par rapport à une agence de
                         communication.
-                        Des tarifs plus attractifs et totalement maîtrisés et sans surprises qu’en agences de com’ ou de
+                        Des tarifs plus attractifs et totalement maîtrisés et sans surprises qu’en agences de com’ ou
+                        de
                         publicité.
                         Remplissez le formulaire suivant :
 

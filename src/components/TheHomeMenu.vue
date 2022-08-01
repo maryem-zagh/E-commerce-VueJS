@@ -7,30 +7,24 @@
                 </RouterLink>
 
                 <nav class="w-full mx-4 xl:w-5/6 text-primary">
-                    <font-awesome-icon
-                        icon="bars"
-                        class="block md:hidden mr-2"
-                        width="48"
-                    />
-                    <RouterLink to="#" class="flex items-center">
-                        <span class="hidden md:block mr-12"
-                            >Home   </span
-                        ></RouterLink
-                    >
-                   
-                    <RouterLink to="#" class="flex items-center">
+                    <font-awesome-icon icon="bars" class="block md:hidden mr-2" width="48" />
+                    <a href="#top" class="flex items-center">
+                        <span class="hidden md:block mr-12">Home </span>
+                    </a>
+
+                    <a href="#about" class="flex items-center">
                         <span class="hidden md:block mr-12">A Propos</span>
-                    </RouterLink>
-                    <RouterLink to="/shop" class="flex items-center">
+                    </a>
+                    <a href="#products" class="flex items-center">
                         <span class="hidden md:block mr-12">produits</span>
-                    </RouterLink>
-                    <RouterLink to="#" class="flex items-center">
+                    </a>
+                    <a href="#contact" class="flex items-center">
                         <span class="hidden md:block mr-12">contact</span>
-                    </RouterLink>
-                       <select class="border-none py-0 bg-transparent  " v-model="$i18n.locale" @change="changeLanguage">
-        <option value="en">En</option>
-        <option value="fr">Fr</option>
-    </select>
+                    </a>
+                    <select class="border-none py-0 bg-transparent  " v-model="$i18n.locale" @change="changeLanguage">
+                        <option value="en">En</option>
+                        <option value="fr">Fr</option>
+                    </select>
                 </nav>
             </div>
         </div>
@@ -76,6 +70,7 @@ export default {
     padding-top: 0%;
     font-family: "Product Sans";
 }
+
 /* @media (max-width: 576px) {
     #app {
         padding-top: 0%;

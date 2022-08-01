@@ -1,6 +1,6 @@
 <template>
     <main class="mt-32 lg:mt-12">
-        <div class="grid md:grid-cols-2 px-6 lg:pl-24 lg:pt-24 lg:pr-0 font-ProductSans">
+        <div id="top" class="grid md:grid-cols-2 px-6 lg:pl-24 lg:pt-24 lg:pr-0 font-ProductSans">
             <div>
                 <div class="text-primary text-6xl font-bold tracking-wide mb-14">
                     {{ $t('welcomeMsg') }}
@@ -13,8 +13,11 @@
 
                 </div>
                 <div class="my-8">
-                    <span class="text-secondary font-bold text-2xl">
-                        {{ $t('welcomeLinkText') }}
+                    <span>
+                        <RouterLink to="/shop" class="text-secondary font-bold text-2xl">
+
+                            {{ $t('welcomeLinkText') }}
+                        </RouterLink>
                     </span>
                     <font-awesome-icon icon="greater-than" class="text-secondary font-bold" />
                 </div>
@@ -24,7 +27,7 @@
                 <img src="@/assets/shop.png" alt="shop" />
             </div>
         </div>
-        <div class="grid md:grid-cols-2 px-6 lg:p-24 font-ProductSans">
+        <div id="about" class="grid md:grid-cols-2 px-6 lg:p-24 font-ProductSans">
             <div>
                 <div class="text-primary text-4xl font-bold tracking-wide mb-4 capitalize">
                     {{ $t('about') }}
@@ -51,7 +54,7 @@
                 <img src="@/assets/about.svg" width="340" alt="shop" />
             </div>
         </div>
-        <div class="grid p-6 lg:p-24 lg:pt-12 font-ProductSans">
+        <div id="products" class="grid p-6 lg:p-24 lg:pt-12 font-ProductSans">
             <div class="text-primary text-4xl font-bold tracking-wide text-center pb-4  capitalize ">
                 {{ $t('products') }}
             </div>
@@ -66,7 +69,8 @@
                     class="bg-white rounded-[30px] p-4 border-gray-200 shadow-2xl w-full max-w-xs mt-2 inline-grid justify-items-center">
                     <div class="w-20 h-20 -top-8 rounded-full bg-[#1D57A6] text-white flex justify-center items-center">
                         <a href="# " class="">
-                            <img alt="park" @click="showDesignModal" class="park" src="@/assets/icons/park.svg" width="48" />
+                            <img alt="park" @click="showDesignModal" class="park" src="@/assets/icons/park.svg"
+                                width="48" />
                         </a>
                     </div>
                     <div class="text-primary text-center font-bold">
@@ -135,7 +139,8 @@
                     class="bg-white rounded-[30px] p-4 border-gray-200 shadow-2xl w-full max-w-xs mt-2 inline-grid justify-items-center">
                     <div class="w-20 h-20 -top-8 rounded-full bg-[#1D57A6] text-white flex justify-center items-center">
                         <a href="#">
-                            <img alt="park" class="park"  @click="showCodingModal" src="@/assets/icons/web-stories.svg" width="48" />
+                            <img alt="park" class="park" @click="showCodingModal" src="@/assets/icons/web-stories.svg"
+                                width="48" />
                         </a>
                     </div>
                     <div class="text-primary text-center font-bold">
@@ -204,7 +209,8 @@
                     class="bg-white rounded-[30px] p-4 border-gray-200 shadow-2xl w-full max-w-xs mt-2 inline-grid justify-items-center">
                     <div class="w-20 h-20 -top-8 rounded-full bg-[#1D57A6] text-white flex justify-center items-center">
                         <a href="#">
-                            <img alt="park" class="park"  @click="showMarketingModal" src="@/assets/icons/graph.svg" width="48" />
+                            <img alt="park" class="park" @click="showMarketingModal" src="@/assets/icons/graph.svg"
+                                width="48" />
                         </a>
                     </div>
                     <div class="text-primary text-center font-bold">
@@ -293,7 +299,7 @@
             </div>
         </div>
         <!-- contact -->
-        <div class="grid md:grid-cols-2 p-6 lg:px-24 lg:gap-x-60 font-ProductSans  ">
+        <div id="contact" class="grid md:grid-cols-2 p-6 lg:px-24 lg:gap-x-60 font-ProductSans  ">
             <div>
                 <div class="text-primary text-5xl pr-16 font-bold tracking-wide mb-14">
                     {{ $t('contactUs') }}
