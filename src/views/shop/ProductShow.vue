@@ -3,22 +3,46 @@ import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
 
 import {
   ChevronDownIcon,
-
+ 
 } from "@heroicons/vue/solid";
-
+import DetailProduct from "../../components/DetailProduct.vue";
+import AcheterMaintenantVue from "../../components/AcheterMaintenant.vue";
+import AcheterMaintenant from "../../components/AcheterMaintenant.vue";
 
 </script>
 <script>
+
 export default {
   name: "modal",
   data() {
     return {
-      products: [],
-      categories: [],
+      showDetail: true,
+      activePhase: 1,
+        user_detail1: {
+            name: '',
+            email: ''
+        },
+        user_detail2: {
+            city: '',
+            state: ''
+        },
+     
+     
       toggleModal: false,
       toggleModal1: false,
       toggleModal2: false
     };
+  },
+  ready:function(){
+    console.log('ready');
+  },
+  methods:{
+    goToStep: function(step){
+      this.activePhase = step;
+    },
+    hideDetail :function(){
+      this.showDetail= false;
+    }
   },
 }
 </script>
@@ -313,95 +337,12 @@ export default {
           </div>
         </div>
       </div>
-      <div>
-        <div class="grid grid-cols-2 py-14 px-5 ">
-          <div>
-            <h1 class="font-bold text-2xl">Minimal Zebra Logo</h1>
-            <p class="font-ProductSans text-sm">
-              Free 2 Days Shipping | 1 Year Warranty
-            </p>
-          </div>
-          <div class="">
-            <h1 class="font-bold text-4xl lg:px-24">€580</h1>
-          </div>
-        </div>
-        <div class="px-5">
-          <div class="font-semibold text-base">Discription</div>
-          <ul class="list-disc px-6 text-sm font-semibold">
-            <li>15 cm (6.1-inch) Super Retina XDR display</li>
-            <li>
-              2MP TrueDepth front camera with Night mode, 4K Dolby Vision HDR
-              recording
-            </li>
-            <li>A15 Bionic chip for lightning-fast performance</li>
-            <li>Up to 19 hours of video playback</li>
-            <li>Durable design with Ceramic Shield</li>
-            <li>Industry-leading IP68 water resistance</li>
-            <li>
-              iOS 15 packs new features to do more with iPhone than ever before
-            </li>
-            <li>
-              Supports MagSafe accessories for easy attachment and faster
-              wireless charging
-            </li>
-          </ul>
-        </div>
-        <div class="lg:py-28 px-5">
-          <div class="mb-5">
-            <button type="button" @click="toggleModal = !toggleModal"
-              class="text-white bg-[#0064D2] leading-6 font-medium rounded-lg text-base w-full p-4">
-              Acheter Maintenant
-            </button>
-            <div class="fixed overflow-x-hidden overflow-y-auto inset-0 flex justify-center items-center z-50"
-              v-if="toggleModal">
-              <div class="relative p-4 w-[750px] h-full  ">
-                <div class="relative bg-white rounded-lg h-[570px] shadow ">
-                  <div class="flex justify-between items-start p-4  ">
-                    <button type="button"
-                      class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                      @click="toggleModal = false">
-                      <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                          clip-rule="evenodd"></path>
-                      </svg>
-                      <span class="sr-only">Close modal</span>
-                    </button>
-                  </div>
-
-                  <div class=" px-20 font-ProductSans">
-                    <div class="text-primary text-2xl font-extrabold col-span-2 tracking-wide  mb-4">
-                      Desgin Graphique
-                      <div class="mt-5 text-sm font-[400] text-info">
-                        Des projets suivis et créés de A à Z dans des délais raccourcis par rapport à une agence de
-                        communication.
-                        Des tarifs plus attractifs et totalement maîtrisés et sans surprises qu’en agences de com’ ou de
-                        publicité.
-                        Remplissez le formulaire suivant :
-
-                      </div>
-                      <form>
-                        <input type="text">
-                      </form>
-                    </div>
-
-
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div v-if="toggleModal" class="absolute z-40 insert-0 opacity-25 bg-[#2d2d2e]"></div>
-          </div>
-
-          <div class="mb-6">
-            <button type="button"
-              class="text-black bg-white text-base border leading-6 border-b-gray-400 font-medium rounded-lg w-full p-4">
-              Je veux une conception personnalisée
-            </button>
-          </div>
-        </div>
-      </div>
+      <div  v-if="showDetail">
+     <DetailProduct @some-event="hideDetail"/>
+     </div>
+      <div v-else>
+        <AcheterMaintenant/>
+    </div>
     </div>
   </main>
 </template>
