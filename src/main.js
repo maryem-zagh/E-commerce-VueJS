@@ -52,7 +52,8 @@ import {
     faShoppingBag,
     faGreaterThan,
     faPlus,
-    faCheck
+    faCheck,
+    
 
 } from "@fortawesome/free-solid-svg-icons";
 

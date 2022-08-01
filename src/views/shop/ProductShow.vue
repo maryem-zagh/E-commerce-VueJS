@@ -5,10 +5,13 @@ import {
   ChevronDownIcon,
 
 } from "@heroicons/vue/solid";
-
+import DetailProduct from "../../components/DetailProduct.vue";
+import AcheterMaintenantVue from "../../components/AcheterMaintenant.vue";
+import AcheterMaintenant from "../../components/AcheterMaintenant.vue";
 
 </script>
 <script>
+
 export default {
   name: "modal",
   data() {
@@ -34,6 +37,18 @@ export default {
         },
       ],
       categories: [],
+      showDetail: true,
+      activePhase: 1,
+      user_detail1: {
+        name: '',
+        email: ''
+      },
+      user_detail2: {
+        city: '',
+        state: ''
+      },
+
+
       toggleModal: false,
       toggleModal1: false,
       toggleModal2: false
@@ -42,8 +57,18 @@ export default {
   methods: {
     changeImage(data) {
       this.product.url = data
+    },
+
+    ready: function () {
+      console.log('ready');
+    },
+    goToStep: function (step) {
+      this.activePhase = step;
+    },
+    hideDetail: function () {
+      this.showDetail = false;
     }
-  }
+  },
 }
 </script>
 
@@ -344,8 +369,7 @@ export default {
         </div>
 
       </div>
-
-      <div>
+      <<<<<<< HEAD <div>
         <div class="grid grid-cols-2 py-14 px-5 ">
           <div>
             <h1 class="font-bold text-2xl">Minimal Zebra Logo</h1>
@@ -434,7 +458,15 @@ export default {
             </button>
           </div>
         </div>
-      </div>
+    </div>
+    =======
+    <div v-if="showDetail">
+      <DetailProduct @some-event="hideDetail" />
+    </div>
+    <div v-else>
+      <AcheterMaintenant />
+    </div>
+    >>>>>>> afd082663186ff6120614abb7cf4ccd37e990115
     </div>
   </main>
 </template>
