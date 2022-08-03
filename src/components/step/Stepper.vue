@@ -1,8 +1,8 @@
 <template>
 <div>
-    <Step1   v-if="activePhase == 1 " />
-    <Step2    v-if="activePhase == 2" />
-    <Step3    v-if="activePhase == 3 "/>
+    <Step1  />
+    <Step2 />
+    <Step3 />
 </div>
 
 

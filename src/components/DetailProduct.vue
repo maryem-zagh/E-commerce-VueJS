@@ -49,7 +49,7 @@
             </button>
               <div class="fixed overflow-x-hidden overflow-y-auto inset-0 flex justify-center items-center z-50"
               v-if="toggleModal">
-              <div class="relative p-4 lg:w-[1043px] h-full  ">
+              <div class="relative p-5 w-full lg:w-[1024px] h-full  ">
                 <div class="relative bg-white rounded-lg lg:h-[570px] shadow ">
                   <div class="flex justify-between items-start p-4  ">
                     <button type="button"
@@ -65,11 +65,11 @@
                     </button>
                   </div>
                   <!-- step1 -->
-         <div class=" ">
-        <div class="lg:px-24 px-5 grid-cols-1" id="user_detail1" v-if="activePhase == 1">
+         <div class="px-5 lg:px-24 ">
+        <div class=" grid-cols-1" id="user_detail1" v-if="activePhase == 1">
         <!-- stepper -->
-         <div class="flex flex-row items-center ">
-                         
+         <div class="flex flex-col md:flex-row lg:items-center md:items-center gap-3 ">
+                        <div class="flex md:flex-row   ">
                         <div class="">
                        <div class="w-8 h-8  rounded-full bg-[#0059C8] text-white flex justify-center items-center">
                         <a href="# " class="">
@@ -83,8 +83,11 @@
                           Informations du contact
                    </div>
            
-              <span class="h-0.5 w-9 bg-blue-600 lg:w-1/1 px-5 "></span>
-           <div class="px-5">
+             
+              </div>
+              <span class="h-0.5 w-9 bg-gray-400 lg:w-1/1 px-5 "></span>
+              <div class="flex md:flex-row ">
+           <div class="lg:px-5">
                        <div class="w-8 h-8  rounded-full bg-[#C4C4C4] text-white flex justify-center items-center">
                         <a href="# " class="">
                             <h1 class="text-2xl text-white">2</h1>
@@ -92,11 +95,14 @@
                     </div>
                       </div>
                     
-            <div class=" px-5 lg:text-xl md:text-sm font-normal leading-8 text-gray-400">
+            <div class=" px-3 lg:text-xl md:text-sm font-normal leading-8 text-gray-400">
               Spécif  ications du projet
             </div>
+            
+            </div>
             <span class="h-0.5 w-9 bg-gray-400 lg:w-1/1 px-5 "></span>
-             <div class="px-5">
+            <div class="flex md:flex-row ">
+             <div class="lg:px-5">
                        <div class="w-8 h-8  rounded-full bg-[#C4C4C4] text-white flex justify-center items-center">
                         <a href="# " class="">
                             <h1 class="text-2xl text-white">3</h1>
@@ -109,7 +115,7 @@
                         Paiement
                        </div>
            
-              
+              </div>
         </div>
             <form class=" mt-9 " >
                 <div class="grid  mb-6 lg:grid-cols-3  gap-4">
@@ -186,13 +192,13 @@
 </label>
                    </div>
                    <div class="text-center">
-                    <button @click.prevent="goToStep(2)" class="text-white bg-[#0064D2] leading-6 font-medium rounded-full text-base w-[400px] p-2">Envoyer</button>
+                    <button @click.prevent="goToStep(2)" class="text-white bg-[#0064D2] leading-6 font-medium rounded-full text-base w-full lg:w-[400px] p-2">Envoyer</button>
                    </div>
         </div>
          <!-- step2 -->
-        <div class="lg:px-24" id="user_detail2" v-if="activePhase == 2">
-             <div  class="flex flex-row items-center">
-                         
+        <div class="" id="user_detail2" v-if="activePhase == 2">
+               <div class="flex flex-col md:flex-row lg:items-center md:items-center gap-3 ">
+                        <div class="flex md:flex-row   ">
                         <div class="">
                        <div class="w-8 h-8  rounded-full bg-[#0059C8] text-white flex justify-center items-center">
                         <a href="# " class="">
@@ -202,12 +208,15 @@
                       </div>
                       
                     
-            <div class=" px-3 text-xl font-normal leading-8 text-blue-800">
-              Informations du contact
-            </div>
+                     <div class=" px-3 lg:text-xl md:text-sm font-normal leading-8 text-blue-800">
+                          Informations du contact
+                   </div>
            
+             
+              </div>
               <span class="h-0.5 w-9 bg-blue-600 lg:w-1/1 px-5 "></span>
-           <div class="px-5">
+              <div class="flex md:flex-row ">
+           <div class="lg:px-5">
                        <div class="w-8 h-8  rounded-full bg-[#0059C8] text-white flex justify-center items-center">
                         <a href="# " class="">
                             <h1 class="text-2xl text-white">2</h1>
@@ -215,11 +224,14 @@
                     </div>
                       </div>
                     
-            <div class=" px-5  text-xl font-normal leading-8 text-blue-600">
+            <div class=" px-3 lg:text-xl md:text-sm font-normal leading-8 text-blue-800">
               Spécif  ications du projet
             </div>
-            <span class="h-0.5 w-9 bg-blue-600 lg:w-1/1 px-5 "></span>
-             <div class="px-5">
+            
+            </div>
+            <span class="h-0.5 w-9 bg-gray-400 lg:w-1/1 px-5 "></span>
+            <div class="flex md:flex-row ">
+             <div class="lg:px-5">
                        <div class="w-8 h-8  rounded-full bg-[#C4C4C4] text-white flex justify-center items-center">
                         <a href="# " class="">
                             <h1 class="text-2xl text-white">3</h1>
@@ -228,12 +240,12 @@
                       </div>
                       
                     
-            <div class=" px-3 text-xl font-normal leading-8 text-gray-400">
-              Paiement
-            </div>
+                     <div class=" px-3 md:text-sm lg:text-xl font-normal leading-8 text-gray-400">
+                        Paiement
+                       </div>
            
-              
-                    </div>
+              </div>
+        </div>
             <form class=" mt-9 " >
                 <div class="grid  mb-6 lg:grid-cols-2 gap-4">
                     <div>
@@ -325,13 +337,13 @@
             </form>
           
                    <div class="text-center">
-                    <button  @click.prevent="goToStep(3)"  class="text-white bg-[#0064D2] leading-6 font-medium rounded-full text-base w-[400px] p-2">Envoyer</button>
+                    <button  @click.prevent="goToStep(3)"  class="text-white bg-[#0064D2] leading-6 font-medium rounded-full text-base lg:w-[400px] w-full p-2">Envoyer</button>
                    </div>
         </div>
          <!-- step3 -->
-        <div class="lg:px-16" id="step3" v-if="activePhase == 3">
-       <div  class="flex flex-row items-center px-5">
-                         
+        <div class="" id="step3" v-if="activePhase == 3">
+          <div class="flex flex-col md:flex-row lg:items-center md:items-center gap-3 ">
+                        <div class="flex md:flex-row   ">
                         <div class="">
                        <div class="w-8 h-8  rounded-full bg-[#0059C8] text-white flex justify-center items-center">
                         <a href="# " class="">
@@ -341,12 +353,15 @@
                       </div>
                       
                     
-            <div class=" px-3 text-xl font-normal leading-8 text-blue-800">
-              Informations du contact
-            </div>
+                     <div class=" px-3 lg:text-xl md:text-sm font-normal leading-8 text-blue-800">
+                          Informations du contact
+                   </div>
            
+             
+              </div>
               <span class="h-0.5 w-9 bg-blue-600 lg:w-1/1 px-5 "></span>
-           <div class="px-5">
+              <div class="flex md:flex-row ">
+           <div class="lg:px-5">
                        <div class="w-8 h-8  rounded-full bg-[#0059C8] text-white flex justify-center items-center">
                         <a href="# " class="">
                             <h1 class="text-2xl text-white">2</h1>
@@ -354,11 +369,14 @@
                     </div>
                       </div>
                     
-            <div class="px-5  text-xl font-normal leading-8 text-blue-600">
+            <div class=" px-3 lg:text-xl md:text-sm font-normal leading-8 text-blue-800">
               Spécif  ications du projet
             </div>
+            
+            </div>
             <span class="h-0.5 w-9 bg-blue-600 lg:w-1/1 px-5 "></span>
-             <div class="px-5">
+            <div class="flex md:flex-row ">
+             <div class="lg:px-5">
                        <div class="w-8 h-8  rounded-full bg-[#0059C8] text-white flex justify-center items-center">
                         <a href="# " class="">
                             <h1 class="text-2xl text-white">3</h1>
@@ -367,13 +385,13 @@
                       </div>
                       
                     
-            <div class=" px-3 text-xl font-normal leading-8 text-blue-600">
-              Paiement
-            </div>
+                     <div class=" px-3 md:text-sm lg:text-xl font-normal leading-8 text-blue-800">
+                        Paiement
+                       </div>
            
-              
-                    </div>
-           <div class="grid lg:grid-cols-2 lg:py-16 gap-8 px-5">
+              </div>
+        </div>
+           <div class="grid lg:grid-cols-2 lg:py-16 gap-8 px-5 py-5">
             <div class="">
               <div class="font-bold text-2xl mb-4 text-black ">Effectuez votre paiement</div>
               <div class="mb-4">
@@ -420,27 +438,28 @@
                     860 €
                   </div>
                   <div class="text-center mb-6">
-                    <button  @click.prevent="goToStep(4)"  class="text-white bg-[#0064D2] leading-6 font-medium rounded-full text-base w-[365px] p-2">Effectuer</button>
+                    <button  @click.prevent="goToStep(4)"  class="text-white bg-[#0064D2] leading-6 font-medium rounded-full text-base w-full lg:w-[365px] p-2">Effectuer</button>
                    </div>
                    <div class="text-center">
-                    <button  @click.prevent="goToStep(2)"  class="text-black bg-[#F4F4F4] leading-6 font-medium rounded-full text-base w-[365px] p-2">Retour</button>
+                    <button  @click.prevent="goToStep(2)"  class="text-black bg-[#F4F4F4] leading-6 font-medium rounded-full text-base w-full lg:w-[365px] p-2">Retour</button>
                    </div>
                 </div>
            </div>
         </div>
-        <div class="px-64 :py-11" id="step3" v-if="activePhase == 4">
+        <div class=" py-11" id="step3" v-if="activePhase == 4">
         
-       <div class="justify-center flex mb-7">
+       <div class="justify-center flex mb-7 ">
         
-                            <img alt="park" class=""   src="@/assets/icons/checkicon.svg" width="144" />
+                            <img alt="park" class="   "   src="@/assets/icons/checkicon.svg" width="144"  />
                         
        </div>
        <div class="text-center font-bold text-5xl mb-5">une demande effectuée avec succès.</div>
        <div class="font-normal text-center text-base mb-16">Nous vous contacterons dans une durée<br/> de moins de 24h</div>
           
          <div class="text-center ">
-                    <button @click="toggleModal = false"  @click.prevent="goToStep(1)" class="text-white bg-[#0064D2] leading-6 font-medium rounded-full text-base w-[365px] p-2">Fermer</button>
+                    <button @click="toggleModal = false"  @click.prevent="goToStep(1)" class="text-white bg-[#0064D2] leading-6 font-medium rounded-full text-base w-full lg:w-[365px] p-2">Fermer</button>
                    </div>
+                   
         </div>
     </div>
    
