@@ -39,13 +39,18 @@ const router = createRouter({
         },
         {
             path: "/marketingdegital",
-            name: "shopping-cart",
-            component: () => import("../views/CartView.vue"),
+            name: "Marketing-View",
+            component: () => import("../views/MarketingView.vue"),
         },
         {
             path: "/checkout",
             name: "checkout",
             component: () => import("../views/CheckoutView.vue"),
+        },
+        {
+            path: "/About",
+            name: "About",
+            component: () => import("../views/AboutView.vue"),
         },
     ],
 });
