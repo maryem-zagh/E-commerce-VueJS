@@ -10,17 +10,17 @@
 
                 <nav class="w-full mx-4 xl:w-5/6 text-white">
                     <font-awesome-icon icon="bars" class="block lg:hidden mr-2" width="48" />
-                    <RouterLink to="#" class="flex items-center">
+                    <RouterLink to="/" class="flex items-center">
                         <span class="hidden lg:block mr-12 text-white">Home </span>
                     </RouterLink>
 
-                    <RouterLink to="#" class="flex items-center">
+                    <RouterLink to="/:slug" class="flex items-center">
                         <span class="hidden lg:block mr-12">Design</span>
                     </RouterLink>
-                    <RouterLink to="/shop" class="flex items-center">
+                    <RouterLink to="/shopdev" class="flex items-center">
                         <span class="hidden lg:block mr-12">Coding</span>
                     </RouterLink>
-                    <RouterLink to="/shop" class="flex items-center">
+                    <RouterLink to="/marketingdegital" class="flex items-center">
                         <span class="hidden lg:block mr-12">Marketing Digital</span>
                     </RouterLink>
                     <RouterLink to="#" class="flex items-center">

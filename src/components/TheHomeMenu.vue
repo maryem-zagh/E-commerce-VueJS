@@ -18,7 +18,7 @@
                     <a href="#products" class="flex items-center">
                         <span class="hidden md:block mr-12">produits</span>
                     </a>
-                    <a href="#contact" class="flex items-center">
+                    <a href="/contact" class="flex items-center">
                         <span class="hidden md:block mr-12">contact</span>
                     </a>
                     <select class="border-none py-0 bg-transparent  " v-model="$i18n.locale" @change="changeLanguage">
