@@ -24,24 +24,24 @@ const sortOptions = [
   { name: 'Price: High to Low', href: '#', current: false },
 ]
 const subCategories = [
-  { name: 'Sites web', href: '#' },
-  { name: 'Applications mobile', href: '#' },
+  { name: 'Sites web', href: '#',count:'320' },
+  { name: 'Applications mobile', href: '#',count:'320' },
   
 
 ]
 const subFilters = [
-  { name: 'Derniers projets', href: '#' },
-  { name: 'Projets en réduction', href: '#' },
+  { name: 'Derniers projets', href: '#',count:'112' },
+  { name: 'Projets en réduction', href: '#',count:'112' },
 
 
 ]
 const subPropriétés = [
-  { name: 'React Js', href: '#' },
-  { name: 'Laravel', href: '#' },
-  { name: 'Symphonie', href: '#' },
-  { name: 'Angular', href: '#' },
-  { name: 'Vue JS', href: '#' },
-  { name: 'Spring boot', href: '#' },
+  { name: 'React Js', href: '#',count:'112' },
+  { name: 'Laravel', href: '#',count:'112' },
+  { name: 'Symphonie', href: '#',count:'112' },
+  { name: 'Angular', href: '#',count:'112' },
+  { name: 'Vue JS', href: '#',count:'112' },
+  { name: 'Spring boot', href: '#',count:'112' },
 
 
 ]
@@ -352,29 +352,64 @@ function ShowModal() {
                   <h3 class="sr-only">Propriétés</h3>
                   <ul role="list" class="font-medium  px-2 py-3">
                     <h1 class="font-bold font-ProductSans text-lg capitalize">category</h1>
-                    <li v-for="Propriétés in subCategories" :key="Propriétés.name">
-                      <a :href="Propriétés.href" class="block px-2 py-3">
-                        {{ Propriétés.name }}
-                      </a>
-                    </li>
+                  <li class="grid grid-cols-4" v-for="Propriétés in subCategories" :key="Propriétés.name">
+                
+                  <div class="col-span-3">
+                    <a :href="Propriétés.href">
+                    {{ Propriétés.name }}
+                  </a>
+                  </div>
+                  
+                  <div class="">
+                    <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
+                        <div class="text-xs font-semibold text-secondary">
+                          {{ Propriétés.count }}
+                        </div>
+                    </div>
+                    </div>
+                
+                  
+                  
+                  
+                </li>
                   </ul>
 
                   <h3 class="sr-only">Propriétés</h3>
                   <ul role="list" class="font-medium  px-2 py-3">
                     <h1 class="font-bold font-ProductSans text-lg capitalize">Filters</h1>
-                    <li v-for="Propriétés in subFilters" :key="Propriétés.name">
-                      <a :href="Propriétés.href" class="block px-2 py-3">
-                        {{ Propriétés.name }}
-                      </a>
+                    <li class="grid grid-cols-4" v-for="Propriétés in subFilters" :key="Propriétés.name">
+                    <div class="col-span-3">
+                    <a :href="Propriétés.href">
+                    {{ Propriétés.name }}
+                  </a>
+                  </div>
+                  
+                  <div class="">
+                    <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
+                        <div class="text-xs font-semibold text-secondary">
+                          {{ Propriétés.count }}
+                        </div>
+                    </div>
+                    </div>
                     </li>
                   </ul>
                   <h3 class="sr-only">Propriétés</h3>
                   <ul role="list" class="font-medium  px-2 py-3">
                     <h1 class="font-bold font-ProductSans text-lg capitalize">Technologies</h1>
-                    <li v-for="Propriétés in subPropriétés" :key="Propriétés.name">
-                      <a :href="Propriétés.href" class="block px-2 py-3">
-                        {{ Propriétés.name }}
-                      </a>
+                    <li class="grid grid-cols-4" v-for="Propriétés in subPropriétés" :key="Propriétés.name">
+                      <div class="col-span-3">
+                    <a :href="Propriétés.href">
+                    {{ Propriétés.name }}
+                  </a>
+                  </div>
+                  
+                  <div class="">
+                    <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
+                        <div class="text-xs font-semibold text-secondary">
+                          {{ Propriétés.count }}
+                        </div>
+                    </div>
+                    </div>
                     </li>
                   </ul>
                   <h3 class="sr-only">Propriétés</h3>
@@ -458,30 +493,66 @@ function ShowModal() {
 
             <form class="hidden lg:block">
               <h3 class="sr-only">Propriétés</h3>
-              <ul role="list" class="text-sm font-medium  space-y-4 pb-6 ">
+              <ul role="list" class="text-sm font-medium  space-y-4 pb-6  ">
                 <h1 class="font-bold font-ProductSans text-lg capitalize">category</h1>
-                <li v-for="Propriétés in subCategories" :key="Propriétés.name">
-                  <a :href="Propriétés.href">
+                <li class="grid grid-cols-4" v-for="Propriétés in subCategories" :key="Propriétés.name">
+                
+                  <div class="col-span-3">
+                    <a :href="Propriétés.href">
                     {{ Propriétés.name }}
                   </a>
+                  </div>
+                  
+                  <div class="">
+                    <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
+                        <div class="text-xs font-semibold text-secondary">
+                          {{ Propriétés.count }}
+                        </div>
+                    </div>
+                    </div>
+                
+                  
+                  
+                  
                 </li>
+               
               </ul>
 
 
               <ul role="list" class="text-sm font-medium  space-y-4 pb-6  ">
                 <h1 class="font-bold font-ProductSans text-lg capitalize">Filtres</h1>
-                <li v-for="Propriétés in subFilters" :key="Propriétés.name">
-                  <a :href="Propriétés.href">
+                <li class="grid grid-cols-4" v-for="Propriétés in subFilters" :key="Propriétés.name">
+                   <div class="col-span-3">
+                    <a :href="Propriétés.href">
                     {{ Propriétés.name }}
                   </a>
+                  </div>
+                  
+                  <div class="">
+                    <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
+                        <div class="text-xs font-semibold text-secondary">
+                          {{ Propriétés.count }}
+                        </div>
+                    </div>
+                    </div>
                 </li>
               </ul>
               <ul role="list" class="text-sm font-medium  space-y-4 pb-6 ">
                 <h1 class="font-bold font-ProductSans text-lg capitalize">Technologies</h1>
-                <li v-for="Propriétés in subPropriétés" :key="Propriétés.name">
-                  <a :href="Propriétés.href">
+                <li class="grid grid-cols-4" v-for="Propriétés in subPropriétés" :key="Propriétés.name">
+                   <div class="col-span-3">
+                    <a :href="Propriétés.href">
                     {{ Propriétés.name }}
                   </a>
+                  </div>
+                  
+                  <div class="">
+                    <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
+                        <div class="text-xs font-semibold text-secondary">
+                          {{ Propriétés.count }}
+                        </div>
+                    </div>
+                    </div>
                 </li>
               </ul>
               <ul role="list" class="text-sm font-medium  space-y-4 pb-6  ">

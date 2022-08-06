@@ -1,4 +1,5 @@
 <template>
+<PreLoder />
     <!-- <img src="@/assets/slider-bg.svg" alt="" class="object-cover	 w-full h-screen  bg-no-repeat"> -->
     <div id="carouselDarkVariant" class="carousel slide carousel-fade  font-ProductSans    relative"
         data-bs-ride="carousel">
@@ -84,7 +85,10 @@
         </button>
     </div>
 </template>
+<script setup>
+import PreLoder from '../components/PreLoder.vue'</script>
 <script>
+
 export default {
     name: '',
     props: {},

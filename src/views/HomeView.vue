@@ -14,7 +14,7 @@
                 </div>
                 <div class="my-8">
                     <span>
-                        <RouterLink to="/shop" class="text-secondary font-bold text-2xl">
+                        <RouterLink to="/market" class="text-secondary font-bold text-2xl">
 
                             {{ $t('welcomeLinkText') }}
                         </RouterLink>

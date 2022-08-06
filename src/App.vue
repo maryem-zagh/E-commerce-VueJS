@@ -13,15 +13,16 @@ function changeLanguage(obj) {
 </script>
 
 <template>
-    <div v-if="this.$route.path === '/'">
+<div v-if="this.$route.path == '/market'">
+        <TheMenu />
+        <RouterView />
+    </div>
+    <div v-else-if="this.$route.path === '/'">
         <TheHomeMenu />
         <RouterView />
         <TheHomeFooter />
     </div>
-    <div v-else-if="this.$route.path === '/intone-market'">
-        <TheMenu />
-        <RouterView />
-    </div>
+    
     <div v-else>
         <TheMenu />
         <RouterView />

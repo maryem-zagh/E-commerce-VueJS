@@ -24,20 +24,20 @@ const sortOptions = [
   { name: 'Price: High to Low', href: '#', current: false },
 ]
 const subCategories = [
-  { name: 'Identité Visuelle', href: '#' },
-  { name: 'Logos', href: '#' },
-  { name: '3D', href: '#' },
+  { name: 'Identité Visuelle', href: '#', count:'320' },
+  { name: 'Logos', href: '#', count:'112' },
+  { name: '3D', href: '#', count:'112' },
 
 ]
 const subFilters = [
-  { name: 'Derniers projets', href: '#' },
-  { name: 'Projets en réduction', href: '#' },
+  { name: 'Derniers projets', href: '#', count:'112' },
+  { name: 'Projets en réduction', href: '#', count:'112' },
 
 
 ]
 const subPropriétés = [
-  { name: 'Vecteurs', href: '#' },
-  { name: 'Superposé', href: '#' },
+  { name: 'Vecteurs', href: '#', count:'112' },
+  { name: 'Superposé', href: '#', count:'112' },
 
 
 ]
@@ -415,29 +415,59 @@ function ShowModal() {
                   <h3 class="sr-only">Propriétés</h3>
                   <ul role="list" class="font-medium  px-2 py-3">
                     <h1 class="font-bold font-ProductSans text-lg capitalize">category</h1>
-                    <li v-for="Propriétés in subCategories" :key="Propriétés.name">
-                      <a :href="Propriétés.href" class="block px-2 py-3">
-                        {{ Propriétés.name }}
-                      </a>
+                    <li class="grid grid-cols-4" v-for="Propriétés in subCategories" :key="Propriétés.name">
+                     <div class="col-span-3">
+                    <a :href="Propriétés.href">
+                    {{ Propriétés.name }}
+                  </a>
+                  </div>
+                  
+                  <div class="">
+                    <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
+                        <div class="text-xs font-semibold text-secondary">
+                          {{ Propriétés.count }}
+                        </div>
+                    </div>
+                    </div>
                     </li>
                   </ul>
 
                   <h3 class="sr-only">Propriétés</h3>
                   <ul role="list" class="font-medium  px-2 py-3">
                     <h1 class="font-bold font-ProductSans text-lg capitalize">Filters</h1>
-                    <li v-for="Propriétés in subFilters" :key="Propriétés.name">
-                      <a :href="Propriétés.href" class="block px-2 py-3">
-                        {{ Propriétés.name }}
-                      </a>
+                    <li class="grid grid-cols-4" v-for="Propriétés in subFilters" :key="Propriétés.name">
+                       <div class="col-span-3">
+                    <a :href="Propriétés.href">
+                    {{ Propriétés.name }}
+                  </a>
+                  </div>
+                  
+                  <div class="">
+                    <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
+                        <div class="text-xs font-semibold text-secondary">
+                          {{ Propriétés.count }}
+                        </div>
+                    </div>
+                    </div>
                     </li>
                   </ul>
                   <h3 class="sr-only">Propriétés</h3>
                   <ul role="list" class="font-medium  px-2 py-3">
                     <h1 class="font-bold font-ProductSans text-lg capitalize">Propriétés</h1>
-                    <li v-for="Propriétés in subPropriétés" :key="Propriétés.name">
-                      <a :href="Propriétés.href" class="block px-2 py-3">
-                        {{ Propriétés.name }}
-                      </a>
+                    <li class="grid grid-cols-4" v-for="Propriétés in subPropriétés" :key="Propriétés.name">
+                      <div class="col-span-3">
+                    <a :href="Propriétés.href">
+                    {{ Propriétés.name }}
+                  </a>
+                  </div>
+                  
+                  <div class="">
+                    <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
+                        <div class="text-xs font-semibold text-secondary">
+                          {{ Propriétés.count }}
+                        </div>
+                    </div>
+                    </div>
                     </li>
                   </ul>
                   <h3 class="sr-only">Propriétés</h3>
@@ -523,28 +553,58 @@ function ShowModal() {
               <h3 class="sr-only">Propriétés</h3>
               <ul role="list" class="text-sm font-medium  space-y-4 pb-6 ">
                 <h1 class="font-bold font-ProductSans text-lg capitalize">category</h1>
-                <li v-for="Propriétés in subCategories" :key="Propriétés.name">
-                  <a :href="Propriétés.href">
+                <li class="grid grid-cols-4" v-for="Propriétés in subCategories" :key="Propriétés.name">
+                   <div class="col-span-3">
+                    <a :href="Propriétés.href">
                     {{ Propriétés.name }}
                   </a>
+                  </div>
+                  
+                  <div class="">
+                    <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
+                        <div class="text-xs font-semibold text-secondary">
+                          {{ Propriétés.count }}
+                        </div>
+                    </div>
+                    </div>
                 </li>
               </ul>
 
 
               <ul role="list" class="text-sm font-medium  space-y-4 pb-6  ">
                 <h1 class="font-bold font-ProductSans text-lg capitalize">Filtres</h1>
-                <li v-for="Propriétés in subFilters" :key="Propriétés.name">
-                  <a :href="Propriétés.href">
+                <li class="grid grid-cols-4" v-for="Propriétés in subFilters" :key="Propriétés.name">
+                   <div class="col-span-3">
+                    <a :href="Propriétés.href">
                     {{ Propriétés.name }}
                   </a>
+                  </div>
+                  
+                  <div class="">
+                    <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
+                        <div class="text-xs font-semibold text-secondary">
+                          {{ Propriétés.count }}
+                        </div>
+                    </div>
+                    </div>
                 </li>
               </ul>
               <ul role="list" class="text-sm font-medium  space-y-4 pb-6 ">
                 <h1 class="font-bold font-ProductSans text-lg capitalize">Propriétés</h1>
-                <li v-for="Propriétés in subPropriétés" :key="Propriétés.name">
-                  <a :href="Propriétés.href">
+                <li class="grid grid-cols-4" v-for="Propriétés in subPropriétés" :key="Propriétés.name">
+                  <div class="col-span-3">
+                    <a :href="Propriétés.href">
                     {{ Propriétés.name }}
                   </a>
+                  </div>
+                  
+                  <div class="">
+                    <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
+                        <div class="text-xs font-semibold text-secondary">
+                          {{ Propriétés.count }}
+                        </div>
+                    </div>
+                    </div>
                 </li>
               </ul>
               <ul role="list" class="text-sm font-medium  space-y-4 pb-6  ">
