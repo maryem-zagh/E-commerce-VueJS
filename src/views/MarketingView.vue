@@ -42,7 +42,7 @@ export default {
 <main class=" bg-[url('@/assets/LooperGroup.svg')] bg-no-repeat bg-[right_top_1rem] ">
   <img src="@/assets/bg-2.png" class="block bg-no-repeat bg-cover min-h-[110px] w-full " alt="Motorbike Smoke" />
  
-<div class=" py-24   ">
+<div class=" lg:py-24 py-12   ">
  
 
 
@@ -55,9 +55,9 @@ export default {
 
 
 </div>
-<div class="flex flex-col md:flex-row mb-3  ">
+<div class="flex flex-col md:flex-row lg:mb-3 mb-10 ">
   
-  <div class="bg-[url('@/assets/Left-2.svg')] pt-32  lg:pt-64 lg:h-[687px] lg:w-[810px]  ">
+  <div class="bg-[url('@/assets/Left-2.svg')] lg:mb-0  pt-32  lg:pt-64 lg:h-[687px] lg:w-[810px] md:w-[400px] ">
     <img src="@/assets/looper-r.svg" alt="" class="absolute -top-64"/>
     <div class="">
     <div class="text-white font-blod text-6xl text-center mb-2">
@@ -70,8 +70,8 @@ export default {
    
     </div>
   </div>
-  <div class="py-28">
-    <div class=" bg-[url('@/assets/blue-right.svg')]  lg:h-[493px] lg:w-[630px] lg:pt-24 py-20  ">
+  <div class="lg:py-28 md:py-14 ">
+    <div class=" bg-[url('@/assets/blue-right.svg')]  lg:h-[493px] lg:w-[630px] md:w-[400px] lg:pt-24 py-20  ">
       <img src="@/assets/Pack-Initial.svg" alt="" class="absolute lg:top-14 lg:right-24 right-5 "/>
       <div class="text-right font-normal text-lg text-white lg:pr-28 pr-14 ">
         
@@ -92,9 +92,9 @@ export default {
   
  </div>
 
-<div class="flex flex-col md:flex-row mb-3 ">
-    <div class="py-28">
-    <div class=" bg-[url('@/assets/blue-right.svg')]  lg:h-[493px] lg:w-[630px] lg:pt-24 py-20 ">
+<div class="flex flex-col md:flex-row lg:mb-3 mb-10 ">
+    <div class="lg:py-28  md:py-14 ">
+    <div class=" bg-[url('@/assets/blue-right.svg')]  lg:h-[493px] lg:w-[630px] lg:pt-24 py-20 md:w-[400px] ">
        <img src="@/assets/Pack-Initial.svg" alt="" class="absolute lg:top-14 lg:left-28 left-5"/>
       <div class="text-left font-normal text-lg text-white lg:pl-28 pl-14">
            Idéal pour les indépendants, les auto-entrepreneurs,<br/> les artisans,
@@ -110,14 +110,14 @@ export default {
       </div>
     </div>
   </div>
-  <div class="bg-[url('@/assets/right-3.svg')]  pt-64 lg:h-[687px] lg:w-[810px]  ">
+  <div class="bg-[url('@/assets/right-3.svg')] lg:mb-0  pt-64 lg:h-[687px] lg:w-[810px] md:w-[400px] ">
     <img src="@/assets/looper-l.svg" alt="" class="absolute right-0 -top-[420px]"/> 
     <div class="">
     <div class="text-white font-blod text-6xl text-center mb-2">
       Pack Avance
     </div>
     <p class="font-bold text-2xl  text-white mb-12 text-center">360€ / Mois</p>
-    <div class="text-center">
+    <div class="text-center px-8">
        <PackAvance />
     </div>
    
@@ -127,22 +127,22 @@ export default {
  
   
  </div>
-<div class="flex flex-col md:flex-row mb-3 ">
-  <div class="bg-[url('@/assets/Left-5.svg')]  pt-64 lg:h-[687px] lg:w-[810px]  ">
+<div class="flex flex-col md:flex-row lg:mb-3 mb-10 ">
+  <div class="bg-[url('@/assets/Left-5.svg')]  pt-64 lg:h-[687px] lg:w-[810px] md:w-[400px] ">
      <img src="@/assets/Looper-5.svg" alt="" class="absolute -top-96"/>
     <div class="">
     <div class="text-white font-blod text-6xl text-center mb-2">
       Pack Expert
     </div>
     <p class="font-bold text-2xl  text-white mb-12 text-center">360€ / Mois</p>
-    <div class="text-center">
+    <div class="text-center px-8">
       <PackExpert />
     </div>
    
     </div>
   </div>
-  <div class="py-28">
-    <div class=" bg-[url('@/assets/blue-right.svg')]  lg:h-[493px] lg:w-[630px] lg:pt-24 py-20  ">
+  <div class="lg:py-28  md:py-14 ">
+    <div class=" bg-[url('@/assets/blue-right.svg')] lg:mb-0  lg:h-[493px] lg:w-[630px] lg:pt-24 py-20 md:w-[400px] ">
        <img src="@/assets/Pack-Initial.svg" alt="" class="absolute lg:top-14 lg:right-24"/>
       <div class="text-right font-normal text-lg text-white lg:pr-28 pr-14 ">
             Idéal pour les indépendants, les auto-entrepreneurs,<br/>
@@ -166,7 +166,7 @@ export default {
  <div class="text-black font-blod  font-Sans text-3xl text-center mb-2">
             Qui nous ont donné leur confiance
  </div>
- <div class="grid lg:grid-cols-6 grid-cols-1 mb-32  px-11 gap-8">
+ <div class="grid lg:grid-cols-6 grid-cols-2 mb-32  px-11 gap-8">
 <div>
   <img src="@/assets/Image-conf-1.svg"/>
 </div>

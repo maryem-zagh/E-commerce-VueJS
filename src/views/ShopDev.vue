@@ -567,7 +567,7 @@ function ShowModal() {
     <div class="text-black font-blod  font-Sans text-3xl text-center mb-2">
             Qui nous ont donné leur confiance
  </div>
- <div class="grid lg:grid-cols-6 grid-cols-1 mb-32  px-11 gap-8">
+ <div class="grid lg:grid-cols-6 grid-cols-2 mb-32  px-11 gap-8">
 <div>
   <img src="@/assets/Image-conf-1.svg"/>
 </div>
@@ -591,16 +591,20 @@ function ShowModal() {
  </div>
 
 <div class=" ">
-  <img src="@/assets/dev-bg.svg" class="absolute "  />
-         <div class=" text-center text-white md:text-[48px] pt-16 text-5xl font-[700] mb-4">
+  <img src="@/assets/dev-bg.svg" class="absolute lg:h-[526px] h-full w-full"  />
+  <div class="lg:py-40">
+      <div class=" text-center text-white md:text-[48px] lg:text-5xl text-2xl font-[700] mb-4">
           Développez un site web<br class=""/>
           ou application sur mesure ?
         </div>
          <p class="text-white text-center text-base font-normal mb-8 ">Quel que soit le défi, nous proposons toujours une solution adaptée.</p>
-         <div class="text-center mb-4 px-6">
+         <div class="text-center mb-4 px-16">
           <button class="text-white font-medium bg-[#1D57A6] leading-6 text-base lg:mb-0 mb-20 rounded-full  w-full lg:w-[276px] md:w-80 p-2">Acheter Maintenant</button>
          </div>
-         <p class="text-white text-center text-sm font-normal mb-48 ">Prend 3 minutes, 100% gratuit</p>
+         <p class="text-white text-center text-sm font-normal">Prend 3 minutes, 100% gratuit</p>
+       
+  </div>
+       
        </div>
 
 

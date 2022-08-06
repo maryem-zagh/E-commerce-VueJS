@@ -1,8 +1,52 @@
 <template>
+<div>
+        <div class="grid grid-cols-2 py-14 px-5 ">
+          <div>
+            <h1 class="font-bold text-2xl">Durotion - Site Web</h1>
+            <p class="font-ProductSans text-sm">
+              Free 2 Days Shipping | 1 Year Warranty
+            </p>
+          </div>
+          <div class="">
+            <h1 class="font-bold text-4xl lg:px-24">€580</h1>
+          </div>
+        </div>
+        <div class="px-5">
+          <div class="font-semibold text-base">Discription</div>
+          <ul class="list-disc px-6 text-sm font-semibold">
+            <li>15 cm (6.1-inch) Super Retina XDR display</li>
+            <li>
+              2MP TrueDepth front camera with Night mode, 4K Dolby Vision HDR
+              recording
+            </li>
+            <li>A15 Bionic chip for lightning-fast performance</li>
+            <li>Up to 19 hours of video playback</li>
+            <li>Durable design with Ceramic Shield</li>
+            <li>Industry-leading IP68 water resistance</li>
+            <li>
+              iOS 15 packs new features to do more with iPhone than ever before
+            </li>
+            <li>
+              Supports MagSafe accessories for easy attachment and faster
+              wireless charging
+            </li>
+          </ul>
+        </div>
+        <div class="lg:py-28 px-5">
+          <div class="mb-5">
+            <button type="button" @click="$emit('someEvent')"
+              class="text-white bg-[#0064D2] leading-6 font-medium rounded-full text-base w-full p-4">
+              Acheter Maintenant
+            </button>
+          
+            <div v-if="toggleModal" class="absolute z-40 insert-0 opacity-25 bg-[#2d2d2e]"></div>
+          </div>
 
-<button @click="toggleModal = !toggleModal" class="text-secondary font-medium bg-[#ffffff] leading-6 text-base lg:mb-0 mb-20 rounded-full  w-full lg:w-[318px] p-2">Acheter Maintenant</button>
-       
-            
+          <div class="mb-6">
+            <button type="button" @click="toggleModal = !toggleModal"
+              class="text-black bg-white text-base border leading-6 rounded-full border-b-gray-400 font-medium  w-full p-4">
+              Je veux une conception personnalisée
+            </button>
               <div class="fixed overflow-x-hidden overflow-y-auto inset-0 flex justify-center items-center z-50"
               v-if="toggleModal">
               <div class="relative p-5 w-full lg:w-[1024px] h-full  ">
@@ -21,9 +65,25 @@
                     </button>
                   </div>
                   <!-- step1 -->
-         <div class="px-5 lg:px-20 ">
-        <div class=" grid-cols-1" id="user_detail1" v-if="activePhase == 1">
-        <!-- stepper -->
+         <div class="px-5 lg:px-24 ">
+            <div class=" grid-cols-1 lg:py-16 py-10 lg:px-0 px-5" id="user_detail1" v-if="activePhase == 1">
+            <div class="font-bold text-4xl text-center mb-5">
+                   Le succès d'un projet digital<br/> réside dans la méthode.
+            </div>
+            <div class="font-normal text-base text-center mb-8">
+                     Notre cœur de métier est le conseil en création de sites web et de plateformes<br/> digitales complexes : brand center, intranet,
+                      extranet, réseaux de sites et autres <br/> solutions numériques poussées.     
+            </div>
+             <div class="font-normal text-base text-center mb-12">
+                        Notre approche nous permet d’aborder les projets d’une manière qui maximise<br/> la transparence des budgets 
+                     et des délais convenus, en gardant toujours<br/> l’objectif final à l’esprit.
+                      </div>
+                   <div class="text-center ">
+                    <button @click.prevent="goToStep(2)" class="text-white bg-[#0064D2] leading-6 font-medium rounded-full text-base w-full lg:w-[400px] p-2">Envoyer</button>
+                   </div>
+            </div>
+        <div class=" grid-cols-1" id="user_detail1" v-if="activePhase == 2">
+        <!-- step2 -->
          <div class="flex flex-col md:flex-row lg:items-center md:items-center gap-3 ">
                         <div class="flex md:flex-row   ">
                         <div class="">
@@ -132,7 +192,7 @@
                     <div>
                         <input type="text" id="last_name"
                             class="bg-[#ffffff] text-gray-900 text-sm rounded-lg border border-gray-300 block w-full p-2"
-                            placeholder="Votre Service" required />
+                            placeholder="Fourchette de prix" required />
                     </div>
                 </div>
             </form>
@@ -148,11 +208,11 @@
 </label>
                    </div>
                    <div class="text-center">
-                    <button @click.prevent="goToStep(2)" class="text-white bg-[#0064D2] leading-6 font-medium rounded-full text-base w-full lg:w-[400px] p-2">Envoyer</button>
+                    <button @click.prevent="goToStep(3)" class="text-white bg-[#0064D2] leading-6 font-medium rounded-full text-base w-full lg:w-[400px] p-2">Envoyer</button>
                    </div>
         </div>
-         <!-- step2 -->
-        <div class="" id="user_detail2" v-if="activePhase == 2">
+         <!-- step3 -->
+        <div class="" id="user_detail2" v-if="activePhase == 3">
                <div class="flex flex-col md:flex-row lg:items-center md:items-center gap-3 ">
                         <div class="flex md:flex-row   ">
                         <div class="">
@@ -203,90 +263,30 @@
               </div>
         </div>
             <form class=" mt-9 " >
-                 <div class="grid  mb-6 lg:grid-cols-4 gap-2 ">
-                  <div class="">
-                    <div class="relative flex items-start">
-                      <div class="flex items-center "><input id="candidates" aria-describedby="candidates-description" name="candidates" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-secondary border-gray-300 rounded-full" /></div>
-                    <div class="ml-2 text-sm">
-                      <label for="comments" class="font-medium text-gray-700">J’ai un site web ou compte social</label>
-                    </div>
-                    </div>
-                    <div class="relative flex items-start">
-      <div class="flex items-center h-5">
-        <input id="candidates" aria-describedby="candidates-description" name="candidates" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-secondary border-gray-300 rounded-full" />
-      </div>
-      <div class="ml-3 text-sm">
-        <label for="candidates" class="font-medium text-gray-700">Je n’ai pas</label>
-       
-      </div>
-    </div>
-                    </div>
-                    <div class="lg:col-span-2">
-  
-    <input type="text" id="default-input"
-                        class="bg-[#ffffff] text-gray-900 border border-gray-300 text-sm rounded-lg block w-full p-2"
-                        placeholder="https://" />
-  </div>
-                   <div>
-    
+                <div class="grid  mb-6 lg:grid-cols-2 gap-4">
+                    <div>
+   
     <select id="location" name="location" class=" block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-      <option>FR</option>
-      <option selected="">Langue du site</option>
-      <option>EN</option>
+      <option>United States</option>
+      <option selected="">Fonctionnalités</option>
+      <option>Mexico</option>
+    </select>
+  </div>
+                    <div>
+   
+    <select id="location" name="location" class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+      <option>United States</option>
+      <option selected="">Technologies</option>
+      <option>Mexico</option>
     </select>
   </div>
                 </div>
                 <div class="grid  mb-6 lg:grid-cols-4 gap-4">
-                  <div class="">
+                  <div class="lg:col-span-2">
                     <div class="relative flex items-start">
                       <div class="flex items-center h-5"><input id="candidates" aria-describedby="candidates-description" name="candidates" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-secondary border-gray-300 rounded-full" /></div>
                     <div class="ml-3 text-sm">
-                      <label for="comments" class="font-medium text-gray-700">J’ai une stratégie prête</label>
-                    </div>
-                    </div>
-                    <div class="relative flex items-start">
-      <div class="flex items-center h-5">
-        <input id="candidates" aria-describedby="candidates-description" name="candidates" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-secondary border-gray-300 rounded-full" />
-      </div>
-      <div class="ml-3 text-sm">
-        <label for="candidates" class="font-medium text-gray-700">Je n’ai pas</label>
-       
-      </div>
-    </div>
-                    </div>
-                    <div>
-  
-    <select id="location" name="location" class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-      <option>United States</option>
-      <option selected="">Piéce jointe</option>
-      <option>Mexico</option>
-    </select>
-  </div>
-                   <div class="lg:col-span-2">
-    
-    <input type="text" id="default-input"
-                        class="bg-[#ffffff] text-gray-900 border border-gray-300 text-sm rounded-lg block w-full p-2"
-                        placeholder="Cibles" />
-  </div>
-                </div>
-                <div class="grid  mb-6 lg:grid-cols-2 gap-4">
-                  <div>
-                    <input type="text" id="default-input"
-                        class="bg-[#ffffff] text-gray-900 border border-gray-300 text-sm rounded-lg block w-full p-2"
-                        placeholder="Quels sont vos objectifs prioritaires ?" />
-                        </div>
-                        <div>
-                    <input type="text" id="default-input"
-                        class="bg-[#ffffff] text-gray-900 border border-gray-300 text-sm rounded-lg block w-full p-2"
-                        placeholder="Quels sont les objectifs de votre plan media" />
-                        </div>
-                </div>
-                 <div class="grid  mb-6 lg:grid-cols-3 gap-2 ">
-                  <div class="">
-                    <div class="relative flex items-start">
-                      <div class="flex items-center "><input id="candidates" aria-describedby="candidates-description" name="candidates" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-secondary border-gray-300 rounded-full" /></div>
-                    <div class="ml-2 text-sm">
-                      <label for="comments" class="font-medium text-gray-700">J’ai ma propre palette de couleurs</label>
+                      <label for="comments" class="font-medium text-gray-700">J’ai ma propre charte graphique ou palette de couleurs</label>
                     </div>
                     </div>
                     <div class="relative flex items-start">
@@ -299,51 +299,73 @@
       </div>
     </div>
                     </div>
-                    <div class="">
+                    <div>
   
-    <select id="location" name="location" class=" block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-      <option>FR</option>
-      <option selected="">Choix de couleurs</option>
-      <option>EN</option>
+    <select id="location" name="location" class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+      <option>United States</option>
+      <option selected="">Piéce jointe</option>
+      <option>Mexico</option>
     </select>
   </div>
                    <div>
     
     <select id="location" name="location" class=" block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-      <option>FR</option>
-      <option selected="">Tranche d'âge de votre cible ?</option>
-      <option>EN</option>
+      <option>United States</option>
+      <option selected="">Choix de couleurs</option>
+      <option>Mexico</option>
     </select>
   </div>
                 </div>
-
-                <div class="grid  mb-6 lg:grid-cols-2 gap-4">
-                  <div>
+                <div class="grid gap-6 mb-6 lg:grid-cols-1">
                     <input type="text" id="default-input"
                         class="bg-[#ffffff] text-gray-900 border border-gray-300 text-sm rounded-lg block w-full p-2"
-                        placeholder="Exemple de votre contenu" />
-                        </div>
-                        <div>
-                    <select id="location" name="location" class=" block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-      <option>FR</option>
-      <option selected="">Durée de la réalisation</option>
-      <option>EN</option>
-    </select>
-                        </div>
+                        placeholder="Vos concurrents ( nommez 3 exemples minimum )" />
                 </div>
-                  <div class="grid gap-6 mb-6 lg:grid-cols-1">
+                <div class="grid gap-6 mb-6 lg:grid-cols-1">
                     <input type="text" id="default-input"
                         class="bg-[#ffffff] text-gray-900 border border-gray-300 text-sm rounded-lg block w-full p-2"
-                        placeholder="Plus d’informations" />
+                        placeholder="Cibles" />
+                </div>
+
+                 <div class="grid  mb-6 lg:grid-cols-2 gap-4">
+                    <div>
+    
+    <select id="location" name="location" class=" block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+      <option>United States</option>
+      <option selected="">Langue du site</option>
+      <option>Mexico</option>
+    </select>
+  </div>
+                    <div>
+   
+    <select id="location" name="location" class=" block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+      <option>United States</option>
+      <option selected="">Durée de la réalisation</option>
+      <option>Mexico</option>
+    </select>
+  </div>
+                </div>
+                    <div class="grid gap-4 mb-6 lg:grid-cols-2">
+                    <div>
+    
+    <input type="text" id="last_name"
+                            class="bg-[#ffffff] text-gray-900 text-sm rounded-lg border border-gray-300 block w-full p-2"
+                            placeholder="Vous avez un business plan" required />
+  </div>
+                    <div>
+                        <input type="text" id="last_name"
+                            class="bg-[#ffffff] text-gray-900 text-sm rounded-lg border border-gray-300 block w-full p-2"
+                            placeholder="Plus d’informations" required />
+                    </div>
                 </div>
             </form>
           
                    <div class="text-center">
-                    <button  @click.prevent="goToStep(3)"  class="text-white bg-[#0064D2] leading-6 font-medium rounded-full text-base lg:w-[400px] w-full p-2">Envoyer</button>
+                    <button  @click.prevent="goToStep(4)"  class="text-white bg-[#0064D2] leading-6 font-medium rounded-full text-base lg:w-[400px] w-full p-2">Envoyer</button>
                    </div>
         </div>
          <!-- step3 -->
-        <div class="" id="step3" v-if="activePhase == 3">
+        <div class="" id="step3" v-if="activePhase == 4">
           <div class="flex flex-col md:flex-row lg:items-center md:items-center gap-3 ">
                         <div class="flex md:flex-row   ">
                         <div class="">
@@ -440,15 +462,15 @@
                     860 €
                   </div>
                   <div class="text-center mb-6">
-                    <button  @click.prevent="goToStep(4)"  class="text-white bg-[#0064D2] leading-6 font-medium rounded-full text-base w-full lg:w-[365px] p-2">Effectuer</button>
+                    <button  @click.prevent="goToStep(5)"  class="text-white bg-[#0064D2] leading-6 font-medium rounded-full text-base w-full lg:w-[365px] p-2">Effectuer</button>
                    </div>
                    <div class="text-center">
-                    <button  @click.prevent="goToStep(2)"  class="text-black bg-[#F4F4F4] leading-6 font-medium rounded-full text-base w-full lg:w-[365px] p-2">Retour</button>
+                    <button  @click.prevent="goToStep(4)"  class="text-black bg-[#F4F4F4] leading-6 font-medium rounded-full text-base w-full lg:w-[365px] p-2">Retour</button>
                    </div>
                 </div>
            </div>
         </div>
-        <div class=" py-11" id="step3" v-if="activePhase == 4">
+        <div class=" py-11" id="step3" v-if="activePhase == 5">
         
        <div class="justify-center flex mb-7 ">
         
@@ -468,7 +490,9 @@
                 </div>
               </div>
             </div>
-          
+          </div>
+        </div>
+      </div>
 
 </template>
 <script setup>
