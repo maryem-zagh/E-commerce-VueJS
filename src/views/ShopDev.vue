@@ -530,7 +530,7 @@ function ShowModal() {
                 <div v-for="product in products" :key="product.id" 
                   class="bg-white rounded-[30px] border  border-gray-300 shadow-2xl  w-full  max-w-xs mt-0 inline-grid justify-items-center  text-primary ">
 
-                   <RouterLink to="/product/:product" class="w-full">
+                   <RouterLink to="/devdetail" class="w-full">
                   <img :src="product.imageSrc" :alt="product.imageAlt" class="rounded-[30px] h-60   
                       object-cover   w-full " />
 

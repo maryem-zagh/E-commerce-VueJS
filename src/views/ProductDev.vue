@@ -79,12 +79,13 @@ export default {
 
   <main class="lg:px-24 ">
 
-    <div class="bg-white  px-8 pb-4 font-ProductSans flex flex-wrap justify-center gap-x-2">
+    <div class=" flex flex-wrap justify-center gap-x-2 mb-4  ">
+      <!--   Modèle Graphique -->
       <Menu as="div" class="relative inline-block text-left">
         <div>
           <MenuButton
-            class="inline-flex justify-center w-full rounded-md px-4 py-2 text-base font-medium text-primary hover:bg-gray-50">
-            Modèle Graphique
+            class="inline-flex justify-center w-full rounded-md    px-4 py-2   text-base font-medium text-primary hover:bg-gray-50  ">
+            Templates Web
             <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
           </MenuButton>
         </div>
@@ -94,34 +95,26 @@ export default {
           leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100"
           leave-to-class="transform opacity-0 scale-95">
           <MenuItems
-            class="origin-top-left absolute left-0 mt-2 w-32 z-50 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+            class="origin-top-left absolute left-0 mt-2 w-32 z-50    rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div class="py-1">
               <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">Account settings</a>
+              <a href="#"
+                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Account
+                settings</a>
               </MenuItem>
               <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">Support</a>
+              <a href="#"
+                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Support</a>
               </MenuItem>
               <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">License</a>
+              <a href="#"
+                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">License</a>
               </MenuItem>
               <form method="POST" action="#">
                 <MenuItem v-slot="{ active }">
-                <button type="submit" :class="[
-                  active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                  'block w-full text-left px-4 py-2 text-sm',
-                ]">
-                  Sign out
-                </button>
+                <button type="submit"
+                  :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block w-full text-left px-4 py-2 text-sm']">Sign
+                  out</button>
                 </MenuItem>
               </form>
             </div>
@@ -132,8 +125,8 @@ export default {
       <Menu as="div" class="relative inline-block text-left">
         <div>
           <MenuButton
-            class="inline-flex justify-center w-full rounded-md px-4 py-2 text-base font-medium text-primary hover:bg-gray-50">
-            Documents
+            class="inline-flex justify-center w-full rounded-md    px-4 py-2   text-base font-medium text-primary hover:bg-gray-50  ">
+            Templates Mobile
             <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
           </MenuButton>
         </div>
@@ -143,34 +136,26 @@ export default {
           leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100"
           leave-to-class="transform opacity-0 scale-95">
           <MenuItems
-            class="origin-top-left absolute left-0 mt-2 w-32 z-50 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+            class="origin-top-left absolute left-0 mt-2 w-32 z-50    rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div class="py-1">
               <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">Account settings</a>
+              <a href="#"
+                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Account
+                settings</a>
               </MenuItem>
               <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">Support</a>
+              <a href="#"
+                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Support</a>
               </MenuItem>
               <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">License</a>
+              <a href="#"
+                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">License</a>
               </MenuItem>
               <form method="POST" action="#">
                 <MenuItem v-slot="{ active }">
-                <button type="submit" :class="[
-                  active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                  'block w-full text-left px-4 py-2 text-sm',
-                ]">
-                  Sign out
-                </button>
+                <button type="submit"
+                  :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block w-full text-left px-4 py-2 text-sm']">Sign
+                  out</button>
                 </MenuItem>
               </form>
             </div>
@@ -181,8 +166,8 @@ export default {
       <Menu as="div" class="relative inline-block text-left">
         <div>
           <MenuButton
-            class="inline-flex justify-center w-full rounded-md px-4 py-2 text-base font-medium text-primary hover:bg-gray-50">
-            Modéles 3D
+            class="inline-flex justify-center w-full rounded-md    px-4 py-2   text-base font-medium text-primary hover:bg-gray-50  ">
+           Débuter un projet
             <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
           </MenuButton>
         </div>
@@ -192,34 +177,26 @@ export default {
           leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100"
           leave-to-class="transform opacity-0 scale-95">
           <MenuItems
-            class="origin-top-left absolute left-0 mt-2 w-32 z-50 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+            class="origin-top-left absolute left-0 mt-2 w-32 z-50    rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div class="py-1">
               <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">Account settings</a>
+              <a href="#"
+                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Account
+                settings</a>
               </MenuItem>
               <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">Support</a>
+              <a href="#"
+                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Support</a>
               </MenuItem>
               <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">License</a>
+              <a href="#"
+                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">License</a>
               </MenuItem>
               <form method="POST" action="#">
                 <MenuItem v-slot="{ active }">
-                <button type="submit" :class="[
-                  active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                  'block w-full text-left px-4 py-2 text-sm',
-                ]">
-                  Sign out
-                </button>
+                <button type="submit"
+                  :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block w-full text-left px-4 py-2 text-sm']">Sign
+                  out</button>
                 </MenuItem>
               </form>
             </div>
@@ -227,103 +204,12 @@ export default {
         </transition>
       </Menu>
       <!--   UX / UI -->
-      <Menu as="div" class="relative inline-block text-left">
-        <div>
-          <MenuButton
-            class="inline-flex justify-center w-full rounded-md px-4 py-2 text-base font-medium text-primary hover:bg-gray-50">
-            UX / UI
-            <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
-          </MenuButton>
-        </div>
-
-        <transition enter-active-class="transition ease-out duration-100"
-          enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100"
-          leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100"
-          leave-to-class="transform opacity-0 scale-95">
-          <MenuItems
-            class="origin-top-left absolute left-0 mt-2 w-32 z-50 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <div class="py-1">
-              <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">Account settings</a>
-              </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">Support</a>
-              </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">License</a>
-              </MenuItem>
-              <form method="POST" action="#">
-                <MenuItem v-slot="{ active }">
-                <button type="submit" :class="[
-                  active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                  'block w-full text-left px-4 py-2 text-sm',
-                ]">
-                  Sign out
-                </button>
-                </MenuItem>
-              </form>
-            </div>
-          </MenuItems>
-        </transition>
-      </Menu>
+      
       <!--   Vidéos -->
-      <Menu as="div" class="relative inline-block text-left">
-        <div>
-          <MenuButton
-            class="inline-flex justify-center w-full rounded-md px-4 py-2 text-base font-medium text-primary hover:bg-gray-50">
-            Vidéos
-            <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
-          </MenuButton>
-        </div>
+      
 
-        <transition enter-active-class="transition ease-out duration-100"
-          enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100"
-          leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100"
-          leave-to-class="transform opacity-0 scale-95">
-          <MenuItems
-            class="origin-top-left absolute left-0 mt-2 w-32 z-50 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <div class="py-1">
-              <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">Account settings</a>
-              </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">Support</a>
-              </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">License</a>
-              </MenuItem>
-              <form method="POST" action="#">
-                <MenuItem v-slot="{ active }">
-                <button type="submit" :class="[
-                  active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                  'block w-full text-left px-4 py-2 text-sm',
-                ]">
-                  Sign out
-                </button>
-                </MenuItem>
-              </form>
-            </div>
-          </MenuItems>
-        </transition>
-      </Menu>
+
+
     </div>
     <!-- details products -->
     <div class="grid md:grid-cols-2  lg:gap-28  md:gap-10  ">
