@@ -24,24 +24,24 @@ const sortOptions = [
   { name: 'Price: High to Low', href: '#', current: false },
 ]
 const subCategories = [
-  { name: 'Sites web', href: '#',count:'320' },
-  { name: 'Applications mobile', href: '#',count:'320' },
-  
+  { name: 'Sites web', href: '#', count: '320' },
+  { name: 'Applications mobile', href: '#', count: '320' },
+
 
 ]
 const subFilters = [
-  { name: 'Derniers projets', href: '#',count:'112' },
-  { name: 'Projets en réduction', href: '#',count:'112' },
+  { name: 'Derniers projets', href: '#', count: '112' },
+  { name: 'Projets en réduction', href: '#', count: '112' },
 
 
 ]
 const subPropriétés = [
-  { name: 'React Js', href: '#',count:'112' },
-  { name: 'Laravel', href: '#',count:'112' },
-  { name: 'Symphonie', href: '#',count:'112' },
-  { name: 'Angular', href: '#',count:'112' },
-  { name: 'Vue JS', href: '#',count:'112' },
-  { name: 'Spring boot', href: '#',count:'112' },
+  { name: 'React Js', href: '#', count: '112' },
+  { name: 'Laravel', href: '#', count: '112' },
+  { name: 'Symphonie', href: '#', count: '112' },
+  { name: 'Angular', href: '#', count: '112' },
+  { name: 'Vue JS', href: '#', count: '112' },
+  { name: 'Spring boot', href: '#', count: '112' },
 
 
 ]
@@ -133,7 +133,7 @@ function ShowModal() {
 
 
     <div
-      class="bg-[url('@/assets/shopbg.png')] pt-24 md:pt-40 px-8 pb-4 font-ProductSans text-white bg-no-repeat bg-cover">
+      class="bg-[url('@/assets/shopbg.png')]   pt-24 md:pt-40 px-8 pb-4 font-ProductSans text-white bg-no-repeat bg-cover">
       <div>
 
         <div class=" text-center text-white md:text-[48px] text-2xl font-[700] tracking-wide mb-14">
@@ -254,7 +254,7 @@ function ShowModal() {
         <div>
           <MenuButton
             class="inline-flex justify-center w-full rounded-md    px-4 py-2   text-base font-medium text-primary hover:bg-gray-50  ">
-           Débuter un projet
+            Débuter un projet
             <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
           </MenuButton>
         </div>
@@ -291,34 +291,37 @@ function ShowModal() {
         </transition>
       </Menu>
       <!--   UX / UI -->
-      
+
       <!--   Vidéos -->
-      
+
 
 
 
     </div>
 
 
-     
+
 
 
 
 
   </main>
-<div class=" ">
-  <img src="@/assets/Ellipse92.svg" class="absolute "  />
-         <div class=" text-center text-black md:text-[48px] pt-16 text-5xl font-[700] mb-4">
-          Développez un site web<br class=""/>
-          ou application sur mesure ?
-        </div>
-         <p class="text-black text-center text-base font-normal mb-8 ">Quel que soit le défi, nous proposons toujours une solution adaptée.</p>
-         <div class="text-center mb-4 px-6">
-          <button class="text-white font-medium bg-[#1D57A6] leading-6 text-base lg:mb-0 mb-20 rounded-full  w-full lg:w-[276px] md:w-80 p-2">Acheter Maintenant</button>
-         </div>
-         <p class="text-black text-center text-sm font-normal mb-48 ">Prend 3 minutes, 100% gratuit</p>
-       </div>
- 
+  <div class=" bg-[url('@/assets/Ellipse92.svg')]  bg-no-repeat bg-contain xl:bg-cover overflow-auto	 mb-5">
+    <!-- <img src="@/assets/Ellipse92.svg" /> -->
+    <div class=" text-center text-black md:text-[48px] pt-16 text-5xl font-[700] mb-4">
+      Développez un site web<br class="" />
+      ou application sur mesure ?
+    </div>
+    <p class="text-black text-center text-base font-normal mb-8 ">Quel que soit le défi, nous proposons toujours une
+      solution adaptée.</p>
+    <div class="text-center mb-4 px-6">
+      <button
+        class="text-white font-medium bg-[#1D57A6] leading-6 text-base lg:mb-0 mb-20 rounded-full  w-full lg:w-[276px] md:w-80 p-2">Acheter
+        Maintenant</button>
+    </div>
+    <p class="text-black text-center text-sm font-normal mb-48 ">Prend 3 minutes, 100% gratuit</p>
+  </div>
+
   <div class="bg-white ">
     <div>
 
@@ -352,45 +355,45 @@ function ShowModal() {
                   <h3 class="sr-only">Propriétés</h3>
                   <ul role="list" class="font-medium  px-2 py-3">
                     <h1 class="font-bold font-ProductSans text-lg capitalize">category</h1>
-                  <li class="grid grid-cols-4" v-for="Propriétés in subCategories" :key="Propriétés.name">
-                
-                  <div class="col-span-3">
-                    <a :href="Propriétés.href">
-                    {{ Propriétés.name }}
-                  </a>
-                  </div>
-                  
-                  <div class="">
-                    <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
-                        <div class="text-xs font-semibold text-secondary">
-                          {{ Propriétés.count }}
+                    <li class="grid grid-cols-4" v-for="Propriétés in subCategories" :key="Propriétés.name">
+
+                      <div class="col-span-3">
+                        <a :href="Propriétés.href">
+                          {{ Propriétés.name }}
+                        </a>
+                      </div>
+
+                      <div class="">
+                        <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
+                          <div class="text-xs font-semibold text-secondary">
+                            {{ Propriétés.count }}
+                          </div>
                         </div>
-                    </div>
-                    </div>
-                
-                  
-                  
-                  
-                </li>
+                      </div>
+
+
+
+
+                    </li>
                   </ul>
 
                   <h3 class="sr-only">Propriétés</h3>
                   <ul role="list" class="font-medium  px-2 py-3">
                     <h1 class="font-bold font-ProductSans text-lg capitalize">Filters</h1>
                     <li class="grid grid-cols-4" v-for="Propriétés in subFilters" :key="Propriétés.name">
-                    <div class="col-span-3">
-                    <a :href="Propriétés.href">
-                    {{ Propriétés.name }}
-                  </a>
-                  </div>
-                  
-                  <div class="">
-                    <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
-                        <div class="text-xs font-semibold text-secondary">
-                          {{ Propriétés.count }}
+                      <div class="col-span-3">
+                        <a :href="Propriétés.href">
+                          {{ Propriétés.name }}
+                        </a>
+                      </div>
+
+                      <div class="">
+                        <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
+                          <div class="text-xs font-semibold text-secondary">
+                            {{ Propriétés.count }}
+                          </div>
                         </div>
-                    </div>
-                    </div>
+                      </div>
                     </li>
                   </ul>
                   <h3 class="sr-only">Propriétés</h3>
@@ -398,18 +401,18 @@ function ShowModal() {
                     <h1 class="font-bold font-ProductSans text-lg capitalize">Technologies</h1>
                     <li class="grid grid-cols-4" v-for="Propriétés in subPropriétés" :key="Propriétés.name">
                       <div class="col-span-3">
-                    <a :href="Propriétés.href">
-                    {{ Propriétés.name }}
-                  </a>
-                  </div>
-                  
-                  <div class="">
-                    <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
-                        <div class="text-xs font-semibold text-secondary">
-                          {{ Propriétés.count }}
+                        <a :href="Propriétés.href">
+                          {{ Propriétés.name }}
+                        </a>
+                      </div>
+
+                      <div class="">
+                        <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
+                          <div class="text-xs font-semibold text-secondary">
+                            {{ Propriétés.count }}
+                          </div>
                         </div>
-                    </div>
-                    </div>
+                      </div>
                     </li>
                   </ul>
                   <h3 class="sr-only">Propriétés</h3>
@@ -496,63 +499,63 @@ function ShowModal() {
               <ul role="list" class="text-sm font-medium  space-y-4 pb-6  ">
                 <h1 class="font-bold font-ProductSans text-lg capitalize">category</h1>
                 <li class="grid grid-cols-4" v-for="Propriétés in subCategories" :key="Propriétés.name">
-                
+
                   <div class="col-span-3">
                     <a :href="Propriétés.href">
-                    {{ Propriétés.name }}
-                  </a>
+                      {{ Propriétés.name }}
+                    </a>
                   </div>
-                  
+
                   <div class="">
                     <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
-                        <div class="text-xs font-semibold text-secondary">
-                          {{ Propriétés.count }}
-                        </div>
+                      <div class="text-xs font-semibold text-secondary">
+                        {{ Propriétés.count }}
+                      </div>
                     </div>
-                    </div>
-                
-                  
-                  
-                  
+                  </div>
+
+
+
+
                 </li>
-               
+
               </ul>
 
 
               <ul role="list" class="text-sm font-medium  space-y-4 pb-6  ">
                 <h1 class="font-bold font-ProductSans text-lg capitalize">Filtres</h1>
                 <li class="grid grid-cols-4" v-for="Propriétés in subFilters" :key="Propriétés.name">
-                   <div class="col-span-3">
+                  <div class="col-span-3">
                     <a :href="Propriétés.href">
-                    {{ Propriétés.name }}
-                  </a>
+                      {{ Propriétés.name }}
+                    </a>
                   </div>
-                  
+
                   <div class="">
                     <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
-                        <div class="text-xs font-semibold text-secondary">
-                          {{ Propriétés.count }}
-                        </div>
+                      <div class="text-xs font-semibold text-secondary">
+                        {{ Propriétés.count }}
+                      </div>
                     </div>
-                    </div>
+                  </div>
                 </li>
               </ul>
               <ul role="list" class="text-sm font-medium  space-y-4 pb-6 ">
                 <h1 class="font-bold font-ProductSans text-lg capitalize">Technologies</h1>
                 <li class="grid grid-cols-4" v-for="Propriétés in subPropriétés" :key="Propriétés.name">
-                   <div class="col-span-3">
+                  <div class="col-span-3">
                     <a :href="Propriétés.href">
-                    {{ Propriétés.name }}
-                  </a>
+                      {{ Propriétés.name }}
+                    </a>
                   </div>
-                  
+
                   <div class="">
                     <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
-                        <div class="text-xs font-semibold text-secondary">
-                          {{ Propriétés.count }}
-                        </div>
+                      <div class="text-xs font-semibold text-secondary">
+                        {{ Propriétés.count }}
+                      </div>
                     </div>
-                    </div>
+                  </div>
                 </li>
               </ul>
               <ul role="list" class="text-sm font-medium  space-y-4 pb-6  ">
@@ -598,19 +601,19 @@ function ShowModal() {
               <div
                 class=" font-ProductSans grid md:grid-cols-2 xl:grid-cols-3 gap-y-6 gap-x-14    py-16 justify-items-center  ">
 
-                <div v-for="product in products" :key="product.id" 
+                <div v-for="product in products" :key="product.id"
                   class="bg-white rounded-[30px] border  border-gray-300 shadow-2xl  w-full  max-w-xs mt-0 inline-grid justify-items-center  text-primary ">
 
-                   <RouterLink to="/devdetail" class="w-full">
-                  <img :src="product.imageSrc" :alt="product.imageAlt" class="rounded-[30px] h-60   
+                  <RouterLink to="/devdetail" class="w-full">
+                    <img :src="product.imageSrc" :alt="product.imageAlt" class="rounded-[30px] h-60   
                       object-cover   w-full " />
 
-                  <div class="mt-2 font-[400] text-center  " aria-hidden="true">
-                    {{ product.name }}
-                  </div>
-                  <div class="mt-2  text-2xl  font-[700] text-center">
-                    {{ product.price }}
-                  </div>
+                    <div class="mt-2 font-[400] text-center  " aria-hidden="true">
+                      {{ product.name }}
+                    </div>
+                    <div class="mt-2  text-2xl  font-[700] text-center">
+                      {{ product.price }}
+                    </div>
                   </RouterLink>
                   <div class="mt-2 mb-4 text-center">
                     <span class="text-secondary font-bold text-center font-ProductSans text-base">
@@ -635,48 +638,51 @@ function ShowModal() {
     </div>
   </div>
 
-    <div class="text-black font-blod  font-Sans text-3xl text-center mb-2">
-            Qui nous ont donné leur confiance
- </div>
- <div class="grid lg:grid-cols-6 grid-cols-2 mb-32  px-11 gap-8">
-<div>
-  <img src="@/assets/Image-conf-1.svg"/>
-</div>
-<div>
-  <img src="@/assets/Image-conf-2.svg"/>
-</div>
-<div>
-  <img src="@/assets/Image-conf-3.svg"/>
-</div>
-<div>
-  <img src="@/assets/Image-conf-4.svg"/>
-</div>
-<div>
-  <img src="@/assets/Image-conf-5.svg"/>
-</div>
-<div>
-  <img src="@/assets/Image-conf-6.svg"/>
-</div>
-
-
- </div>
-
-<div class=" ">
-  <img src="@/assets/dev-bg.svg" class="absolute lg:h-[526px] h-full w-full"  />
-  <div class="lg:py-40">
-      <div class=" text-center text-white md:text-[48px] lg:text-5xl text-2xl font-[700] mb-4">
-          Développez un site web<br class=""/>
-          ou application sur mesure ?
-        </div>
-         <p class="text-white text-center text-base font-normal mb-8 ">Quel que soit le défi, nous proposons toujours une solution adaptée.</p>
-         <div class="text-center mb-4 px-16">
-          <button class="text-white font-medium bg-[#1D57A6] leading-6 text-base lg:mb-0 mb-20 rounded-full  w-full lg:w-[276px] md:w-80 p-2">Acheter Maintenant</button>
-         </div>
-         <p class="text-white text-center text-sm font-normal">Prend 3 minutes, 100% gratuit</p>
-       
+  <div class="text-black font-blod  font-Sans text-3xl text-center mb-2">
+    Qui nous ont donné leur confiance
   </div>
-       
-       </div>
+  <div class="grid lg:grid-cols-6 grid-cols-2 mb-32  px-11 gap-8">
+    <div>
+      <img src="@/assets/Image-conf-1.svg" />
+    </div>
+    <div>
+      <img src="@/assets/Image-conf-2.svg" />
+    </div>
+    <div>
+      <img src="@/assets/Image-conf-3.svg" />
+    </div>
+    <div>
+      <img src="@/assets/Image-conf-4.svg" />
+    </div>
+    <div>
+      <img src="@/assets/Image-conf-5.svg" />
+    </div>
+    <div>
+      <img src="@/assets/Image-conf-6.svg" />
+    </div>
+
+
+  </div>
+
+  <div class=" bg-[url('@/assets/dev-bg.svg')]  bg-no-repeat  bg-cover overflow-auto	p-5">
+    <!-- <img src="@/assets/dev-bg.svg" class="absolute lg:h-[526px] h-full w-full" /> -->
+    <div class="lg:py-40">
+      <div class=" text-center text-white md:text-[48px] lg:text-5xl text-2xl font-[700] mb-4">
+        Développez un site web<br class="" />
+        ou application sur mesure ?
+      </div>
+      <p class="text-white text-center text-base font-normal mb-8 ">Quel que soit le défi, nous proposons toujours une
+        solution adaptée.</p>
+      <div class="text-center mb-4 px-16">
+        <button
+          class="text-white font-medium bg-[#1D57A6] leading-6 text-base lg:mb-0 mb-20 rounded-full  w-full lg:w-[276px] md:w-80 p-2">Acheter
+          Maintenant</button>
+      </div>
+      <p class="text-white text-center text-sm font-normal">Prend 3 minutes, 100% gratuit</p>
+
+    </div>
+
+  </div>
 
 
 
