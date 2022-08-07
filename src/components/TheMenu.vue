@@ -14,13 +14,13 @@
                         <span class="hidden lg:block mr-12 text-white">Home </span>
                     </RouterLink>
 
-                    <RouterLink to="/:slug" class="flex items-center">
+                    <RouterLink to="/design" class="flex items-center">
                         <span class="hidden lg:block mr-12">Design</span>
                     </RouterLink>
-                    <RouterLink to="/shopdev" class="flex items-center">
+                    <RouterLink to="/coding" class="flex items-center">
                         <span class="hidden lg:block mr-12">Coding</span>
                     </RouterLink>
-                    <RouterLink to="/marketingdegital" class="flex items-center">
+                    <RouterLink to="/marketing" class="flex items-center">
                         <span class="hidden lg:block mr-12">Marketing Digital</span>
                     </RouterLink>
                     <RouterLink to="/contact" class="flex items-center">

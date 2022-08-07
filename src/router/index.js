@@ -33,12 +33,12 @@ const router = createRouter({
             component: () => import("../views/shop/ProductShow.vue"),
         },
         {
-            path: "/:slug",
+            path: "/design",
             name: "products-category",
             component: () => import("../views/ShopView.vue"),
         },
         {
-            path: "/marketingdegital",
+            path: "/marketing",
             name: "Marketing-View",
             component: () => import("../views/MarketingView.vue"),
         },
@@ -48,7 +48,7 @@ const router = createRouter({
             component: () => import("../views/ProductDev.vue"),
         },
         {
-            path: "/shopdev",
+            path: "/coding",
             name: "About",
             component: () => import("../views/ShopDev.vue"),
         },

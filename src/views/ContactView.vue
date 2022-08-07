@@ -1,6 +1,7 @@
 <template>
- <!-- contact -->
- <img src="@/assets/bg-2.png" class="block bg-no-repeat bg-cover min-h-[110px] w-full " alt="Motorbike Smoke" />
+    <main class="min-h-screen">
+        <!-- contact -->
+        <img src="@/assets/bg-2.png" class="block bg-no-repeat bg-cover min-h-[110px] w-full " alt="Motorbike Smoke" />
         <div id="contact" class="grid md:grid-cols-2 p-6 lg:px-24 lg:gap-x-60 font-ProductSans  ">
             <div>
                 <div class="text-primary text-5xl pr-16 font-bold tracking-wide mb-14">
@@ -82,31 +83,33 @@
             <form class=" mt-5 ">
                 <div class="grid gap-3  mb-6 lg:grid-cols-3">
                     <div>
-                    <select id="location" name="location" class=" block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                    <option>FR</option>
-                    <option selected="">Entité</option>
-                    <option>EN</option>
-                    </select>
-                        </div>
-                         <div class="lg:col-span-2">
-                    <input type="text" id="default-input"
-                        class="bg-[#ffffff] text-gray-900 border border-gray-300 text-sm rounded-lg block w-full p-2"
-                        placeholder="Nom Complet" />
-                        </div>
+                        <select id="location" name="location"
+                            class=" block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                            <option>FR</option>
+                            <option selected="">Entité</option>
+                            <option>EN</option>
+                        </select>
+                    </div>
+                    <div class="lg:col-span-2">
+                        <input type="text" id="default-input"
+                            class="bg-[#ffffff] text-gray-900 border border-gray-300 text-sm rounded-lg block w-full p-2"
+                            placeholder="Nom Complet" />
+                    </div>
                 </div>
                 <div class="grid gap-3 mb-6 lg:grid-cols-3">
                     <div>
-                    <select id="location" name="location" class=" block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                    <option>FR</option>
-                    <option selected="">Pays</option>
-                    <option>EN</option>
-                    </select>
-                        </div>
-                         <div class="lg:col-span-2">
-                    <input type="text" id="default-input"
-                        class="bg-[#ffffff] text-gray-900 border border-gray-300 text-sm rounded-lg block w-full p-2"
-                        placeholder="Numéro de téléphone" />
-                        </div>
+                        <select id="location" name="location"
+                            class=" block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                            <option>FR</option>
+                            <option selected="">Pays</option>
+                            <option>EN</option>
+                        </select>
+                    </div>
+                    <div class="lg:col-span-2">
+                        <input type="text" id="default-input"
+                            class="bg-[#ffffff] text-gray-900 border border-gray-300 text-sm rounded-lg block w-full p-2"
+                            placeholder="Numéro de téléphone" />
+                    </div>
                 </div>
                 <div class="grid gap-2 mb-6 ">
                     <input type="text" id="default-input"
@@ -127,36 +130,37 @@
             </form>
 
         </div>
+    </main>
 
-</template>>
+</template>
 <script>
 
 export default {
-  name: "modal",
-  data() {
-    return {
-      activePhase: 1,
-        user_detail1: {
-            name: '',
-            email: ''
-        },
-        user_detail2: {
-            city: '',
-            state: ''
-        },
-     
-     
-      toggleModal: false,
-     
-    };
-  },
-  ready:function(){
-    console.log('ready');
-  },
-  methods:{
-    goToStep: function(step){
-      this.activePhase = step;
-    }
-  },
+    name: "modal",
+    data() {
+        return {
+            activePhase: 1,
+            user_detail1: {
+                name: '',
+                email: ''
+            },
+            user_detail2: {
+                city: '',
+                state: ''
+            },
+
+
+            toggleModal: false,
+
+        };
+    },
+    ready: function () {
+        console.log('ready');
+    },
+    methods: {
+        goToStep: function (step) {
+            this.activePhase = step;
+        }
+    },
 }
 </script>
