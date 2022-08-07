@@ -75,7 +75,7 @@ export default {
 <template>
   <img src="@/assets/bg-2.png" class="block bg-no-repeat bg-cover min-h-[110px] w-full " alt="Motorbike Smoke" />
 
-  <main class="lg:px-24 ">
+  <main class="lg:px-24 h-full ">
 
     <div class="bg-white  px-8 pb-4 font-ProductSans flex flex-wrap justify-center gap-x-2">
       <Menu as="div" class="relative inline-block text-left">
@@ -361,7 +361,7 @@ export default {
             <img :src="product.url" class="w-full h-full object-center object-cover group-hover:opacity-75" />
 
           </div>
-          <div class="grid grid-cols-3 gap-4 mt-4">
+          <div class="grid grid-cols-3 gap-4 mt-4 mb-8 justify-items-stretch  ">
 
             <img v-for="product in products" @click="changeImage(product.url)" :src="product.url" alt="">
 

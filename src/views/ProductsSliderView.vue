@@ -1,8 +1,9 @@
 <template>
-<PreLoder />
+    <PreLoder />
     <!-- <img src="@/assets/slider-bg.svg" alt="" class="object-cover	 w-full h-screen  bg-no-repeat"> -->
-    <div id="carouselDarkVariant" class="carousel slide carousel-fade  font-ProductSans    relative"
-        data-bs-ride="carousel">
+    <div id="carouselDarkVariant" class="carousel slide  font-ProductSans    relative" data-bs-ride="carousel">
+        <img src="@/assets/slider-bg.svg" class="absolute block object-cover w-full h-screen" alt="Motorbike Smoke" />
+
         <!-- Indicators -->
         <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
             <button data-bs-target="#carouselDarkVariant" data-bs-slide-to="0" class="active" aria-current="true"
@@ -15,7 +16,7 @@
         <div class="carousel-inner relative w-full overflow-hidden">
             <!-- Single item -->
             <div class="carousel-item active relative float-left object-cover w-full h-screen ">
-                <img src="@/assets/slider-bg.svg" class="block object-cover w-full h-screen" alt="Motorbike Smoke" />
+                <!-- <img src="@/assets/slider-bg.svg" class="block object-cover w-full h-screen" alt="Motorbike Smoke" /> -->
                 <div class="carousel-caption  absolute top-1/4 text-center">
                     <h5 class="text-5xl   md:text-8xl font-bold   font-ProductSans  ">Marketing Digital</h5>
                     <p class="text-xl md:text-4xl font-normal tracking-wide p-4 md:p-8     ">Grâce à notre créativité,
@@ -25,15 +26,15 @@
                         les
                         meilleurs projets de
                         développement web et mobile, Etc.</p>
-                    <button class=" font-bold text-center text-lg md:text-3xl ">Decouvrir
+                    <RouterLink to="/marketing" class=" font-bold text-center text-lg md:text-3xl ">
+                        Decouvrir
                         <font-awesome-icon icon="greater-than" class=" font-bold" />
-                    </button>
+                    </RouterLink>
                 </div>
             </div>
 
             <!-- Single item -->
             <div class="carousel-item relative float-left object-cover w-full h-screen ">
-                <img src="@/assets/slider-bg.svg" class="block object-cover w-full h-screen" alt="Mountaintop" />
                 <div class="carousel-caption  absolute top-1/4 text-center">
                     <h5 class="text-5xl   md:text-8xl font-bold   font-ProductSans  ">Design Graphique</h5>
                     <p class="text-xl md:text-4xl font-normal tracking-wide p-4 md:p-8     ">Grâce à notre créativité,
@@ -43,16 +44,17 @@
                         les
                         meilleurs projets de
                         développement web et mobile, Etc.</p>
-                    <button class=" font-bold text-center text-lg md:text-3xl ">Decouvrir
+                    <RouterLink to="/design" class=" font-bold text-center text-lg md:text-3xl ">
+                        Decouvrir
                         <font-awesome-icon icon="greater-than" class=" font-bold" />
-                    </button>
+                    </RouterLink>
                 </div>
             </div>
 
             <!-- Single item -->
             <div class="carousel-item relative float-left object-cover w-full h-screen ">
-                <img src="@/assets/slider-bg.svg" class="block object-cover w-full h-screen"
-                    alt="Woman Reading a Book" />
+                <!-- <img src="@/assets/slider-bg.svg" class="block object-cover w-full h-screen"
+                alt="Woman Reading a Book" /> -->
                 <div class="carousel-caption  absolute top-1/4 text-center">
                     <h5 class="text-5xl   md:text-8xl font-bold   font-ProductSans  ">Dévelopment Web & Mobile</h5>
                     <p class="text-xl md:text-4xl font-normal tracking-wide p-4 md:p-8     ">Grâce à notre créativité,
@@ -62,9 +64,11 @@
                         les
                         meilleurs projets de
                         développement web et mobile, Etc.</p>
-                    <button class=" font-bold text-center text-lg md:text-3xl ">Decouvrir
+                    <RouterLink to="/coding" class=" font-bold text-center text-lg md:text-3xl ">
+                        Decouvrir
                         <font-awesome-icon icon="greater-than" class=" font-bold" />
-                    </button>
+                    </RouterLink>
+
                 </div>
             </div>
         </div>
@@ -86,7 +90,8 @@
     </div>
 </template>
 <script setup>
-import PreLoder from '../components/PreLoder.vue'</script>
+import PreLoder from '../components/PreLoder.vue'
+</script>
 <script>
 
 export default {
