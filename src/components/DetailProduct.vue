@@ -130,7 +130,7 @@
                     <div class="lg:col-span-2">
                         <input type="text" id="last_name"
                             class="bg-[#ffffff] text-gray-900 text-sm rounded-lg border border-gray-300 block w-full p-2"
-                            placeholder="Nom Complet" required />
+                            placeholder="Nom Complet" :value="nom" @input="nom=$event.target.value" required />
                     </div>
                 </div>
                 <div class="grid  mb-6 lg:grid-cols-4 gap-4">
@@ -488,15 +488,7 @@ export default {
   data() {
     return {
       activePhase: 1,
-        user_detail1: {
-            name: '',
-            email: ''
-        },
-        user_detail2: {
-            city: '',
-            state: ''
-        },
-     
+       nom :'',
      
       toggleModal: false,
      

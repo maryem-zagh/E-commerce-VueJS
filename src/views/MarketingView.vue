@@ -55,9 +55,9 @@ export default {
 
 
 </div>
-<div class="flex flex-col md:flex-row lg:mb-3 mb-10 ">
+<div class="grid lg:grid-cols-2 grid-col-1 md:flex-row lg:mb-3 mb-10 ">
   
-  <div class="bg-[url('@/assets/Left-2.svg')] lg:mb-0  pt-32  lg:pt-64 lg:h-[687px] lg:w-[810px] md:w-[400px] ">
+  <div class="bg-[url('@/assets/Left-2.svg')]  lg:mb-0  pt-32  lg:pt-64 ">
     <img src="@/assets/looper-r.svg" alt="" class="absolute -top-64"/>
     <div class="">
     <div class="text-white font-blod text-6xl text-center mb-2">
@@ -71,8 +71,8 @@ export default {
     </div>
   </div>
   <div class="lg:py-28 md:py-14 ">
-    <div class=" bg-[url('@/assets/blue-right.svg')]  lg:h-[493px] lg:w-[630px] md:w-[400px] lg:pt-24 py-20  ">
-      <img src="@/assets/Pack-Initial.svg" alt="" class="absolute lg:top-14 lg:right-24 right-5 "/>
+    <div class=" bg-[url('@/assets/blue-right.svg')]  lg:pt-24 py-20  ">
+      <img src="@/assets/Pack-Initial.svg" alt="" class="absolute lg:top-14 lg:right-24 right-5 md:top-0"/>
       <div class="text-right font-normal text-lg text-white lg:pr-28 pr-14 ">
         
             Idéal pour les indépendants,les auto-entrepreneurs,<br/> les artisans,
@@ -92,10 +92,10 @@ export default {
   
  </div>
 
-<div class="flex flex-col md:flex-row lg:mb-3 mb-10 ">
-    <div class="lg:py-28  md:py-14 ">
-    <div class=" bg-[url('@/assets/blue-right.svg')]  lg:h-[493px] lg:w-[630px] lg:pt-24 py-20 md:w-[400px] ">
-       <img src="@/assets/Pack-Initial.svg" alt="" class="absolute lg:top-14 lg:left-28 left-5"/>
+<div class="grid lg:grid-cols-2 grid-col-1  lg:mb-3 mb-10 ">
+    <div class="lg:py-28  md:py-14 lg:order-none order-2 ">
+    <div class=" bg-[url('@/assets/blue-right.svg')] lg:pt-24 py-20   ">
+       <img src="@/assets/Pack-Initial.svg" alt="" class="absolute  lg:top-14 lg:left-28 left-5 md:top-0"/>
       <div class="text-left font-normal text-lg text-white lg:pl-28 pl-14">
            Idéal pour les indépendants, les auto-entrepreneurs,<br/> les artisans,
             les TPE qui souhaitent démarrer une<br/> activité digitale cohérente et génératrice
@@ -110,7 +110,7 @@ export default {
       </div>
     </div>
   </div>
-  <div class="bg-[url('@/assets/right-3.svg')] lg:mb-0  pt-64 lg:h-[687px] lg:w-[810px] md:w-[400px] ">
+  <div class="bg-[url('@/assets/right-3.svg')]  lg:mb-0  pt-64 ">
     <img src="@/assets/looper-l.svg" alt="" class="absolute right-0 -top-[420px]"/> 
     <div class="">
     <div class="text-white font-blod text-6xl text-center mb-2">
@@ -127,8 +127,8 @@ export default {
  
   
  </div>
-<div class="flex flex-col md:flex-row lg:mb-3 mb-10 ">
-  <div class="bg-[url('@/assets/Left-5.svg')]  pt-64 lg:h-[687px] lg:w-[810px] md:w-[400px] ">
+<div class="grid lg:grid-cols-2 grid-col-1  md:flex-row lg:mb-3 mb-10 ">
+  <div class="bg-[url('@/assets/Left-5.svg')]  pt-64  ">
      <img src="@/assets/Looper-5.svg" alt="" class="absolute -top-96"/>
     <div class="">
     <div class="text-white font-blod text-6xl text-center mb-2">
@@ -142,8 +142,8 @@ export default {
     </div>
   </div>
   <div class="lg:py-28  md:py-14 ">
-    <div class=" bg-[url('@/assets/blue-right.svg')] lg:mb-0  lg:h-[493px] lg:w-[630px] lg:pt-24 py-20 md:w-[400px] ">
-       <img src="@/assets/Pack-Initial.svg" alt="" class="absolute lg:top-14 lg:right-24"/>
+    <div class=" bg-[url('@/assets/blue-right.svg')] lg:mb-0  lg:pt-24 py-20  ">
+       <img src="@/assets/Pack-Initial.svg" alt="" class="absolute lg:top-14 lg:right-24 right-5 md:top-0"/>
       <div class="text-right font-normal text-lg text-white lg:pr-28 pr-14 ">
             Idéal pour les indépendants, les auto-entrepreneurs,<br/>
              les artisans,<br/>

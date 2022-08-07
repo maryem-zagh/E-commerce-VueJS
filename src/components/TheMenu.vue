@@ -23,7 +23,7 @@
                     <RouterLink to="/marketingdegital" class="flex items-center">
                         <span class="hidden lg:block mr-12">Marketing Digital</span>
                     </RouterLink>
-                    <RouterLink to="#" class="flex items-center">
+                    <RouterLink to="/contact" class="flex items-center">
                         <span class="hidden lg:block mr-12">contact</span>
                     </RouterLink>
                     <select class="border-none py-0 bg-transparent  " v-model="$i18n.locale" @change="changeLanguage">

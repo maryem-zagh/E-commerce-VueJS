@@ -25,7 +25,7 @@
                         les
                         meilleurs projets de
                         développement web et mobile, Etc.</p>
-                    <button class=" font-bold text-center text-lg md:text-3xl ">Decouvrir
+                    <button  class=" font-bold text-center text-lg md:text-3xl ">Decouvrir
                         <font-awesome-icon icon="greater-than" class=" font-bold" />
                     </button>
                 </div>

@@ -44,7 +44,7 @@
                       <p class="text-sm font-normal text-gray-400">Les informations de votre carte bancaire ne seront pas sauvegardées, seulement votre nom et votre email.</p>
 
                     </div>
-                    <div class="text-center ">
+                    <div class="text-center lg:mb-28">
                     <button  class="text-white bg-[#0064D2] leading-6 font-medium rounded-full text-base w-full p-2">Acheter Maintenant</button>
                    </div>
             </div>

@@ -1,6 +1,6 @@
 <template>
 
-<button @click="toggleModal = !toggleModal" class="text-secondary font-medium bg-[#ffffff] leading-6 text-base lg:mb-0 mb-20 rounded-full  w-full lg:w-[318px] p-2">Acheter Maintenant</button>
+<button @click="toggleModal = !toggleModal" class="text-secondary font-medium bg-[#ffffff] leading-6 text-base lg:mb-0 mb-20 md:w-52 rounded-full  w-full lg:w-[318px] p-2">Acheter Maintenant</button>
        
             
               <div class="fixed overflow-x-hidden overflow-y-auto inset-0 flex justify-center items-center z-50"
