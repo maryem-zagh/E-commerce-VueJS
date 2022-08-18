@@ -12,29 +12,50 @@ import AcheterMaintenant from "../../components/AcheterMaintenant.vue";
 <script>
 
 export default {
-  name: "modal",
-  data() {
+data() {
     return {
+          products: [],
+      categories:[],
+      subCategories:[],
+      subCategories0:[],
       product: {
         "url": "/src/assets/shop.png"
       },
-      products: [
-        {
-          "id": 1,
-          "url": "/src/assets/zebra.png",
+      
+    async created(){
+            this.axios.get('/products/9')
+            .then((response) =>{
+              this.products =  response.data
+              console.log("this.products")
+            })
+            this.axios.get('/subcategories0/')
+            .then((response)=>{
+              this.subCategories0 = response.data
+            })
+            .catch( function (error){
+                console.log(error);
+            });
+      },
+  name: "modal",
+  
+  
+      // products: [
+      //   {
+      //     "id": 1,
+      //     "url": "/src/assets/zebra.png",
 
-        },
-        {
-          "id": 2,
-          "url": "/src/assets/zebra2.png",
+      //   },
+      //   {
+      //     "id": 2,
+      //     "url": "/src/assets/zebra2.png",
 
-        },
-        {
-          "id": 3,
-          "url": "/src/assets/zebra3.png",
+      //   },
+      //   {
+      //     "id": 3,
+      //     "url": "/src/assets/zebra3.png",
 
-        },
-      ],
+      //   },
+      // ],
       categories: [],
       showDetail: true,
       activePhase: 1,
@@ -72,54 +93,42 @@ export default {
 }
 </script>
 
+
+
 <template>
+<div>
   <img src="@/assets/bg-2.png" class="block bg-no-repeat bg-cover min-h-[110px] w-full " alt="Motorbike Smoke" />
 
   <main class="lg:px-24 h-full ">
-
     <div class="bg-white  px-8 pb-4 font-ProductSans flex flex-wrap justify-center gap-x-2">
-      <Menu as="div" class="relative inline-block text-left">
+      <Menu as="div" class="relative inline-block text-left" v-for="Propriétés in subCategories0" :key="Propriétés.name">
         <div>
           <MenuButton
             class="inline-flex justify-center w-full rounded-md px-4 py-2 text-base font-medium text-primary hover:bg-gray-50">
-            Modèle Graphique
+            {{ Propriétés.name }}
             <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
           </MenuButton>
         </div>
 
+       
         <transition enter-active-class="transition ease-out duration-100"
           enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100"
           leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100"
           leave-to-class="transform opacity-0 scale-95">
           <MenuItems
-            class="origin-top-left absolute left-0 mt-2 w-32 z-50 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <div class="py-1">
-              <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">Account settings</a>
+            class="origin-top-left absolute left-0 mt-2 w-32 z-50    rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <div class="py-1" >
+              <MenuItem v-slot="{ active }" v-for="child in Propriétés.children" :key="child.name">
+              <a href="#"
+                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">
+                {{ child.name }}</a>
               </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">Support</a>
-              </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">License</a>
-              </MenuItem>
+             
               <form method="POST" action="#">
                 <MenuItem v-slot="{ active }">
-                <button type="submit" :class="[
-                  active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                  'block w-full text-left px-4 py-2 text-sm',
-                ]">
-                  Sign out
-                </button>
+                <button type="submit"
+                  :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block w-full text-left px-4 py-2 text-sm']">Sign
+                  out</button>
                 </MenuItem>
               </form>
             </div>
@@ -363,7 +372,7 @@ export default {
           </div>
           <div class="grid grid-cols-3 gap-4 mt-4 mb-8 justify-items-stretch  ">
 
-            <img v-for="product in products" @click="changeImage(product.url)" :src="product.url" alt="">
+            <!-- <img v-for="product in products" @click="changeImage(product.url)" :src="product.url" alt=""> -->
 
           </div>
         </div>
@@ -377,5 +386,7 @@ export default {
         <AcheterMaintenant />
       </div>
     </div>
+
   </main>
+  </div>
 </template>

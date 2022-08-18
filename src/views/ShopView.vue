@@ -23,12 +23,7 @@ const sortOptions = [
   { name: 'Price: Low to High', href: '#', current: false },
   { name: 'Price: High to Low', href: '#', current: false },
 ]
-const subCategories = [
-  { name: 'Identité Visuelle', href: '#', count:'320' },
-  { name: 'Logos', href: '#', count:'112' },
-  { name: '3D', href: '#', count:'112' },
 
-]
 const subFilters = [
   { name: 'Derniers projets', href: '#', count:'112' },
   { name: 'Projets en réduction', href: '#', count:'112' },
@@ -43,63 +38,63 @@ const subPropriétés = [
 ]
 
 
-const products = [
-  {
-    id: 1,
-    name: 'Logo Zebra Brand',
-    href: '#',
-    imageSrc: 'src/assets/products/1.png',
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: '$86',
+// const products = [
+//   {
+//     id: 1,
+//     name: 'Logo Zebra Brand',
+//     href: '#',
+//     imageSrc: 'src/assets/products/1.png',
+//     imageAlt: "Front of men's Basic Tee in black.",
+//     price: '$86',
 
-  },
-  {
-    id: 2,
-    name: 'Logo Zebra Brand',
-    href: '#',
-    imageSrc: 'src/assets/products/2.png',
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: '$105',
+//   },
+//   {
+//     id: 2,
+//     name: 'Logo Zebra Brand',
+//     href: '#',
+//     imageSrc: 'src/assets/products/2.png',
+//     imageAlt: "Front of men's Basic Tee in black.",
+//     price: '$105',
 
-  },
-  {
-    id: 3,
-    name: 'Logo Zebra Brand',
-    href: '#',
-    imageSrc: 'src/assets/products/3.png',
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: '180 €',
+//   },
+//   {
+//     id: 3,
+//     name: 'Logo Zebra Brand',
+//     href: '#',
+//     imageSrc: 'src/assets/products/3.png',
+//     imageAlt: "Front of men's Basic Tee in black.",
+//     price: '180 €',
 
-  },
-  {
-    id: 4,
-    name: 'Logo Zebra Brand',
-    href: '#',
-    imageSrc: 'src/assets/products/4.png',
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: '180 €',
+//   },
+//   {
+//     id: 4,
+//     name: 'Logo Zebra Brand',
+//     href: '#',
+//     imageSrc: 'src/assets/products/4.png',
+//     imageAlt: "Front of men's Basic Tee in black.",
+//     price: '180 €',
 
-  },
-  {
-    id: 5,
-    name: 'Logo Zebra Brand',
-    href: '#',
-    imageSrc: 'src/assets/products/5.png',
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: '180 €',
+//   },
+//   {
+//     id: 5,
+//     name: 'Logo Zebra Brand',
+//     href: '#',
+//     imageSrc: 'src/assets/products/5.png',
+//     imageAlt: "Front of men's Basic Tee in black.",
+//     price: '180 €',
 
-  },
-  {
-    id: 6,
-    name: 'Logo Zebra Brand',
-    href: '#',
-    imageSrc: 'src/assets/products/6.png',
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: '180 €',
+//   },
+//   {
+//     id: 6,
+//     name: 'Logo Zebra Brand',
+//     href: '#',
+//     imageSrc: 'src/assets/products/6.png',
+//     imageAlt: "Front of men's Basic Tee in black.",
+//     price: '180 €',
 
-  },
-  // More products...
-]
+//   },
+//   // More products...
+// ]
 
 
 const mobileFiltersOpen = ref(false)
@@ -120,11 +115,91 @@ function ShowModal() {
 
 </script>
 
+<script>
+import axios from "axios"; 
+export default {
+      data() {
+        return {
+            products: [],
+            filtredProducts:[],
+            categories:[],
+            subCategories:[],
+            subCategories0:[],
+            children:[],
+            search:{
+              word:'',
+              category:'',
+              isInPromotion:false,
+              isRecent:false,
+              price:{
+                min:0,
+                max:null
+              }
+            },
+                isSearching: false
+
+        };
+    },
+
+ watch: {
+    // search:function () {
+    //   this.searchProducts()
+    // }
+    search: {
+        handler(){
+          this.searchProducts()
+        },
+        deep: true
+      }
+  },
+methods:{
+  async searchProducts(){
+      this.axios.post('/search',{search:this.search.word})
+      .then((response)=>{
+        this.filtredProducts = response.data
+
+      })
+    }
+},
+    async created(){
+        
+          this.axios.get('/categories')
+            .then((response) => {
+                this.categories = response.data.Allcategories
+                console.log(this.categories)
+            })
+            this.axios.get('/category/1')
+            .then((response) =>{
+              this.subCategories = response.data
+              console.log(this.subCategories)
+            })
+            this.axios.get('/products_by_category/1')
+            .then((response) =>{
+              this.products =  response.data
+              console.log(this.products)
+            })
+            this.axios.get('category0/1')
+            .then((response) =>{
+              this.subCategories0 = response.data
+             console.log(response.data)
+            })
+          this.axios.get('/search' )
+          .then ((response)=>{
+            this.product = response.data
+          })
+            .catch( function (error){
+                console.log(error);
+            });
+      }}
+    
+
+</script>
+
 <template>
 
 
 
-
+<div>
   <main class="  h-full  font-ProductSans text-primary ">
 
 
@@ -142,17 +217,14 @@ function ShowModal() {
           <select
             class=" md:px-9 items-center py-2.5  text-sm font-medium text-center text-primary bg-gray-100 border border-gray-300 rounded-l-[30px]  focus:ring-4 focus:outline-none ">
             <option>Toutes Catégories</option>
-            <option>Modèle Graphique</option>
-            <option>Documents</option>
-            <option>Modéles 3D</option>
-            <option>UX / UI</option>
-            <option>Vidéos</option>
+            <option v-for="category in categories" :value="category.id" :key="category.id"> {{ category.name }}</option>
+
           </select>
 
 
-          <input type="search" id="location-search"
+          <input type="search" id="name_search" v-model="search.word"
             class="w-full max-w-[300px]  text-primary text-center block p-2.5  z-20 text-sm   bg-gray-50 rounded-r-[30px] border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-            placeholder="Recherche produit, catégorie ..." required>
+            placeholder="Recherche produit, catégorie ..." required  >
 
         </div>
       </div>
@@ -161,14 +233,13 @@ function ShowModal() {
     </div>
 
 
-
     <div class=" flex flex-wrap justify-center gap-x-2  ">
       <!--   Modèle Graphique -->
-      <Menu as="div" class="relative inline-block text-left">
+      <Menu as="div" class="relative inline-block text-left" v-for="Propriétés in subCategories0" :key="Propriétés.name" >
         <div>
           <MenuButton
             class="inline-flex justify-center w-full rounded-md    px-4 py-2   text-base font-medium text-primary hover:bg-gray-50  ">
-            Modèle Graphique
+            {{ Propriétés.name }}
             <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
           </MenuButton>
         </div>
@@ -179,184 +250,13 @@ function ShowModal() {
           leave-to-class="transform opacity-0 scale-95">
           <MenuItems
             class="origin-top-left absolute left-0 mt-2 w-32 z-50    rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <div class="py-1">
-              <MenuItem v-slot="{ active }">
+            <div class="py-1" >
+              <MenuItem v-slot="{ active }" v-for="child in Propriétés.children" :key="child.name">
               <a href="#"
-                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Account
-                settings</a>
+                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">
+                {{ child.name }}</a>
               </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#"
-                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Support</a>
-              </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#"
-                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">License</a>
-              </MenuItem>
-              <form method="POST" action="#">
-                <MenuItem v-slot="{ active }">
-                <button type="submit"
-                  :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block w-full text-left px-4 py-2 text-sm']">Sign
-                  out</button>
-                </MenuItem>
-              </form>
-            </div>
-          </MenuItems>
-        </transition>
-      </Menu>
-      <!--   Documents -->
-      <Menu as="div" class="relative inline-block text-left">
-        <div>
-          <MenuButton
-            class="inline-flex justify-center w-full rounded-md    px-4 py-2   text-base font-medium text-primary hover:bg-gray-50  ">
-            Documents
-            <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
-          </MenuButton>
-        </div>
-
-        <transition enter-active-class="transition ease-out duration-100"
-          enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100"
-          leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100"
-          leave-to-class="transform opacity-0 scale-95">
-          <MenuItems
-            class="origin-top-left absolute left-0 mt-2 w-32 z-50    rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <div class="py-1">
-              <MenuItem v-slot="{ active }">
-              <a href="#"
-                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Account
-                settings</a>
-              </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#"
-                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Support</a>
-              </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#"
-                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">License</a>
-              </MenuItem>
-              <form method="POST" action="#">
-                <MenuItem v-slot="{ active }">
-                <button type="submit"
-                  :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block w-full text-left px-4 py-2 text-sm']">Sign
-                  out</button>
-                </MenuItem>
-              </form>
-            </div>
-          </MenuItems>
-        </transition>
-      </Menu>
-      <!--   Modéles 3D -->
-      <Menu as="div" class="relative inline-block text-left">
-        <div>
-          <MenuButton
-            class="inline-flex justify-center w-full rounded-md    px-4 py-2   text-base font-medium text-primary hover:bg-gray-50  ">
-            Modéles 3D
-            <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
-          </MenuButton>
-        </div>
-
-        <transition enter-active-class="transition ease-out duration-100"
-          enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100"
-          leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100"
-          leave-to-class="transform opacity-0 scale-95">
-          <MenuItems
-            class="origin-top-left absolute left-0 mt-2 w-32 z-50    rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <div class="py-1">
-              <MenuItem v-slot="{ active }">
-              <a href="#"
-                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Account
-                settings</a>
-              </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#"
-                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Support</a>
-              </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#"
-                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">License</a>
-              </MenuItem>
-              <form method="POST" action="#">
-                <MenuItem v-slot="{ active }">
-                <button type="submit"
-                  :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block w-full text-left px-4 py-2 text-sm']">Sign
-                  out</button>
-                </MenuItem>
-              </form>
-            </div>
-          </MenuItems>
-        </transition>
-      </Menu>
-      <!--   UX / UI -->
-      <Menu as="div" class="relative inline-block text-left">
-        <div>
-          <MenuButton
-            class="inline-flex justify-center w-full rounded-md    px-4 py-2   text-base font-medium text-primary hover:bg-gray-50  ">
-            UX / UI
-            <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
-          </MenuButton>
-        </div>
-
-        <transition enter-active-class="transition ease-out duration-100"
-          enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100"
-          leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100"
-          leave-to-class="transform opacity-0 scale-95">
-          <MenuItems
-            class="origin-top-left absolute left-0 mt-2 w-32 z-50    rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <div class="py-1">
-              <MenuItem v-slot="{ active }">
-              <a href="#"
-                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Account
-                settings</a>
-              </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#"
-                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Support</a>
-              </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#"
-                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">License</a>
-              </MenuItem>
-              <form method="POST" action="#">
-                <MenuItem v-slot="{ active }">
-                <button type="submit"
-                  :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block w-full text-left px-4 py-2 text-sm']">Sign
-                  out</button>
-                </MenuItem>
-              </form>
-            </div>
-          </MenuItems>
-        </transition>
-      </Menu>
-      <!--   Vidéos -->
-      <Menu as="div" class="relative inline-block text-left">
-        <div>
-          <MenuButton
-            class="inline-flex justify-center w-full rounded-md    px-4 py-2   text-base font-medium text-primary hover:bg-gray-50  ">
-            Vidéos
-            <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
-          </MenuButton>
-        </div>
-
-        <transition enter-active-class="transition ease-out duration-100"
-          enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100"
-          leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100"
-          leave-to-class="transform opacity-0 scale-95">
-          <MenuItems
-            class="origin-top-left absolute left-0 mt-2 w-32 z-50    rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <div class="py-1">
-              <MenuItem v-slot="{ active }">
-              <a href="#"
-                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Account
-                settings</a>
-              </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#"
-                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Support</a>
-              </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#"
-                :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">License</a>
-              </MenuItem>
+             
               <form method="POST" action="#">
                 <MenuItem v-slot="{ active }">
                 <button type="submit"
@@ -369,15 +269,8 @@ function ShowModal() {
         </transition>
       </Menu>
 
-
-
+ 
     </div>
-
-
-
-
-
-
 
   </main>
 
@@ -409,7 +302,6 @@ function ShowModal() {
                     <XIcon class="h-6 w-6" aria-hidden="true" />
                   </button>
                 </div>
-
 
                 <form class="mt-4 border-t border-gray-200 text-primary p-4 ">
                   <h3 class="sr-only">Propriétés</h3>
@@ -511,31 +403,7 @@ function ShowModal() {
           <h1 class="text-4xl font-extrabold tracking-tight "></h1>
 
           <div class="flex items-center">
-            <!-- <Menu as="div" class="relative inline-block text-left">
-              <div>
-                <MenuButton class="group inline-flex justify-center text-sm font-medium text-gray-700 hover:">
-                  Sort
-                  <ChevronDownIcon class="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-primary" aria-hidden="true" />
-                </MenuButton>
-              </div>
-
-              <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
-                <MenuItems class="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-2xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                  <div class="py-1">
-                    <MenuItem v-for="option in sortOptions" :key="option.name" v-slot="{ active }">
-                      <a :href="option.href" :class="[option.current ? 'font-medium ' : 'text-primary', active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm']">
-                        {{ option.name }}
-                      </a>
-                    </MenuItem>
-                  </div>
-                </MenuItems>
-              </transition>
-            </Menu> -->
-
-            <!-- <button type="button" class="p-2 -m-2 ml-5 sm:ml-7 text-gray-400 hover:text-primary">
-              <span class="sr-only">View grid</span>
-              <ViewGridIcon class="w-5 h-5" aria-hidden="true" />
-            </button> -->
+          
             <button type="button" class="p-2  ml-4 mr-5  hover:text-secondary lg:hidden  flex flex-row"
               @click="mobileFiltersOpen = true">
               <span class="mr-2">Filters</span>
@@ -650,7 +518,7 @@ function ShowModal() {
               <div
                 class=" font-ProductSans grid md:grid-cols-2 xl:grid-cols-3 gap-y-6 gap-x-14    py-16 justify-items-center  ">
 
-                <div v-for="product in products" :key="product.id" 
+                <div v-for="product in filtredProducts" :key="product.id" 
                   class="bg-white rounded-[30px] border  border-gray-300 shadow-2xl  w-full  max-w-xs mt-0 inline-grid justify-items-center  text-primary ">
 
                    <RouterLink to="/product/:product" class="w-full">
@@ -658,10 +526,10 @@ function ShowModal() {
                       object-cover   w-full " />
 
                   <div class="mt-2 font-[400] text-center  " aria-hidden="true">
-                    {{ product.name }}
+                    {{ product.title   }}
                   </div>
                   <div class="mt-2  text-2xl  font-[700] text-center">
-                    {{ product.price }}
+                     $ {{ product.price }}
                   </div>
                   </RouterLink>
                   <div class="mt-2 mb-4 text-center">
@@ -687,7 +555,7 @@ function ShowModal() {
     </div>
   </div>
 
-
+</div>
 
 
 
