@@ -126,9 +126,10 @@ export default {
             subCategories:[],
             subCategories0:[],
             children:[],
+            id:1,
             search:{
               word:'',
-              category:'',
+              category:[],
               isInPromotion:false,
               isRecent:false,
               price:{
@@ -154,10 +155,18 @@ export default {
   },
 methods:{
   async searchProducts(){
-      this.axios.post('/search',{search:this.search.word})
+      this.axios.post('/search',{word:this.search.word , category:this.search.category , 
+        promo:this.isInPromotion , recent :this.isInPromotion})
       .then((response)=>{
-        this.filtredProducts = response.data
-
+         var array=new Array()
+              for(let i=0 ; i<response.data.length;i++){
+                array=array.concat(response.data[i])
+              }
+              console.log(array)
+              this.filtredProducts =array
+              
+        this.filtredProducts = array
+        
       })
     }
 },
@@ -175,18 +184,24 @@ methods:{
             })
             this.axios.get('/products_by_category/1')
             .then((response) =>{
-              this.products =  response.data
-              console.log(this.products)
+              // this.filtredProducts =  response.data
+              // console.log(response.data)
+;              var array=new Array()
+              for(let i=0 ; i<response.data.length;i++){
+                array=array.concat(response.data[i])
+              }
+              this.filtredProducts =array
+              console.log(array)
             })
             this.axios.get('category0/1')
             .then((response) =>{
               this.subCategories0 = response.data
              console.log(response.data)
             })
-          this.axios.get('/search' )
-          .then ((response)=>{
-            this.product = response.data
-          })
+          // this.axios.get('/search' )
+          // .then ((response)=>{
+          //   this.product = response.data
+          // })
             .catch( function (error){
                 console.log(error);
             });
@@ -423,9 +438,9 @@ methods:{
                 <h1 class="font-bold font-ProductSans text-lg capitalize">category</h1>
                 <li class="grid grid-cols-4" v-for="Propriétés in subCategories" :key="Propriétés.name">
                    <div class="col-span-3">
-                    <a :href="Propriétés.href">
+                    <input type="radio" :value="Propriétés" :id="Propriétés.name "  v-model="search.category">
                     {{ Propriétés.name }}
-                  </a>
+                  
                   </div>
                   
                   <div class="">
@@ -441,21 +456,37 @@ methods:{
 
               <ul role="list" class="text-sm font-medium  space-y-4 pb-6  ">
                 <h1 class="font-bold font-ProductSans text-lg capitalize">Filtres</h1>
-                <li class="grid grid-cols-4" v-for="Propriétés in subFilters" :key="Propriétés.name">
+                <li class="grid grid-cols-4" >
                    <div class="col-span-3">
-                    <a :href="Propriétés.href">
-                    {{ Propriétés.name }}
-                  </a>
+                    <input type="checkbox" v-model="search.isInPromotion">
+                    Projets en réduction
+                  
                   </div>
                   
                   <div class="">
                     <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
                         <div class="text-xs font-semibold text-secondary">
-                          {{ Propriétés.count }}
+                          
                         </div>
                     </div>
                     </div>
                 </li>
+                <li class="grid grid-cols-4" >
+                   <div class="col-span-3">
+                    <input type="checkbox" v-model="search.isRecent">
+                  Derniers projets  
+                  
+                  </div>
+                  
+                  <div class="">
+                    <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
+                        <div class="text-xs font-semibold text-secondary">
+                          
+                        </div>
+                    </div>
+                    </div>
+                </li>
+
               </ul>
               <ul role="list" class="text-sm font-medium  space-y-4 pb-6 ">
                 <h1 class="font-bold font-ProductSans text-lg capitalize">Propriétés</h1>
@@ -517,33 +548,29 @@ methods:{
 
               <div
                 class=" font-ProductSans grid md:grid-cols-2 xl:grid-cols-3 gap-y-6 gap-x-14    py-16 justify-items-center  ">
+            
+                  <div v-for="product in filtredProducts" :key="product.id" 
+                    class="bg-white rounded-[30px] border  border-gray-300 shadow-2xl  w-full  max-w-xs mt-0 inline-grid justify-items-center  text-primary ">
 
-                <div v-for="product in filtredProducts" :key="product.id" 
-                  class="bg-white rounded-[30px] border  border-gray-300 shadow-2xl  w-full  max-w-xs mt-0 inline-grid justify-items-center  text-primary ">
+                        <RouterLink to="/product/:product" class="w-full">
+                            <img :src="product.imageSrc" :alt="product.imageAlt" class="rounded-[30px] h-60   
+                                object-cover   w-full " />
 
-                   <RouterLink to="/product/:product" class="w-full">
-                  <img :src="product.imageSrc" :alt="product.imageAlt" class="rounded-[30px] h-60   
-                      object-cover   w-full " />
+                            <div class="mt-2 font-[400] text-center  " aria-hidden="true">
+                              {{ product.title   }}
+                            </div>
+                            <div class="mt-2  text-2xl  font-[700] text-center">
+                              $ {{ product.price }}
+                            </div>
+                        </RouterLink>
+                        <div class="mt-2 mb-4 text-center">
+                          <span class="text-secondary font-bold text-center font-ProductSans text-base">
+                            Acheter
+                          </span>
 
-                  <div class="mt-2 font-[400] text-center  " aria-hidden="true">
-                    {{ product.title   }}
+                          <font-awesome-icon class="text-secondary font-bold" icon="check" />
+                        </div>
                   </div>
-                  <div class="mt-2  text-2xl  font-[700] text-center">
-                     $ {{ product.price }}
-                  </div>
-                  </RouterLink>
-                  <div class="mt-2 mb-4 text-center">
-                    <span class="text-secondary font-bold text-center font-ProductSans text-base">
-                      Acheter
-                    </span>
-
-                    <font-awesome-icon class="text-secondary font-bold" icon="check" />
-                  </div>
-
-
-
-
-                </div>
               </div>
 
 
