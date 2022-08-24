@@ -118,26 +118,29 @@ function ShowModal() {
 <script>
 import axios from "axios"; 
 export default {
+   
       data() {
         return {
             products: [],
+            count : 0,
             filtredProducts:[],
             categories:[],
             subCategories:[],
             subCategories0:[],
             children:[],
-            id:1,
+            // category_id:1,
             search:{
               word:'',
-              category:[],
+              subCategories:null,
+              categoryPosition1:null,
+              category_id:null,
               isInPromotion:false,
               isRecent:false,
-              price:{
-                min:0,
-                max:null
-              }
+              price_min:0,
+              price_max:null, 
+              category_dropdown: null,
             },
-                isSearching: false
+            isSearching: false
 
         };
     },
@@ -146,27 +149,80 @@ export default {
     // search:function () {
     //   this.searchProducts()
     // }
+    // id: {
+    //     handler(){
+    //       this.check()
+    //     },
+    //     deep: true
+    //   },
     search: {
         handler(){
           this.searchProducts()
+        
         },
         deep: true
-      }
+      },
+      
+    //   'search.category_dropdown': function (newVal, oldVal){
+       
+    //      this.search.category_id=newVal;
+         
+    //  },
+    //   'search.categoryPosition1': function (newVal, oldVal){
+    //      this.search.category_id=newVal;
+    //  },
+    categoryTable:{
+         handler(newValue, oldValue) {
+        
+          if (newValue[0] !== oldValue[0]) {
+            this.search.category_id=newValue[0]
+           
+            // console.log(newValue[0])
+          }
+          else{
+            this.search.category_id=newValue[1]
+          }
+          this.getSubCategories()
+       
+        
+    },
+       deep:true}
+    
+  },
+  computed:{
+    categoryTable(){
+     return [this.search.category_dropdown, this.search.categoryPosition1];
+    }
+  },
+  mounted(){
+    
   },
 methods:{
+  getSubCategories(){
+   
+    this.axios.get('/category/' + this.search.category_id)
+            .then((response) =>{
+              this.subCategories = response.data
+              console.log(response.data)
+            })
+  },
+  toggleCategory(){
+    let x= this.search.categoryPosition1
+    this.search.categoryPosition1=null
+    this.search.categoryPosition1=x
+  },
+  async setcategoryPosition1($id){
+    this.search.categoryPosition1=$id;
+  },
+
   async searchProducts(){
-      this.axios.post('/search',{word:this.search.word , category:this.search.category , 
-        promo:this.isInPromotion , recent :this.isInPromotion})
+      this.axios.post('/search', {word:this.search.word , subCategories:this.search.subCategories , 
+        promo:this.search.isInPromotion , recent:this.search.isRecent , 
+        min: this.search.price_min , max :this.search.price_max , category_id: this.search.category_id})
+
       .then((response)=>{
-         var array=new Array()
-              for(let i=0 ; i<response.data.length;i++){
-                array=array.concat(response.data[i])
-              }
-              console.log(array)
-              this.filtredProducts =array
-              
-        this.filtredProducts = array
-        
+            this.filtredProducts =response.data
+            console.log(this.category_id)
       })
     }
 },
@@ -177,12 +233,15 @@ methods:{
                 this.categories = response.data.Allcategories
                 console.log(this.categories)
             })
-            this.axios.get('/category/1')
+
+        if(this.category_id ==null){
+            this.axios.get('/category/1' )
             .then((response) =>{
               this.subCategories = response.data
-              console.log(this.subCategories)
+              console.log(response.data)
             })
-            this.axios.get('/products_by_category/1')
+        }
+            this.axios.get('/products_by_category/1'  )
             .then((response) =>{
               // this.filtredProducts =  response.data
               // console.log(response.data)
@@ -198,10 +257,11 @@ methods:{
               this.subCategories0 = response.data
              console.log(response.data)
             })
-          // this.axios.get('/search' )
-          // .then ((response)=>{
-          //   this.product = response.data
-          // })
+          this.axios.get('/count' )
+          .then ((response)=>{
+            this.count = response.data
+            console.log(this.count.promo)
+          })
             .catch( function (error){
                 console.log(error);
             });
@@ -229,10 +289,10 @@ methods:{
 
 
         <div class="flex  justify-center  my-8">
-          <select
+          <select v-model="search.category_dropdown"
             class=" md:px-9 items-center py-2.5  text-sm font-medium text-center text-primary bg-gray-100 border border-gray-300 rounded-l-[30px]  focus:ring-4 focus:outline-none ">
             <option>Toutes Catégories</option>
-            <option v-for="category in categories" :value="category.id" :key="category.id"> {{ category.name }}</option>
+            <option  v-for="category in categories" :value="category.id" :key="category.id"> {{ category.name }}</option>
 
           </select>
 
@@ -250,9 +310,9 @@ methods:{
 
     <div class=" flex flex-wrap justify-center gap-x-2  ">
       <!--   Modèle Graphique -->
-      <Menu as="div" class="relative inline-block text-left" v-for="Propriétés in subCategories0" :key="Propriétés.name" >
+      <Menu as="div" class="relative inline-block text-left" @click="toggleCategory"   v-for="Propriétés in subCategories0"  :key="Propriétés.name" >
         <div>
-          <MenuButton
+          <MenuButton 
             class="inline-flex justify-center w-full rounded-md    px-4 py-2   text-base font-medium text-primary hover:bg-gray-50  ">
             {{ Propriétés.name }}
             <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
@@ -263,10 +323,10 @@ methods:{
           enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100"
           leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100"
           leave-to-class="transform opacity-0 scale-95">
-          <MenuItems
+          <MenuItems 
             class="origin-top-left absolute left-0 mt-2 w-32 z-50    rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div class="py-1" >
-              <MenuItem v-slot="{ active }" v-for="child in Propriétés.children" :key="child.name">
+              <MenuItem v-slot="{ active }" v-for="child in Propriétés.children" :key="child.name" @click="setcategoryPosition1(child.id)">
               <a href="#"
                 :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">
                 {{ child.name }}</a>
@@ -324,7 +384,7 @@ methods:{
                     <h1 class="font-bold font-ProductSans text-lg capitalize">category</h1>
                     <li class="grid grid-cols-4" v-for="Propriétés in subCategories" :key="Propriétés.name">
                      <div class="col-span-3">
-                    <a :href="Propriétés.href">
+                    <a :href="Propriétés.href" >
                     {{ Propriétés.name }}
                   </a>
                   </div>
@@ -380,17 +440,17 @@ methods:{
                   <h3 class="sr-only">Propriétés</h3>
                   <ul role="list" class="text-sm font-medium  space-y-4 pb-6 px-2 ">
                     <h1 class="font-bold font-ProductSans text-lg capitalize">Prix</h1>
-                    <input id="minmax-range" type="range" min="0" max="10" value="5"
+                    <input id="minmax-range" type="range" min="0" max="10" value="5" 
                       class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
                     <div class="flex flex-row gap-8">
                       <div>
                         <label for="small-input" class="block mb-2 text-sm font-medium capitalize  ">min</label>
-                        <input type="text" id="small-input"
+                        <input type="text" id="small-input" v-model="search.price_min"
                           class="h-10 w-[100px] block p-2   bg-gray-50 rounded-lg border border-gray-300   focus:ring-blue-500 focus:border-blue-500" />
                       </div>
                       <div>
                         <label for="small-input" class="block mb-2 text-sm font-medium capitalize ">max</label>
-                        <input type="text" id="small-input"
+                        <input type="text" id="small-input" v-model="search.price_max"
                           class="h-10 w-[100px] block p-2   bg-gray-50 rounded-lg border border-gray-300  focus:ring-blue-500 focus:border-blue-500 " />
                       </div>
 
@@ -436,17 +496,17 @@ methods:{
               <h3 class="sr-only">Propriétés</h3>
               <ul role="list" class="text-sm font-medium  space-y-4 pb-6 ">
                 <h1 class="font-bold font-ProductSans text-lg capitalize">category</h1>
-                <li class="grid grid-cols-4" v-for="Propriétés in subCategories" :key="Propriétés.name">
+                <li class="grid grid-cols-4" v-for="category in subCategories" :key="category.name">
                    <div class="col-span-3">
-                    <input type="radio" :value="Propriétés" :id="Propriétés.name "  v-model="search.category">
-                    {{ Propriétés.name }}
+                    <input type="radio" :value="category.id" :id="category.name "  v-model="search.subCategories">
+                    {{ category.name }}
                   
                   </div>
                   
                   <div class="">
                     <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
                         <div class="text-xs font-semibold text-secondary">
-                          {{ Propriétés.count }}
+                          {{ category.count }}
                         </div>
                     </div>
                     </div>
@@ -460,13 +520,13 @@ methods:{
                    <div class="col-span-3">
                     <input type="checkbox" v-model="search.isInPromotion">
                     Projets en réduction
-                  
+ 
                   </div>
                   
                   <div class="">
                     <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
                         <div class="text-xs font-semibold text-secondary">
-                          
+                          {{ count.promo }}
                         </div>
                     </div>
                     </div>
@@ -481,7 +541,7 @@ methods:{
                   <div class="">
                     <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
                         <div class="text-xs font-semibold text-secondary">
-                          
+                          {{ count.recent }}
                         </div>
                     </div>
                     </div>
@@ -513,12 +573,12 @@ methods:{
                 <div class="flex flex-row gap-8">
                   <div>
                     <label for="small-input" class="block mb-2 text-sm font-medium capitalize  ">min</label>
-                    <input type="text" id="small-input"
+                    <input type="text" v-model="search.price_min" id="small-input"
                       class="h-10 w-[100px] block p-2   bg-gray-50 rounded-lg border border-gray-300   focus:ring-blue-500 focus:border-blue-500" />
                   </div>
                   <div>
                     <label for="small-input" class="block mb-2 text-sm font-medium capitalize ">max</label>
-                    <input type="text" id="small-input"
+                    <input type="text" v-model="search.price_max" id="small-input"
                       class="h-10 w-[100px] block p-2   bg-gray-50 rounded-lg border border-gray-300  focus:ring-blue-500 focus:border-blue-500 " />
                   </div>
 
@@ -549,10 +609,18 @@ methods:{
               <div
                 class=" font-ProductSans grid md:grid-cols-2 xl:grid-cols-3 gap-y-6 gap-x-14    py-16 justify-items-center  ">
             
-                  <div v-for="product in filtredProducts" :key="product.id" 
+                  <div  v-for="product in filtredProducts"
+                    :key="product.id"
                     class="bg-white rounded-[30px] border  border-gray-300 shadow-2xl  w-full  max-w-xs mt-0 inline-grid justify-items-center  text-primary ">
-
-                        <RouterLink to="/product/:product" class="w-full">
+  <RouterLink
+                    
+                    class="group"
+                    :to="{
+                        name: 'product-details',
+                        params: { slug: product.slug, id:product.id },
+                    }"
+                >   
+                        <!-- <RouterLink to="/product/:product" > -->
                             <img :src="product.imageSrc" :alt="product.imageAlt" class="rounded-[30px] h-60   
                                 object-cover   w-full " />
 

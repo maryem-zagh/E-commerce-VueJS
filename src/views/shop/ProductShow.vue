@@ -10,52 +10,25 @@ import AcheterMaintenant from "../../components/AcheterMaintenant.vue";
 
 </script>
 <script>
+import axios from "axios"; 
 
 export default {
+  components: {
+   DetailProduct
+ },
 data() {
+   
     return {
           products: [],
       categories:[],
       subCategories:[],
       subCategories0:[],
-      product: {
-        "url": "/src/assets/shop.png"
-      },
-      
-    async created(){
-            this.axios.get('/products/9')
-            .then((response) =>{
-              this.products =  response.data
-              console.log("this.products")
-            })
-            this.axios.get('/subcategories0/')
-            .then((response)=>{
-              this.subCategories0 = response.data
-            })
-            .catch( function (error){
-                console.log(error);
-            });
-      },
-  name: "modal",
-  
-  
-      // products: [
-      //   {
-      //     "id": 1,
-      //     "url": "/src/assets/zebra.png",
+      product: {},
+   
+      name: "modal",
 
-      //   },
-      //   {
-      //     "id": 2,
-      //     "url": "/src/assets/zebra2.png",
+     
 
-      //   },
-      //   {
-      //     "id": 3,
-      //     "url": "/src/assets/zebra3.png",
-
-      //   },
-      // ],
       categories: [],
       showDetail: true,
       activePhase: 1,
@@ -73,7 +46,25 @@ data() {
       toggleModal1: false,
       toggleModal2: false
     };
+
   },
+ 
+async created(){
+  
+          this.axios.get('category0/1')
+          .then((response) =>{
+           this.subCategories0 = response.data
+            console.log(response.data)
+          })
+          this.axios.get('product/' + this.$route.params.id)
+          .then ((response)=>{
+          this.product=response.data
+          }
+          )
+          .catch( function (error){
+                console.log(error);
+            });
+      },
   methods: {
     changeImage(data) {
       this.product.url = data
@@ -100,17 +91,17 @@ data() {
   <img src="@/assets/bg-2.png" class="block bg-no-repeat bg-cover min-h-[110px] w-full " alt="Motorbike Smoke" />
 
   <main class="lg:px-24 h-full ">
-    <div class="bg-white  px-8 pb-4 font-ProductSans flex flex-wrap justify-center gap-x-2">
-      <Menu as="div" class="relative inline-block text-left" v-for="Propriétés in subCategories0" :key="Propriétés.name">
+    <div class=" flex flex-wrap justify-center gap-x-2  ">
+
+      <Menu as="div" class="relative inline-block text-left" v-for="Propriétés in subCategories0" :key="Propriétés.name" >
         <div>
           <MenuButton
-            class="inline-flex justify-center w-full rounded-md px-4 py-2 text-base font-medium text-primary hover:bg-gray-50">
+            class="inline-flex justify-center w-full rounded-md    px-4 py-2   text-base font-medium text-primary hover:bg-gray-50  ">
             {{ Propriétés.name }}
             <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
           </MenuButton>
         </div>
 
-       
         <transition enter-active-class="transition ease-out duration-100"
           enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100"
           leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100"
@@ -135,202 +126,8 @@ data() {
           </MenuItems>
         </transition>
       </Menu>
-      <!--   Documents -->
-      <Menu as="div" class="relative inline-block text-left">
-        <div>
-          <MenuButton
-            class="inline-flex justify-center w-full rounded-md px-4 py-2 text-base font-medium text-primary hover:bg-gray-50">
-            Documents
-            <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
-          </MenuButton>
-        </div>
 
-        <transition enter-active-class="transition ease-out duration-100"
-          enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100"
-          leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100"
-          leave-to-class="transform opacity-0 scale-95">
-          <MenuItems
-            class="origin-top-left absolute left-0 mt-2 w-32 z-50 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <div class="py-1">
-              <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">Account settings</a>
-              </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">Support</a>
-              </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">License</a>
-              </MenuItem>
-              <form method="POST" action="#">
-                <MenuItem v-slot="{ active }">
-                <button type="submit" :class="[
-                  active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                  'block w-full text-left px-4 py-2 text-sm',
-                ]">
-                  Sign out
-                </button>
-                </MenuItem>
-              </form>
-            </div>
-          </MenuItems>
-        </transition>
-      </Menu>
-      <!--   Modéles 3D -->
-      <Menu as="div" class="relative inline-block text-left">
-        <div>
-          <MenuButton
-            class="inline-flex justify-center w-full rounded-md px-4 py-2 text-base font-medium text-primary hover:bg-gray-50">
-            Modéles 3D
-            <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
-          </MenuButton>
-        </div>
-
-        <transition enter-active-class="transition ease-out duration-100"
-          enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100"
-          leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100"
-          leave-to-class="transform opacity-0 scale-95">
-          <MenuItems
-            class="origin-top-left absolute left-0 mt-2 w-32 z-50 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <div class="py-1">
-              <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">Account settings</a>
-              </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">Support</a>
-              </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">License</a>
-              </MenuItem>
-              <form method="POST" action="#">
-                <MenuItem v-slot="{ active }">
-                <button type="submit" :class="[
-                  active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                  'block w-full text-left px-4 py-2 text-sm',
-                ]">
-                  Sign out
-                </button>
-                </MenuItem>
-              </form>
-            </div>
-          </MenuItems>
-        </transition>
-      </Menu>
-      <!--   UX / UI -->
-      <Menu as="div" class="relative inline-block text-left">
-        <div>
-          <MenuButton
-            class="inline-flex justify-center w-full rounded-md px-4 py-2 text-base font-medium text-primary hover:bg-gray-50">
-            UX / UI
-            <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
-          </MenuButton>
-        </div>
-
-        <transition enter-active-class="transition ease-out duration-100"
-          enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100"
-          leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100"
-          leave-to-class="transform opacity-0 scale-95">
-          <MenuItems
-            class="origin-top-left absolute left-0 mt-2 w-32 z-50 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <div class="py-1">
-              <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">Account settings</a>
-              </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">Support</a>
-              </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">License</a>
-              </MenuItem>
-              <form method="POST" action="#">
-                <MenuItem v-slot="{ active }">
-                <button type="submit" :class="[
-                  active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                  'block w-full text-left px-4 py-2 text-sm',
-                ]">
-                  Sign out
-                </button>
-                </MenuItem>
-              </form>
-            </div>
-          </MenuItems>
-        </transition>
-      </Menu>
-      <!--   Vidéos -->
-      <Menu as="div" class="relative inline-block text-left">
-        <div>
-          <MenuButton
-            class="inline-flex justify-center w-full rounded-md px-4 py-2 text-base font-medium text-primary hover:bg-gray-50">
-            Vidéos
-            <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
-          </MenuButton>
-        </div>
-
-        <transition enter-active-class="transition ease-out duration-100"
-          enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100"
-          leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100"
-          leave-to-class="transform opacity-0 scale-95">
-          <MenuItems
-            class="origin-top-left absolute left-0 mt-2 w-32 z-50 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <div class="py-1">
-              <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">Account settings</a>
-              </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">Support</a>
-              </MenuItem>
-              <MenuItem v-slot="{ active }">
-              <a href="#" :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]">License</a>
-              </MenuItem>
-              <form method="POST" action="#">
-                <MenuItem v-slot="{ active }">
-                <button type="submit" :class="[
-                  active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                  'block w-full text-left px-4 py-2 text-sm',
-                ]">
-                  Sign out
-                </button>
-                </MenuItem>
-              </form>
-            </div>
-          </MenuItems>
-        </transition>
-      </Menu>
+ 
     </div>
     <!-- details products -->
     <div class="grid md:grid-cols-2  lg:gap-28  md:gap-10  ">
@@ -359,15 +156,14 @@ data() {
               </li>
               <li>/</li>
               <li>
-                <a href="#" class="no-underline hover:underline font-semibold text-sm leading-5 text-[#0064D2]">Minimal
-                  Zebra Logo</a>
+                <a href="#" class="no-underline hover:underline font-semibold text-sm leading-5 text-[#0064D2]">{{product.title }}</a>
               </li>
             </ul>
           </div>
         </div>
         <div class="group col-span-4 px-5">
           <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-            <img :src="product.url" class="w-full h-full object-center object-cover group-hover:opacity-75" />
+            <img :src="product.imageSrc" class="w-full h-full object-center object-cover group-hover:opacity-75" />
 
           </div>
           <div class="grid grid-cols-3 gap-4 mt-4 mb-8 justify-items-stretch  ">
@@ -380,7 +176,7 @@ data() {
       </div>
 
       <div v-if="showDetail">
-        <DetailProduct @some-event="hideDetail" />
+        <DetailProduct :product="product" @some-event="hideDetail" />
       </div>
       <div v-else>
         <AcheterMaintenant />
