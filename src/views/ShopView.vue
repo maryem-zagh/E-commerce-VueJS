@@ -146,15 +146,6 @@ export default {
     },
 
  watch: {
-    // search:function () {
-    //   this.searchProducts()
-    // }
-    // id: {
-    //     handler(){
-    //       this.check()
-    //     },
-    //     deep: true
-    //   },
     search: {
         handler(){
           this.searchProducts()
@@ -182,6 +173,7 @@ export default {
           else{
             this.search.category_id=newValue[1]
           }
+          this.search.subCategories=null
           this.getSubCategories()
        
         
