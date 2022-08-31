@@ -128,9 +128,11 @@ export default {
             subCategories:[],
             subCategories0:[],
             children:[],
+            tags:[],
             // category_id:1,
             search:{
               word:'',
+              tags:[],
               subCategories:null,
               categoryPosition1:null,
               category_id:null,
@@ -210,11 +212,11 @@ methods:{
   async searchProducts(){
       this.axios.post('/search', {word:this.search.word , subCategories:this.search.subCategories , 
         promo:this.search.isInPromotion , recent:this.search.isRecent , 
-        min: this.search.price_min , max :this.search.price_max , category_id: this.search.category_id})
+        min: this.search.price_min , max :this.search.price_max , category_id: this.search.category_id , tags : this.search.tags})
 
       .then((response)=>{
             this.filtredProducts =response.data
-            console.log(this.category_id)
+            console.log(response.data)
       })
     }
 },
@@ -224,6 +226,11 @@ methods:{
             .then((response) => {
                 this.categories = response.data.Allcategories
                 console.log(this.categories)
+            })
+            this.axios.get('/tags')
+            .then((response) => {
+                this.tags = response.data
+                console.log(this.tags)
             })
 
         if(this.category_id ==null){
@@ -413,20 +420,21 @@ methods:{
                   <h3 class="sr-only">Propriétés</h3>
                   <ul role="list" class="font-medium  px-2 py-3">
                     <h1 class="font-bold font-ProductSans text-lg capitalize">Propriétés</h1>
-                    <li class="grid grid-cols-4" v-for="Propriétés in subPropriétés" :key="Propriétés.name">
+                    <li class="grid grid-cols-4" v-for="tag in tags" :key="tag.id">
                       <div class="col-span-3">
-                    <a :href="Propriétés.href">
-                    {{ Propriétés.name }}
-                  </a>
+                      <input type="checkbox" :id="tag.id" :value="tag.name" v-model="search.tags" >
+                    {{ tag.name }}
+                
+
                   </div>
                   
-                  <div class="">
+                  <!-- <div class="">
                     <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
                         <div class="text-xs font-semibold text-secondary">
                           {{ Propriétés.count }}
                         </div>
                     </div>
-                    </div>
+                    </div> -->
                     </li>
                   </ul>
                   <h3 class="sr-only">Propriétés</h3>
@@ -510,8 +518,8 @@ methods:{
                 <h1 class="font-bold font-ProductSans text-lg capitalize">Filtres</h1>
                 <li class="grid grid-cols-4" >
                    <div class="col-span-3">
-                    <input type="checkbox" v-model="search.isInPromotion">
-                    Projets en réduction
+                    <input type="checkbox"  v-model="search.isInPromotion">
+                      Projets en réduction
  
                   </div>
                   
@@ -525,7 +533,7 @@ methods:{
                 </li>
                 <li class="grid grid-cols-4" >
                    <div class="col-span-3">
-                    <input type="checkbox" v-model="search.isRecent">
+                    <input type="checkbox"  v-model="search.isRecent">
                   Derniers projets  
                   
                   </div>
@@ -542,20 +550,20 @@ methods:{
               </ul>
               <ul role="list" class="text-sm font-medium  space-y-4 pb-6 ">
                 <h1 class="font-bold font-ProductSans text-lg capitalize">Propriétés</h1>
-                <li class="grid grid-cols-4" v-for="Propriétés in subPropriétés" :key="Propriétés.name">
+                <li class="grid grid-cols-4" v-for="tag in tags" :key="tag.id">
                   <div class="col-span-3">
-                    <a :href="Propriétés.href">
-                    {{ Propriétés.name }}
-                  </a>
+                    <input type="checkbox" :value="tag.name" v-model="search.tags">
+                      {{ tag.name }}
+                 
                   </div>
                   
-                  <div class="">
+                  <!-- <div class="">
                     <div class="w-9 h-4  rounded-full bg-[#F4F8EC] flex justify-center items-center">
                         <div class="text-xs font-semibold text-secondary">
-                          {{ Propriétés.count }}
+                          {{ count.tag.name}}
                         </div>
                     </div>
-                    </div>
+                    </div> -->
                 </li>
               </ul>
               <ul role="list" class="text-sm font-medium  space-y-4 pb-6  ">
@@ -609,7 +617,7 @@ methods:{
                     class="group"
                     :to="{
                         name: 'product-details',
-                        params: { slug: product.slug, id:product.id },
+                        params: { id:product.id },
                     }"
                 >   
                         <!-- <RouterLink to="/product/:product" > -->
