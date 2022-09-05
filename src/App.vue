@@ -17,6 +17,12 @@ function changeLanguage(obj) {
         <TheMenu />
         <RouterView />
     </div>
+    <div v-else-if="$route.path === '/dashboard'">
+       
+        <RouterView />
+        
+
+    </div>
     <div v-else-if="$route.path === '/'">
         <TheHomeMenu />
         <RouterView />

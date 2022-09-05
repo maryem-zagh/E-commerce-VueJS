@@ -194,7 +194,7 @@ export default {
 methods:{
   getSubCategories(){
    
-    this.axios.get('/category/' + this.search.category_id)
+    this.axios.get('api/category/' + this.search.category_id)
             .then((response) =>{
               this.subCategories = response.data
               console.log(response.data)
@@ -210,7 +210,7 @@ methods:{
   },
 
   async searchProducts(){
-      this.axios.post('/search', {word:this.search.word , subCategories:this.search.subCategories , 
+      this.axios.post('api/search', {word:this.search.word , subCategories:this.search.subCategories , 
         promo:this.search.isInPromotion , recent:this.search.isRecent , 
         min: this.search.price_min , max :this.search.price_max , category_id: this.search.category_id , tags : this.search.tags})
 
@@ -222,25 +222,25 @@ methods:{
 },
     async created(){
         
-          this.axios.get('/categories')
+          this.axios.get('api/categories')
             .then((response) => {
                 this.categories = response.data.Allcategories
                 console.log(this.categories)
             })
-            this.axios.get('/tags')
+            this.axios.get('api/tags')
             .then((response) => {
                 this.tags = response.data
                 console.log(this.tags)
             })
 
         if(this.category_id ==null){
-            this.axios.get('/category/1' )
+            this.axios.get('api/category/1' )
             .then((response) =>{
               this.subCategories = response.data
               console.log(response.data)
             })
         }
-            this.axios.get('/products_by_category/1'  )
+            this.axios.get('api/products_by_category/1'  )
             .then((response) =>{
               // this.filtredProducts =  response.data
               // console.log(response.data)
@@ -251,12 +251,12 @@ methods:{
               this.filtredProducts =array
               console.log(array)
             })
-            this.axios.get('category0/1')
+            this.axios.get('api/category0/1')
             .then((response) =>{
               this.subCategories0 = response.data
              console.log(response.data)
             })
-          this.axios.get('/count' )
+          this.axios.get('api/count' )
           .then ((response)=>{
             this.count = response.data
             console.log(this.count.promo)

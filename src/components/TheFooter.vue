@@ -1,5 +1,5 @@
 <template>
-    <footer class=" bg-[#1D57A6]  px-12 py-6 lg:px-24 lg:pt-12 ">
+    <footer class=" bg-[#1d57a6]  px-12 py-6 lg:px-24 lg:pt-12 ">
         <div class="mb-8 ">
             <div class="text-white   grid md:grid-cols-2 font-Montserrat items-center">
 

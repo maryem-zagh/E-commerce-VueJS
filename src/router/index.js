@@ -52,6 +52,21 @@ const router = createRouter({
             name: "About",
             component: () => import("../views/ShopDev.vue"),
         },
+        {
+            path: "/login",
+            name: "Login",
+            component: () => import("../views/auth/LoginView.vue"),
+        },
+        {
+            path: "/register",
+            name: "Register",
+            component: () => import("../views/auth/RegisterView.vue"),
+        },
+        {
+            path: "/dashboard",
+            name: "Dashboard",
+            component: () => import("../views/admin/Dashboard.vue"),
+        },
     ],
 });
 
